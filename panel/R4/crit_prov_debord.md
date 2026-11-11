@@ -1,6 +1,6 @@
 # R4: Critic: Provocateur (Debord)
 
-**Anchor used:** *Society of the Spectacle*, thesis 10: the spectacle is "the affirmation of appearance". A label must say what the switch does.
+**Anchor used:** *Society of the Spectacle*, thesis 10: the spectacle is "the affirmation of appearance".
 
 **Observed:**
 - The R3 resolutions hold in the code. `html[data-calm]` (css:366–368) comes after the colourway sets (css:319–321) at equal specificity, so `--g-*` goes pale. index-cobalt-calm-desk.png shows white spines and chips, and Cobalt's navy miniatures stay. check.mjs:253–265 clicks the switch and probes all 4 colourways both ways in. The 3:1 comment is gone.
