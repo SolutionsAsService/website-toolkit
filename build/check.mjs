@@ -110,10 +110,9 @@ const RING = `(() => {
     const cs = getComputedStyle(e); const oc = parse(cs.outlineColor); if (!oc) return 0;
     const r = e.getBoundingClientRect(), d = parseFloat(cs.outlineOffset || 0) + parseFloat(cs.outlineWidth || 0) + 2;
     const pts = [[r.left - d, r.top + r.height / 2], [r.right + d, r.top + r.height / 2], [r.left + r.width / 2, r.top - d], [r.left + r.width / 2, r.bottom + d]];
-    // a two-tone ring (outline plus a box-shadow band of a colour 3:1 away from it) is visible on any background
     // a two-tone ring: a box-shadow band with no offset, no blur and not inset, whose colour is 9:1 from the outline (WCAG technique C40)
     const sh = (cs.boxShadow || '').match(/(rgba?\\([^)]+\\))\\s+(-?[\\d.]+)px\\s+(-?[\\d.]+)px\\s+([\\d.]+)px\\s+([\\d.]+)px(\\s+inset)?/);
-    if (sh && +sh[2] === 0 && +sh[3] === 0 && +sh[4] === 0 && +sh[5] >= 1 && !sh[6]) {
+    if (oc.a >= 1 && sh && +sh[2] === 0 && +sh[3] === 0 && +sh[4] === 0 && +sh[5] >= Math.max(1, parseFloat(cs.outlineOffset || 0)) && !sh[6]) {
       const sc = parse(sh[1]);
       if (sc && sc.a >= 1) { const [a, b] = [lum(oc), lum(sc)].sort((x, y) => y - x); if ((a + .05) / (b + .05) >= 9) return 99; }
     }
@@ -171,10 +170,10 @@ const applyTheme = (p, t) => p.evaluate(th => { for (const [k, v] of Object.entr
   const focus = await focusProbe(p);
   const kinds = ['overflow', 'unlabelled', 'small target', 'contrast', 'stat without'].map(k => fails.some(f => f.startsWith(k)));
   const markerBranch = fails.some(f => f.includes('(list marker)'));
-  const dropFails = focus.some(f => f.includes('"Drop"')), tonesFail = focus.some(f => f.includes('"Tones"')), iframeFails = focus.some(f => f.includes('on iframe'));
+  const alphaFails = focus.some(f => f.includes('"Alpha"')), dropFails = focus.some(f => f.includes('"Drop"')), tonesFail = focus.some(f => f.includes('"Tones"')), iframeFails = focus.some(f => f.includes('on iframe'));
   const ringBranch = focus.some(f => f.startsWith('focus ring')), noneBranch = focus.some(f => f.startsWith('no visible focus'));
-  const ok = kinds.every(Boolean) && ringBranch && noneBranch && markerBranch && dropFails && tonesFail && iframeFails;
-  rec('instrument: the failing fixture fails every probe', ok, { overflow: kinds[0], label: kinds[1], target: kinds[2], contrast: kinds[3], statSource: kinds[4], focusNone: noneBranch, focusRing: ringBranch, marker: markerBranch, dropShadowNotTwoTone: dropFails, lowRatioTones: tonesFail, focusableIframe: iframeFails });
+  const ok = kinds.every(Boolean) && ringBranch && noneBranch && markerBranch && dropFails && tonesFail && iframeFails && alphaFails;
+  rec('instrument: the failing fixture fails every probe', ok, { overflow: kinds[0], label: kinds[1], target: kinds[2], contrast: kinds[3], statSource: kinds[4], focusNone: noneBranch, focusRing: ringBranch, marker: markerBranch, dropShadowNotTwoTone: dropFails, lowRatioTones: tonesFail, focusableIframe: iframeFails, faintOutline: alphaFails });
   await ctx.close();
   if (!ok) { console.log('A probe passed its failing fixture; aborting.'); process.exit(2); }
 }
@@ -246,12 +245,26 @@ for (const w of [1280, 375]) {
   const bad = [];
   for (const mode of ['prefers-contrast', 'switch']) for (const pg of ownPages) {
     const { p, ctx } = await open(B + pg, 1280, 812, mode === 'prefers-contrast' ? { contrast: 'more' } : {});
-    if (mode === 'switch') { await p.evaluate(() => { document.documentElement.dataset.calm = ''; }); }
+    if (mode === 'switch') { await p.click('.top .calm'); await p.waitForTimeout(100); }
     (await p.evaluate(pageProbes)).filter(f => f.startsWith('contrast')).forEach(f => bad.push(`${mode} ${pg}: ${f}`));
     if (pg === 'index.html') (await focusProbe(p, 60)).forEach(f => bad.push(`${mode} ${pg}: ${f}`));
     await ctx.close();
   }
-  rec('calm view (prefers-contrast: more, and the Calm switch): text, marker and landing focus contrast hold on every site page', bad.length === 0, bad.length ? bad.slice(0, 8) : `${ownPages.length} pages x 2 modes`);
+  // calm with every colourway on the landing, both ways in
+  for (const mode of ['prefers-contrast', 'switch']) {
+    const { p, ctx } = await open(B + 'index.html', 1280, 812, mode === 'prefers-contrast' ? { contrast: 'more' } : {});
+    await p.waitForTimeout(400);
+    if (mode === 'switch') await p.click('.top .calm');
+    for (const k of Object.keys(themes)) {
+      await p.click(`button[data-theme="${k}"]`); await p.waitForTimeout(250);
+      (await p.evaluate(pageProbes)).filter(f => f.startsWith('contrast')).forEach(f => bad.push(`${mode} ${k}: ${f}`));
+      const sat = await p.evaluate(() => [...document.querySelectorAll('.runner-tag, .piece-link b')].map(e => getComputedStyle(e).backgroundColor).filter(c => c !== 'rgb(255, 255, 255)').length);
+      if (sat) bad.push(`${mode} ${k}: ${sat} spine or chip fills still coloured in calm`);
+    }
+    (await focusProbe(p, 60)).forEach(f => bad.push(`${mode} cobalt-last: ${f}`));
+    await ctx.close();
+  }
+  rec('calm view (prefers-contrast: more, and the Calm switch pressed): text, marker and focus contrast on every site page; spines neutral in every colourway', bad.length === 0, bad.length ? bad.slice(0, 8) : `${ownPages.length} pages x 2 modes`);
 }
 for (const [w, h] of [[1280, 800], [375, 812]]) {
   const { p, ctx } = await open(B + 'index.html', w, h);

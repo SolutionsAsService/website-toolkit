@@ -1,5 +1,5 @@
 {
-  "ran": "2026-11-11T17:06:54.156Z",
+  "ran": "2026-11-11T17:15:38.471Z",
   "widths": [
     375,
     768,
@@ -109,7 +109,8 @@
         "marker": true,
         "dropShadowNotTwoTone": true,
         "lowRatioTones": true,
-        "focusableIframe": true
+        "focusableIframe": true,
+        "faintOutline": true
       }
     },
     {
@@ -138,7 +139,7 @@
       "detail": "25 pages"
     },
     {
-      "probe": "calm view (prefers-contrast: more, and the Calm switch): text, marker and landing focus contrast hold on every site page",
+      "probe": "calm view (prefers-contrast: more, and the Calm switch pressed): text, marker and focus contrast on every site page; spines neutral in every colourway",
       "pass": true,
       "detail": "25 pages x 2 modes"
     },

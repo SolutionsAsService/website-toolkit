@@ -306,3 +306,50 @@ Consequence: Two calm blocks (the media query and the switch) share one rule set
 Fence: n/a.
 Frontier effect: R3.
 Mode field: The advanced pole is that the whole kit recolours, spines included. The acceptable pole is a calm switch that keeps every control visible, measured.
+
+---
+
+## Panel, WHOLE, round R3 (commit e18947e; panel/R3/*.png; evidence panel/R3/evidence.md)
+
+6 of 8 seats filed. Bringhurst and Eco: NOT CONVENED (permission refusal in R1, not retried).
+
+| Critic | Anchor used | Observed in the work | Verdict | Requested change |
+|---|---|---|---|---|
+| Critic: Usability (Krug) | Don't Make Me Think | Landing: one yellow door, pressed toggles white with ✓; five-second and trunk tests pass. Part pages still fill pressed toggles yellow; the check box is about 85 words; Calm has no ✓ | PASS | ✓ toggles everywhere; one-line check; ✓ on Calm |
+| Critic: Evidence (Cairo) | How Charts Lie | Ran 14/14. Strict two-tone, fixtures, iframe skip and no-sample all hold. Gaps in cases the site does not use: outline alpha not checked; band not required to reach the outline; stale 3:1 comment; calm probe sets the attribute instead of clicking | PASS | Alpha 1; spread ≥ offset; delete the comment; click the switch |
+| Critic: Provocateur (Debord) | Society of the Spectacle | R2 resolutions hold. "No saturated colour, on every page" is false: --brand stays blue, and Cobalt/Mint spines override calm (cascade order); "share one rule set" overstates two copied blocks; stale comment | OBJECT | Honest wording or calm the spines; probe calm per colourway; reword the log |
+| Critic: Provocateur (Shklovsky) | Art as Technique | Riso, Cobalt and Mint spines follow the colourway, and the yellow C spine joins the frame; lilac and pink are no longer paper. Signal, the default, keeps the rainbow legend | OBJECT | Signal spines: violet tints and one yellow group |
+| Critic: Inclusion (Holmes) | Mismatch | Calm no longer erases controls; the probe covers it. The switch is only on the landing; yellow fills on inner pages in calm; the gloss is title-only | OBJECT (narrow) | Switch in the header on every page; white fills in calm; aria-describedby |
+| Critic: Inclusion (Mace) | Principles of Universal Design | 222 real-Tab stops. Calm switch and Cobalt pass. **Under contrast: more, the part-card ring is volt on pale (1.13:1)**, because the later two-tone rules override the earlier calm rules | OBJECT | Calm rules after the two-tone rules |
+
+**Andon:** none.
+
+### Resolutions R3
+
+| Finding | Resolution |
+|---|---|
+| Mace + Debord: calm rules lose the cascade (ring 1.13:1; spines override calm) | ADAPT (M9): every calm rule moved to the end of the stylesheet; spine, chip and runner fills turn white in calm; probe: calm (both ways in) in every colourway, with spines required neutral and focus probed |
+| Holmes: switch only on the landing | ADAPT (M9): the Calm switch is in the header on every page, remembered |
+| Holmes: yellow fills in calm on inner pages | ADAPT (M9): pressed toggles, big chips and Copy turn white with an ink inset in calm |
+| Holmes: title-only gloss | ADAPT (M9): aria-describedby to a description |
+| Debord: the Calm promise overstates | ADAPT (M9): the description now says "a pale frame and ink type on every page; controls stay blue and the parts keep the theme you chose" |
+| Debord: "share one rule set" | ADAPT (M9): the log and CSS comment now say "two blocks carry the same rules", and the probe tests both |
+| Debord + Cairo: stale 3:1 comment | ADAPT (M9): deleted |
+| Cairo: outline alpha unchecked; band need not reach the outline | ADAPT (M9): the outline must be opaque (fixture: an 8%-alpha outline fails); the band spread must be at least the outline offset |
+| Cairo: probe sets the attribute | ADAPT (M9): the probe clicks the header switch |
+| Krug: pressed toggles yellow on part pages; no ✓ on Calm | ADAPT (M9): pressed toggles are ink with ✓ everywhere outside the frame; Calm gets the ✓ |
+| Krug: the check box is long | ADAPT (M9): one line ("Passes every check at 375, 768, 1280 px in 4 themes") with the probes in a details element |
+| Shklovsky: Signal keeps the rainbow spines | OVERRULE (Adaptive, MAYA): Signal is the first screen for people who have not met the kit, and its seven hues are the wayfinding Holmes confirmed (R1 F2, R2 F2: letters plus hue). The ranked, estranged spines are one click away in the other three colourways. The acceptable pole holds the default; the advanced pole is a press away |
+
+## Move M9: Calm wins, everywhere; the instrument closes its gaps  (KEEP-THE-RULE)
+Depends on: M8
+Anchors: Rule WCAG 2.2 Contrast and Perceivability (W3C) | Counterpoint Interaction of Color (Josef Albers)
+Intent: The resolutions above.
+Formal argument: A mode chosen for access must win every conflict, so it goes last in the cascade and is tested in every combination.
+Alternatives rejected:
+- (a) `!important` everywhere in calm. Rejected: brittle.
+- (b) A separate calm stylesheet. Rejected: one more file to keep in sync.
+Consequence: The header carries a fourth control. On the phone the nav wraps to two rows; the first screen still fits (probe).
+Fence: n/a.
+Frontier effect: R4.
+Mode field: n/a.

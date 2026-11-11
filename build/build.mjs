@@ -50,7 +50,7 @@ function page({ file, title, desc, body, current, depth = 0, scripts = ['site.js
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <a class="brand" href="${up}index.html"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><use href="${up}favicon.svg#k"/></svg><span>website-toolkit</span></a>
-  <nav aria-label="Main">${nav}</nav>
+  <div class="tools"><nav aria-label="Main">${nav}</nav><button type="button" class="calm" aria-pressed="false" aria-describedby="calm-desc">Calm</button><span id="calm-desc" class="sr">Calm view: a pale frame and ink type on every page of this site; controls stay blue and the parts keep the theme you chose. Remembered in this browser.</span></div>
 </header>
 <main id="main">
 ${body}
@@ -78,7 +78,7 @@ function checkLine(p) {
   if (!checks || !checks.parts[p.id]) return '<p class="chk none">Not yet checked. Run <code>npm run check</code>.</p>';
   const c = checks.parts[p.id];
   const ok = c.pass;
-  return `<p class="chk ${ok ? 'ok' : 'bad'}"><b>${ok ? 'Passes' : 'Fails'}</b> the check, rendered alone at ${checks.widths.join(', ')} px in each of the ${checks.themes.length} themes: ${esc(checks.probes.join('; '))}. ${ok ? '' : `Failures: ${esc(c.failures.slice(0, 4).join('; '))}`}</p>`;
+  return `<div class="chk ${ok ? 'ok' : 'bad'}"><b>${ok ? 'Passes' : 'Fails'}</b> every check at ${checks.widths.join(', ')} px in ${checks.themes.length} themes.${ok ? '' : ` Failures: ${esc(c.failures.slice(0, 4).join('; '))}`}<details><summary>What was checked</summary>${esc(checks.probes.join('; '))}.</details></div>`;
 }
 
 // ------------------------------------------------------------------ landing: the sprue
@@ -107,7 +107,7 @@ function checkLine(p) {
     <div class="sprue-bar">
       <div class="themes" role="group" aria-label="Theme every part">${themeBtns}</div>
       <div class="bare" role="group" aria-label="View every part" aria-describedby="bare-gloss"><button type="button" data-view="built" aria-pressed="true">Built</button><button type="button" data-view="bare" aria-pressed="false">Bare</button></div>
-      <button type="button" class="calm" aria-pressed="false" title="A pale ground with ink type and no saturated colour, on every page">Calm</button>
+
       <p class="gloss" id="bare-gloss"><b>Bare</b>: no styles<span class="gloss-long">; every element and every slot (<code>data-slot</code>, a place you fill in) labelled</span><span class="gloss-short">, parts labelled</span>.</p>
     </div>
     ${runners}
