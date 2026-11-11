@@ -1,5 +1,5 @@
 {
-  "ran": "2026-11-11T17:22:13.045Z",
+  "ran": "2026-11-11T17:42:09.052Z",
   "widths": [
     375,
     768,
@@ -158,8 +158,8 @@
       "probe": "first screen at 375x812: sprue, theme and view switches, and the five doors complete above the fold; every group shown",
       "pass": true,
       "detail": {
-        "bottom": 807,
-        "right": 359,
+        "bottom": 801,
+        "right": 319,
         "piecesShown": 7,
         "groupsShown": 7,
         "assemblyLinks": 5

@@ -10,6 +10,7 @@ const { tokensCss, themes, parts, byId, templates } = loadAll();
 const checksFile = path.join(ROOT, 'build', 'checks.json');
 const checks = fs.existsSync(checksFile) ? JSON.parse(fs.readFileSync(checksFile, 'utf8')) : null;
 const N = parts.length;
+const MINI_VW = { 'nav-bar': 700, 'divider-or': 360, 'divider-mark': 360, breadcrumb: 420 };
 
 fs.rmSync(OUT, { recursive: true, force: true });
 for (const d of ['assets', 'parts', 'templates', 'raw/parts', 'preview']) fs.mkdirSync(path.join(OUT, d), { recursive: true });
@@ -85,12 +86,11 @@ function checkLine(p) {
 {
   const runners = GROUPS.map(g => {
     const gp = parts.filter(p => p.category === g.id);
-    const VW = { 'nav-bar': 700, 'divider-or': 360, 'divider-mark': 360, breadcrumb: 420 };
     return `<div class="runner" data-group="${g.letter}">
 <span class="runner-tag" aria-hidden="true">${g.letter}</span>
 <ul class="runner-parts" aria-label="${esc(g.name)}">${gp.map((p, i) => `<li class="piece${i ? ' piece--more' : ''}">
 <a href="parts/${p.id}.html" class="piece-link"><b>${p.code}</b> ${esc(p.title)}</a>
-<span class="piece-win" aria-hidden="true"><iframe src="preview/${p.id}.html" title="" tabindex="-1" inert data-vw="${VW[p.id] || 1200}" style="width:${VW[p.id] || 1200}px" loading="${i === 0 ? 'eager' : 'lazy'}" scrolling="no"></iframe></span></li>`).join('')}</ul>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/${p.id}.html" title="" tabindex="-1" inert data-vw="${MINI_VW[p.id] || 1200}" style="width:${MINI_VW[p.id] || 1200}px" loading="${i === 0 ? 'eager' : 'lazy'}" scrolling="no"></iframe></span></li>`).join('')}</ul>
 </div>`;
   }).join('');
   const themeBtns = Object.entries(themes).map(([k, t], i) => `<button type="button" class="tbtn" data-theme="${k}" aria-pressed="${i === 0}">${esc(t.label)}</button>`).join('');
@@ -98,9 +98,10 @@ function checkLine(p) {
 <section class="hero">
   <div class="hero-text">
     <p class="kicker">A kit of parts for websites</p>
-    <h1>${N} parts. Snap off what you need.</h1>
-    <p class="lede-short">Copy-paste website parts in plain HTML and CSS.</p>
+    <h1>${N} parts. <em>Snap off</em> what you need.</h1>
+    <p class="lede-short">Copy-paste parts in plain HTML and CSS.</p>
     <p class="lede">Plain HTML and CSS you can paste into any page. Every part is numbered, themed by ${Object.keys(tokensFor(tokensCss, themes, null).match(/--sr-[a-z-]+/g).reduce((a, k) => (a[k] = 1, a), {})).length} tokens, labelled for screen readers, and checked at three widths. People browse it here; agents fetch it from <a href="registry.json">registry.json</a>.</p>
+    <ul class="stamp" aria-label="The kit in numbers"><li><b>${N}</b> parts</li><li><b>${GROUPS.length}</b> runners</li><li><b>${Object.keys(themes).length}</b> themes</li><li><b>${checks ? Object.values(checks.parts).filter(c => c.pass).length : '–'}/${N}</b> pass</li></ul>
 
   </div>
   <div class="sprue" role="group" aria-label="All ${N} parts, by group">
@@ -131,8 +132,8 @@ function checkLine(p) {
 
 // ------------------------------------------------------------------ parts index and part pages
 {
-  const groups = GROUPS.map(g => `<section class="pgroup" data-group="${g.letter}"><h2><span class="gl">${g.letter}</span> ${esc(g.name)}</h2><ul class="pcards">${parts.filter(p => p.category === g.id).map(p => `<li><a href="${p.id}.html"><span class="pcode">${p.code}</span><b>${esc(p.title)}</b><span>${esc(p.summary)}</span></a></li>`).join('')}</ul></section>`).join('');
-  page({ file: 'parts/index.html', depth: 1, current: 'parts/index.html', title: 'Parts · website-toolkit', desc: `All ${N} parts by group.`, body: `<section class="pagehead"><h1>Parts</h1><p class="lede">${N} parts in ${GROUPS.length} groups. Each page has a live preview at three widths, X-ray, the code to copy and what the part needs.</p></section>${groups}` });
+  const groups = GROUPS.map(g => `<section class="pgroup" data-group="${g.letter}" style="--span:${Math.min(4, parts.filter(p => p.category === g.id).length)}"><h2><span class="gl">${g.letter}</span> ${esc(g.name)}</h2><ul class="pcards">${parts.filter(p => p.category === g.id).map(p => `<li class="pcard"><span class="pthumb" aria-hidden="true"><iframe src="../preview/${p.id}.html" title="" tabindex="-1" inert data-vw="${MINI_VW[p.id] || 1200}" style="width:${MINI_VW[p.id] || 1200}px" loading="lazy" scrolling="no"></iframe></span><a href="${p.id}.html"><span class="pcode">${p.code}</span><b>${esc(p.title)}</b><span>${esc(p.summary)}</span></a></li>`).join('')}</ul></section>`).join('');
+  page({ file: 'parts/index.html', depth: 1, current: 'parts/index.html', title: 'Parts · website-toolkit', desc: `All ${N} parts by group.`, body: `<section class="pagehead"><h1>Parts</h1><p class="lede">${N} parts in ${GROUPS.length} groups. Each page has a live preview at three widths, X-ray, the code to copy and what the part needs.</p></section><div class="pgroups">${groups}</div>` });
 
   parts.forEach((p, i) => {
     const prev = parts[(i + N - 1) % N], next = parts[(i + 1) % N];

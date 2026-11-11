@@ -439,3 +439,35 @@ Mode field: n/a.
 **Compliance Check.**
 - All five artifacts are present: Traversal Plan and Frontier (top of this log); Decision Records M1–M10; Panel Reports R1–R5 (panel/); Anchor Ledger and Compliance Check (above).
 - Credit: SolutionsAsService only.
+
+---
+
+## Owner grade: B− (2026-11-11)
+
+> "Its a b minus just looks too old style maybe basic idk good idea but it just doesn't come through redesign a but and put on portfolio"
+
+The panel passed the work, and the owner did not. The panel judged contrast, focus, wording and the instrument. None of its seats was asked whether the *kit* reads as a kit. The flat 2px ink outlines, the 10px flat-yellow border and the bordered cards read as a 2021 neo-brutalist template. The sprue idea sat in the markup but not in the picture. Double-loop note: an Adaptive Full run should seat a craft or brand voice (Bringhurst was never convened) to ask "does the idea come through?", and should not let five accessibility and evidence passes stand in for that.
+
+## Move M11: Moulded  (BREAK; owner-directed)
+Depends on: M10, owner grade
+Anchors: the owner's words above; Art as Technique (make the device visible)
+Intent: Draw the kit as a kit.
+- Landing:
+  - A night ground with a 32px blueprint grid and an ultramarine glow behind the frame.
+  - The frame is moulded plastic: a gradient rim with a highlight and shade, a dark gridded tray inset, cylindrical runners, and tapered gates.
+  - The pieces lift off the tray and rise on hover.
+  - The headline is larger and tighter, with "Snap off" in acid yellow.
+  - A kit-box stamp: 18 parts, 7 runners, 4 themes, 18/18 pass.
+- Below the band: three numbered instruction panels.
+- Inner pages:
+  - The page head is the same night band.
+  - On the parts index, every card carries a live thumbnail of its part over a strip in its group's colour, and the groups sit side by side, each as wide as its parts.
+  - Templates, stages and code blocks get rounded, lifted surfaces.
+- Calm: covers the new surfaces in both blocks.
+Formal argument: the device was buried. Now it is the first thing seen.
+Alternatives rejected:
+- (a) Another colour pass. Rejected: the owner's complaint is about form, not hue.
+- (b) Drop the sprue. Rejected: the owner said "good idea".
+Consequence: The check passes 14/14 and 18/18. Two failures were found and fixed on the way: the first door's ring lost its ink band to the glow (1.08:1), and the phone first screen ran to 934px; it is now 797px of 812.
+Measured: panel/M11/before-landing.png, after-landing.png, after-phone.png, after-parts.png.
+Panel: not convened for M11. The owner's grade is the review this move answers.

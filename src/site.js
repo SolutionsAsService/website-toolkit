@@ -108,7 +108,7 @@ details>*{display:block!important}`;
   SR.press = (group, btn) => $$('button', group).forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
 
   // ---------- miniatures: scale 1200 px pages into their windows
-  const scaleMinis = () => $$('.piece-win iframe, .twin iframe').forEach(f => {
+  const scaleMinis = () => $$('.piece-win iframe, .twin iframe, .pthumb iframe').forEach(f => {
     const w = f.parentElement.clientWidth;
     if (w) f.style.setProperty('--s', (w / (+f.dataset.vw || 1200)).toFixed(4));
   });
