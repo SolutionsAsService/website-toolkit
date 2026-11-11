@@ -397,3 +397,45 @@ Consequence: The probe now covers every page.
 Fence: n/a.
 Frontier effect: R5 (Cairo re-judges).
 Mode field: n/a.
+
+## Panel, re-judge, round R5 (commit aac8ee1; evidence panel/R5/evidence.md)
+
+| Critic | Anchor used | Observed in the work | Verdict | Requested change |
+|---|---|---|---|---|
+| Critic: Evidence (Cairo) | How Charts Lie | Reproduced 14/14 and 18/18. With calm off, 6 of 7 `.gl` are coloured; under contrast more or the clicked switch, all 7 are white; a second click restores them. `data-calm` is asserted. A negative offset is now measured (18.3 and 1.18) instead of scored 99 | PASS | Optional: a fixture with a coloured spine in calm |
+
+### Resolutions R5
+
+| Finding | Resolution |
+|---|---|
+| Cairo: no fixture proves the spine probe fails | DEFERRED (optional; Open frontier) |
+
+## Close
+
+**Stop test.**
+- S1 met: no Andon is open.
+- S4 met: every seat convened in R4 and R5 passes; Cairo, the only R4 objector, passes on re-judge.
+- S5 met: the check passes 14/14 and 18/18, and it is reproducible.
+- S2 and S3 not met strictly. Two seats (Bringhurst, Eco) were never convened after the R1 permission refusal, so the panel is incomplete. This is recorded, not hidden.
+
+**Double loop.** What changed in the method: the instrument was wrong more often than the design was. Rounds R1–R4 each found a probe that passed what it should have failed: the parent background, the generous two-tone rule, iframes, markers, the unasserted click, the landing-only spine probe. In future runs, every probe ships with a failing fixture before its result counts.
+
+**Open frontier.**
+- A yellow C spine in Signal (Shklovsky).
+- A visible Calm gloss (Holmes).
+- A calm-spine fixture (Cairo).
+- Convening Bringhurst and Eco.
+- Verifying the live URL.
+
+**Anchor Ledger.** Anchors used across R1–R5:
+- WCAG 2.2 (C40 two-tone focus, contrast)
+- Mismatch
+- Society of the Spectacle
+- Don't Make Me Think
+- Art as Technique
+- Principles of Universal Design
+- How Charts Lie
+
+**Compliance Check.**
+- All five artifacts are present: Traversal Plan and Frontier (top of this log); Decision Records M1–M10; Panel Reports R1–R5 (panel/); Anchor Ledger and Compliance Check (above).
+- Credit: SolutionsAsService only.
