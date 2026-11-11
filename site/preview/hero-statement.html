@@ -11,9 +11,9 @@
 :root {
   --sr-ink: #15132b;          /* body text */
   --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
-  --sr-paper: #fffdf8;        /* page background */
-  --sr-surface: #f0ebff;      /* cards, panels */
-  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-paper: #f4f0ff;        /* page background: lilac, not cream */
+  --sr-surface: #e4daff;      /* cards, panels */
+  --sr-line: #c9bcf0;         /* hairlines, borders */
   --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
   --sr-accent-ink: #ffffff;   /* text on the accent */
   --sr-radius: 12px;
@@ -27,20 +27,20 @@
 }
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
 <body>
 <!-- part B2 hero-statement -->
 <style>
-.sr-state{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-state{background:var(--sr-ink,#15132b);color:var(--sr-paper,#f4f0ff);font-family:var(--sr-font-body,system-ui,sans-serif)}
 .sr-state__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*4) var(--sr-space,16px)}
 .sr-state h1{font:400 clamp(2.2rem,7vw,5.6rem)/1.02 var(--sr-font-display,Georgia,serif);margin:0 0 28px;letter-spacing:-.02em;max-width:14em}
 .sr-state h1 em{font-style:italic;color:var(--sr-accent-ink,#fff);background:var(--sr-accent,#5a2ee5);padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .sr-state__row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center}
-.sr-state a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--sr-radius,12px);background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-weight:700;text-decoration:none}
-.sr-state a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:3px}
+.sr-state a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--sr-radius,12px);background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-weight:700;text-decoration:none}
+.sr-state a:focus-visible{outline:3px solid var(--sr-paper,#f4f0ff);outline-offset:3px}
 .sr-state p{margin:0;opacity:.85}
 </style>
 <section class="sr-state">

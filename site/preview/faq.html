@@ -11,9 +11,9 @@
 :root {
   --sr-ink: #15132b;          /* body text */
   --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
-  --sr-paper: #fffdf8;        /* page background */
-  --sr-surface: #f0ebff;      /* cards, panels */
-  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-paper: #f4f0ff;        /* page background: lilac, not cream */
+  --sr-surface: #e4daff;      /* cards, panels */
+  --sr-line: #c9bcf0;         /* hairlines, borders */
   --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
   --sr-accent-ink: #ffffff;   /* text on the accent */
   --sr-radius: 12px;
@@ -27,18 +27,18 @@
 }
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
 <body>
 <!-- part C6 faq -->
 <style>
-.sr-faq{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-faq{background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 .sr-faq__in{max-width:48rem;margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
 .sr-faq h2{font:700 clamp(1.6rem,3vw,2.3rem)/1.15 var(--sr-font-display,Georgia,serif);margin:0 0 16px}
-.sr-faq details{border-top:1px solid var(--sr-line,#d6cdf2)}
-.sr-faq details:last-child{border-bottom:1px solid var(--sr-line,#d6cdf2)}
+.sr-faq details{border-top:1px solid var(--sr-line,#c9bcf0)}
+.sr-faq details:last-child{border-bottom:1px solid var(--sr-line,#c9bcf0)}
 .sr-faq summary{cursor:pointer;list-style:none;padding:16px 36px 16px 0;font-weight:600;position:relative;min-height:24px}
 .sr-faq summary::-webkit-details-marker{display:none}
 .sr-faq summary::after{content:"+";position:absolute;right:6px;top:12px;font-size:1.5rem;line-height:1;color:var(--sr-accent,#5a2ee5)}

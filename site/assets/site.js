@@ -19,7 +19,7 @@
 ${tokens}
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
@@ -110,6 +110,7 @@ details>*{display:block!important}`;
     themesGroup.addEventListener('click', async e => {
       const btn = e.target.closest('button[data-theme]'); if (!btn) return;
       SR.press(themesGroup, btn);
+      document.documentElement.dataset.kit = btn.dataset.theme;
       const th = (await loadThemes())[btn.dataset.theme];
       $$('.piece-win iframe').forEach(f => {
         try {

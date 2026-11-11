@@ -1,6 +1,6 @@
 # For agents
 
-This repository is a library of website parts. To build a page from it:
+This repository is a library of website parts. Its names keep the `sr` prefix (`sr:part` headers, `--sr-` tokens, `.sr-` classes) from site-repo, the project it grew from, so parts stay compatible. To build a page from it:
 
 1. Read `site/registry.json` (deployed at `/registry.json`). Each part has `id`, `code`, `group`, `summary`, `slots`, `needs`, `a11y`, `raw`, `sha256` and `check`.
 2. Take a part's file from `parts/<id>.html` (or `/raw/parts/<id>.html`). Remove the leading `<!--sr:part {…} -->` header and keep the `<style>` and the markup together.

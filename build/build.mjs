@@ -130,7 +130,7 @@ function checkLine(p) {
 
 // ------------------------------------------------------------------ parts index and part pages
 {
-  const groups = GROUPS.map(g => `<section class="pgroup"><h2><span class="gl">${g.letter}</span> ${esc(g.name)}</h2><ul class="pcards">${parts.filter(p => p.category === g.id).map(p => `<li><a href="${p.id}.html"><span class="pcode">${p.code}</span><b>${esc(p.title)}</b><span>${esc(p.summary)}</span></a></li>`).join('')}</ul></section>`).join('');
+  const groups = GROUPS.map(g => `<section class="pgroup" data-group="${g.letter}"><h2><span class="gl">${g.letter}</span> ${esc(g.name)}</h2><ul class="pcards">${parts.filter(p => p.category === g.id).map(p => `<li><a href="${p.id}.html"><span class="pcode">${p.code}</span><b>${esc(p.title)}</b><span>${esc(p.summary)}</span></a></li>`).join('')}</ul></section>`).join('');
   page({ file: 'parts/index.html', depth: 1, current: 'parts/index.html', title: 'Parts · website-toolkit', desc: `All ${N} parts by group.`, body: `<section class="pagehead"><h1>Parts</h1><p class="lede">${N} parts in ${GROUPS.length} groups. Each page has a live preview at three widths, X-ray, the code to copy and what the part needs.</p></section>${groups}` });
 
   parts.forEach((p, i) => {

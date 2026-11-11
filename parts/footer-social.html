@@ -2,15 +2,15 @@
 {"id":"footer-social","title":"Footer with social links","category":"footers","summary":"Name, a short line, page links, social links with simple drawn icons and text names, and the year. Icons are fixed at 20 px by width/height attributes, so they stay small even without the stylesheet.","slots":{"brand":"Site or business name","line":"One sentence about the site","link":"Each page link","social":"Each social link: href to your profile and the network's name in text","year":"Copyright year and owner"},"needs":[],"a11y":["Social links have visible text names; icons are aria-hidden","Icons are generic drawn marks, not official brand logos; swap in official assets if your brand rules require them"]}
 -->
 <style>
-.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#f4f0ff);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 .sr-foot__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:24px}
 .sr-foot b{font:700 1.2rem/1.2 var(--sr-font-display,Georgia,serif);display:block;margin-bottom:6px}
 .sr-foot p{margin:0;opacity:.85;max-width:30ch}
 .sr-foot ul{list-style:none;margin:0;padding:0}
 .sr-foot a{color:inherit;display:inline-flex;align-items:center;gap:8px;min-height:32px}
-.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:2px;border-radius:3px}
+.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#f4f0ff);outline-offset:2px;border-radius:3px}
 .sr-foot svg{flex:none}
-.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#fffdf8) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
+.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#f4f0ff) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
 @media (max-width:640px){.sr-foot__in{grid-template-columns:minmax(0,1fr)}}
 </style>
 <footer class="sr-foot">

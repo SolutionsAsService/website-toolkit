@@ -2,7 +2,7 @@
 {"id":"stats","title":"Stat row","category":"content","summary":"Three or four large numbers, each with a label and its source. A number without a source line is not allowed by the check.","slots":{"stat":"Each div: the number (dd), what it counts (dt) and where it comes from (small)"},"needs":["A source for every number"],"a11y":["A description list, so each number is read with its label","Numbers use tabular figures"]}
 -->
 <style>
-.sr-stats{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-stats{background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
 .sr-stats dl{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px}
 .sr-stats div{display:flex;flex-direction:column-reverse;border-left:3px solid var(--sr-accent,#5a2ee5);padding-left:14px}
 .sr-stats dd{margin:0;font:700 clamp(2.2rem,5vw,3.2rem)/1 var(--sr-font-display,Georgia,serif);font-variant-numeric:tabular-nums}

@@ -11,9 +11,9 @@
 :root {
   --sr-ink: #15132b;          /* body text */
   --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
-  --sr-paper: #fffdf8;        /* page background */
-  --sr-surface: #f0ebff;      /* cards, panels */
-  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-paper: #f4f0ff;        /* page background: lilac, not cream */
+  --sr-surface: #e4daff;      /* cards, panels */
+  --sr-line: #c9bcf0;         /* hairlines, borders */
   --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
   --sr-accent-ink: #ffffff;   /* text on the accent */
   --sr-radius: 12px;
@@ -27,22 +27,22 @@
 }
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
 <body>
 <!-- part G1 footer-social -->
 <style>
-.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#f4f0ff);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 .sr-foot__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:24px}
 .sr-foot b{font:700 1.2rem/1.2 var(--sr-font-display,Georgia,serif);display:block;margin-bottom:6px}
 .sr-foot p{margin:0;opacity:.85;max-width:30ch}
 .sr-foot ul{list-style:none;margin:0;padding:0}
 .sr-foot a{color:inherit;display:inline-flex;align-items:center;gap:8px;min-height:32px}
-.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:2px;border-radius:3px}
+.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#f4f0ff);outline-offset:2px;border-radius:3px}
 .sr-foot svg{flex:none}
-.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#fffdf8) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
+.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#f4f0ff) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
 @media (max-width:640px){.sr-foot__in{grid-template-columns:minmax(0,1fr)}}
 </style>
 <footer class="sr-foot">

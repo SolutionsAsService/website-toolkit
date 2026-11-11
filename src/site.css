@@ -1,15 +1,15 @@
-/* website-toolkit: the kit. An injection-moulded sprue in signal orange on drafting paper. */
+/* website-toolkit: the kit. An acid-yellow sprue on an ultramarine ground; one hue per part group. */
 :root {
   --paper: #f7f5ff;      /* content pages: a white with a violet cast */
   --paper-2: #ebe6ff;
   --ink: #0d0f2b;
   --muted: #474a6b;      /* 7.9:1 on paper */
   --rule: #cfc8ef;
-  --ground: #2330d6;     /* ultramarine: the landing band and the header; white on it is 7.7:1 */
+  --ground: #2330d6;     /* ultramarine: the landing band and the header; white on it is 8.5:1 */
   --ground-deep: #151d92;
-  --volt: #e4ff3a;       /* acid yellow: the frame, runners and pressed controls; ink on it is 17:1 */
-  --on-ground: #dfe2ff;  /* secondary text on ultramarine, 6.4:1 */
-  --g-a: #ff6a52; --g-b: #ff86dc; --g-c: #3fe0a6; --g-d: #67cdff; --g-e: #ffad47; --g-f: #c2b0ff; --g-g: #e4ff3a;
+  --volt: #e4ff3a;       /* acid yellow: the frame, runners, pressed controls, focus on dark, the first door; ink on it is 16.7:1 */
+  --on-ground: #dfe2ff;  /* secondary text on ultramarine, 6.7:1 */
+  --g-a: #ff6a52; --g-b: #ff86dc; --g-c: #3fe0a6; --g-d: #67cdff; --g-e: #ffad47; --g-f: #c2b0ff; --g-g: #ffffff;
   --sprue: var(--volt);
   --sprue-deep: #b9d300;
   --focus: #0d0f2b;
@@ -276,10 +276,46 @@ table.data { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 .sprue-more { background: var(--volt); color: var(--ink); }
 
 /* group colours carried onto the parts index */
-.pgroup:nth-of-type(1) .gl { background: var(--g-a); } .pgroup:nth-of-type(2) .gl { background: var(--g-b); } .pgroup:nth-of-type(3) .gl { background: var(--g-c); }
-.pgroup:nth-of-type(4) .gl { background: var(--g-d); } .pgroup:nth-of-type(5) .gl { background: var(--g-e); } .pgroup:nth-of-type(6) .gl { background: var(--g-f); } .pgroup:nth-of-type(7) .gl { background: var(--g-g); }
 .gl { box-shadow: inset 0 0 0 2px var(--ink); }
 @media (forced-colors: active) { .hero, .sprue { box-shadow: none; } }
 .hero .piece-link { color: var(--ink); }
 .hero .sprue-more { color: var(--ink); }
 .brand svg { background: #fff; border-radius: 7px; padding: 2px; }
+
+/* ---- R1 resolutions */
+.pgroup[data-group="A"] .gl { background: var(--g-a); } .pgroup[data-group="B"] .gl { background: var(--g-b); } .pgroup[data-group="C"] .gl { background: var(--g-c); }
+.pgroup[data-group="D"] .gl { background: var(--g-d); } .pgroup[data-group="E"] .gl { background: var(--g-e); } .pgroup[data-group="F"] .gl { background: var(--g-f); } .pgroup[data-group="G"] .gl { background: var(--g-g); }
+/* focus on dark surfaces is acid yellow (Cairo F4/F5, Mace F1, F5) */
+.foot :focus-visible, .code .copy:focus-visible, .skip:focus-visible { outline-color: var(--volt); }
+.code pre:focus-visible, #sb-code:focus-visible { outline-color: var(--ground); }
+/* step numerals in the ground colour (Krug F4: #b9d300 was 1.57:1) */
+.steps-h li::marker { color: var(--ground); }
+/* the first door is the one filled door (Krug F2/F3) */
+.hero .assembly li:first-child a { background: var(--volt); color: var(--ink); border-radius: 8px; padding-left: 10px; padding-right: 10px; margin: 6px 0; }
+.hero .assembly li:first-child a span { color: var(--ink); }
+.hero .assembly li:first-child a::before { background: var(--ink); color: var(--volt); }
+.hero .assembly li:first-child a:focus-visible { outline-color: #fff; }
+.sprue-more { background: transparent !important; color: var(--volt) !important; border: 2px solid var(--volt); }
+/* pressed state survives forced colours (Mace F3) */
+@media (forced-colors: active) {
+  [aria-pressed="true"] { forced-color-adjust: none; background: SelectedItem !important; color: SelectedItemText !important; border-color: SelectedItem !important; }
+}
+/* the theme buttons recolour the whole band and frame, not just the cards (Shklovsky F3) */
+html[data-kit="riso"] { --ground: #c4005a; --ground-deep: #8a003f; --on-ground: #ffe8f2; }
+html[data-kit="cobalt"] { --ground: #101a5c; --ground-deep: #0a1140; --on-ground: #d9dcff; }
+html[data-kit="mint"] { --ground: #006b48; --ground-deep: #00452f; --on-ground: #dcfff1; }
+.hero, .top, .sprue { transition: background-color .25s, box-shadow .25s; }
+@media (prefers-reduced-motion: reduce) { .hero, .top, .sprue { transition: none; } }
+/* a calmer ground for people who ask their system for more contrast or less colour (Holmes F3) */
+@media (prefers-contrast: more) {
+  :root, html[data-kit] { --ground: #f7f5ff; --ground-deep: #ebe6ff; --on-ground: #2b2e4a; }
+  .hero, .top { color: var(--ink); }
+  .hero a, .top a, .hero .kicker, .themes::before, .bare::before, .sprue-bar .gloss b { color: var(--ink); }
+  .sprue .tbtn, .bare button { color: var(--ink); border-color: var(--ink); }
+}
+/* two-tone focus on the coloured surfaces: an ink band inside a yellow ring stays visible next to yellow, blue or ink */
+.top :focus-visible, .hero :focus-visible, .foot :focus-visible, .skip:focus-visible, .code .copy:focus-visible { outline: 3px solid var(--volt); outline-offset: 2px; box-shadow: 0 0 0 2px var(--ink); }
+.hero .piece:focus-within { outline: 3px solid var(--volt); outline-offset: 2px; box-shadow: 0 0 0 2px var(--ink); }
+.hero .assembly li:first-child a:focus-visible { outline-color: #fff; }
+/* everywhere else: an ink ring with a white band inside it, so it reads next to blue chips as well as on paper */
+:focus-visible { box-shadow: 0 0 0 2px #fff; }

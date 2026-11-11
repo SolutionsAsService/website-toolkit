@@ -190,3 +190,70 @@ Consequence: About 15 small edits.
 Fence: n/a.
 Frontier effect: R1 re-judges them.
 Mode field: n/a.
+
+---
+
+## Panel, WHOLE, round R1 (commit after 0f… "R1 evidence"; panel/R1/*.png; evidence panel/R1/evidence.md)
+
+6 of 8 seats filed:
+- Critic: Craft (Bringhurst) was **NOT CONVENED**: launching the seat was refused by the session's permission check ("Create Public Surface"). It was not retried and is not counted as a pass.
+- Critic: Semiotic (Eco), the rotation seat, was not launched for the same reason.
+
+| Critic | Anchor used | Observed in the work | Verdict | Requested change |
+|---|---|---|---|---|
+| Critic: Evidence (Cairo) | How Charts Lie | 12/12 and 18/18 reproduced; part palettes measured (accents 4.82–14.09). The CSS comments misstate ratios (7.7 vs 8.52; 17 vs 16.66; 6.4 vs 6.68). **Footer focus ring 1.00:1; Copy ring 1.10:1.** Site pages were never focus-probed. The 746 web-font figure has no method | OBJECT | Correct the comments; yellow rings on dark; probe focus on site pages; state the font condition |
+| Critic: Provocateur (Debord) | Society of the Spectacle | No stale site-repo claims in the site. The stylesheet header still says "signal orange on drafting paper"; the probe is still named `citrus`; `sr` unexplained | OBJECT | Rewrite the header; rename; one line in AGENTS.md |
+| Critic: Provocateur (Shklovsky) | Art as Technique | The ultramarine ground breaks the beige habit. But seven equal hues read as a legend; the theme switch recolours only the cards; the Signal parts are still cream | OBJECT | Rank the hues; the theme recolours the whole object; a coloured ground for Signal |
+| Critic: Inclusion (Mace) | Principles of Universal Design | Real-Tab test: the yellow rings on blue work. **Footer ring 1.00:1 on all pages; pressed theme/view lost in forced colours** | OBJECT | Yellow footer ring; probe the site pages; a forced-colours pressed state |
+| Critic: Inclusion (Holmes) | Mismatch | Contrast and the letter cues work for low vision and colour-vision differences. **Parts index colours shifted by one group** (`nth-of-type` counts the page head); no calmer way in for migraine or visual stress | OBJECT | Key by data-group; a prefers-contrast calm view |
+| Critic: Usability (Krug) | Don't Make Me Think | Colour passes "what is this". It does not say where to start: the frame outshouts the doors; on the phone, "All 18 parts" outranks "Start here"; **step numerals 1.57:1** (the probe misses ::marker); yellow means six things | OBJECT | Start here as the one filled door; outline "All 18 parts"; numerals in the ground colour |
+
+**Andon:** none.
+
+### Resolutions R1
+
+| Finding | Resolution |
+|---|---|
+| Cairo + Mace: footer ring 1.00:1; Copy ring 1.10:1 | ADAPT (M6): two-tone focus (yellow outline with an ink band) on every coloured surface; elsewhere an ink ring with a white band |
+| Cairo + Mace: focus never probed on the site pages | ADAPT (M6): focusProbe runs on all 25 site pages (up to 160 Tabs). The ring is judged against what is painted just outside each side (elementsFromPoint), not the parent's background; a two-tone ring passes when its tones differ by 3:1; preview iframes are skipped (their contents are probed as parts) |
+| Krug: step numerals 1.57:1; the probe misses markers | ADAPT (M6): numerals in the ground colour; a list-marker contrast probe, with a failing fixture |
+| Cairo + Debord: the CSS comments misstate ratios; stale header; `citrus` | ADAPT (M6): comments re-measured (8.5, 16.7, 6.7); header rewritten; renamed `riso` |
+| Cairo: the 746 web-font figure has no method | ADAPT (M6): the evidence states the condition; the check reports the fallback-font figure only |
+| Debord: `sr` unexplained | ADAPT (M6): AGENTS.md explains the prefix |
+| Holmes: parts-index colours off by one | ADAPT (M6): keyed by `data-group`, not position |
+| Holmes: no calm way in | ADAPT (M6): `prefers-contrast: more` turns the ground to a pale tint with ink text |
+| Mace: pressed state lost in forced colours | ADAPT (M6): `[aria-pressed=true]` uses SelectedItem in forced colours |
+| Shklovsky: the theme switch recolours only the cards | ADAPT (M7, BREAK): the theme buttons set `html[data-kit]`, which recolours the header, band and frame (Riso hot pink #c4005a, Cobalt #101a5c, Mint #006b48); contrast is probed in every colourway |
+| Shklovsky: Signal parts still cream | ADAPT (M7): Signal paper #f4f0ff, surface #e4daff (lilac) |
+| Shklovsky + Krug: hues unranked; yellow means six things | ADAPT (M7): group G is white, not the frame's yellow; yellow is kept for the frame, pressed state, focus on dark, and the one filled door |
+| Krug: where to start | ADAPT (M7): "Start here" is the only filled (yellow) door; "All 18 parts" becomes an outline |
+
+## Move M6: Focus and claims on the new colours  (KEEP-THE-RULE)
+Depends on: M1, M4
+Anchors: Rule WCAG 2.2 Contrast and Perceivability (W3C) | Counterpoint Interaction of Color (Josef Albers)
+Intent: The resolutions above for Cairo, Mace, Holmes, Krug and Debord.
+Formal argument: Albers again: a ring's colour is only as visible as its neighbours. Hence two-tone rings, and a probe that looks at what is actually beside each side.
+Alternatives rejected:
+- (a) A white ring everywhere. Rejected: it fails on the white tiles.
+- (b) Exempting the dark areas. Rejected: those are where people tab.
+Consequence: The check takes longer (site pages Tabbed through).
+Fence: n/a.
+Frontier effect: R2.
+Mode field: n/a.
+
+## Move M7: The whole object changes colour; one door is lit  (BREAK; S4 push)
+Depends on: M1, M2, M3
+Anchors: Stance Chromophobia (David Batchelor) | Rule Seven Color Contrasts (Johannes Itten) (contrast of hue, and Itten's contrast of extension: one small lit area against a large ground)
+Intent:
+- The theme buttons recolour the ground, header and frame along with the parts.
+- Signal gets a lilac ground.
+- Group G turns white, so yellow is rationed.
+- "Start here" becomes the one filled yellow door.
+Formal argument: Batchelor's courage: colour must move the whole sign, not decorate a corner (Shklovsky F3). Itten's contrast of extension: a small saturated area (the one door) leads the eye against a large ground (Krug F2).
+Alternatives rejected:
+- (a) A separate "colourway" control. Rejected: one switch is the device.
+- (b) Seven hues ranked by size. Rejected: the groups are equal.
+Consequence: Each colourway needs its own on-ground text colour, probed (13/13).
+Fence: Equal hues exist for wayfinding. They stay, but yellow is withdrawn from them.
+Frontier effect: R2.
+Mode field: The advanced pole is that the kit changes colour as a whole. The acceptable pole is that every colourway passes the contrast probe, and a calm view exists.

@@ -11,9 +11,9 @@
 :root {
   --sr-ink: #15132b;          /* body text */
   --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
-  --sr-paper: #fffdf8;        /* page background */
-  --sr-surface: #f0ebff;      /* cards, panels */
-  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-paper: #f4f0ff;        /* page background: lilac, not cream */
+  --sr-surface: #e4daff;      /* cards, panels */
+  --sr-line: #c9bcf0;         /* hairlines, borders */
   --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
   --sr-accent-ink: #ffffff;   /* text on the accent */
   --sr-radius: 12px;
@@ -27,14 +27,14 @@
 }
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
 <body>
 <!-- part A1 nav-bar -->
 <style>
-.sr-nav{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);border-bottom:1px solid var(--sr-line,#d6cdf2);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-nav{background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);border-bottom:1px solid var(--sr-line,#c9bcf0);font-family:var(--sr-font-body,system-ui,sans-serif)}
 .sr-nav__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:12px var(--sr-space,16px);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .sr-nav__brand{font:700 1.15rem/1 var(--sr-font-display,Georgia,serif);color:inherit;text-decoration:none;padding:6px 0}
 .sr-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 22px;flex-wrap:wrap}
@@ -44,12 +44,12 @@ img{max-width:100%}
 .sr-nav ul a[aria-current="page"]{box-shadow:inset 0 -3px 0 var(--sr-accent,#5a2ee5);font-weight:600}
 .sr-nav a:focus-visible,.sr-nav summary:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px;border-radius:3px}
 .sr-nav details{display:none}
-.sr-nav summary{cursor:pointer;list-style:none;padding:8px 12px;border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);font-weight:600}
+.sr-nav summary{cursor:pointer;list-style:none;padding:8px 12px;border:1px solid var(--sr-line,#c9bcf0);border-radius:var(--sr-radius,12px);font-weight:600}
 .sr-nav summary::-webkit-details-marker{display:none}
 @media (max-width:640px){
   .sr-nav__wide{display:none}
   .sr-nav details{display:block;position:relative}
-  .sr-nav details ul{position:absolute;right:0;top:calc(100% + 6px);flex-direction:column;gap:0;min-width:200px;background:var(--sr-paper,#fffdf8);border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);padding:6px 14px;z-index:5}
+  .sr-nav details ul{position:absolute;right:0;top:calc(100% + 6px);flex-direction:column;gap:0;min-width:200px;background:var(--sr-paper,#f4f0ff);border:1px solid var(--sr-line,#c9bcf0);border-radius:var(--sr-radius,12px);padding:6px 14px;z-index:5}
 }
 </style>
 <header class="sr-nav">

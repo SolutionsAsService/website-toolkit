@@ -11,9 +11,9 @@
 :root {
   --sr-ink: #15132b;          /* body text */
   --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
-  --sr-paper: #fffdf8;        /* page background */
-  --sr-surface: #f0ebff;      /* cards, panels */
-  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-paper: #f4f0ff;        /* page background: lilac, not cream */
+  --sr-surface: #e4daff;      /* cards, panels */
+  --sr-line: #c9bcf0;         /* hairlines, borders */
   --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
   --sr-accent-ink: #ffffff;   /* text on the accent */
   --sr-radius: 12px;
@@ -27,14 +27,14 @@
 }
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
 <body>
 <!-- part B1 hero-split -->
 <style>
-.sr-hero{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-hero{background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
 .sr-hero__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:calc(var(--sr-space,16px)*2.5);align-items:center}
 .sr-hero__eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sr-muted,#4f4b6a);margin:0 0 10px}
 .sr-hero h1{font:700 clamp(2rem,5vw,3.6rem)/1.05 var(--sr-font-display,Georgia,serif);margin:0 0 16px;letter-spacing:-.01em}
@@ -44,7 +44,7 @@ img{max-width:100%}
 .sr-hero__acts a:first-child{background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff)}
 .sr-hero__acts a+a{color:var(--sr-accent,#5a2ee5)}
 .sr-hero__acts a:focus-visible{outline:3px solid var(--sr-ink,#15132b);outline-offset:3px}
-.sr-hero__img{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff);display:block}
+.sr-hero__img{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#e4daff);display:block}
 @media (max-width:760px){.sr-hero__in{grid-template-columns:minmax(0,1fr);padding-top:calc(var(--sr-space,16px)*2)}}
 </style>
 <section class="sr-hero">
