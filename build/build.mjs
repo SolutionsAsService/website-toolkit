@@ -50,7 +50,7 @@ function page({ file, title, desc, body, current, depth = 0, scripts = ['site.js
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <a class="brand" href="${up}index.html"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><use href="${up}favicon.svg#k"/></svg><span>website-toolkit</span></a>
-  <div class="tools"><nav aria-label="Main">${nav}</nav><button type="button" class="calm" aria-pressed="false" aria-describedby="calm-desc">Calm</button><span id="calm-desc" class="sr">Calm view: a pale frame and ink type on every page of this site; controls stay blue and the parts keep the theme you chose. Remembered in this browser.</span></div>
+  <div class="tools"><nav aria-label="Main">${nav}</nav><button type="button" class="calm" aria-pressed="false" aria-describedby="calm-desc">Calm</button><span id="calm-desc" class="sr">Calm view: a pale frame, ink type and white chips on every page of this site; blue buttons and links on inner pages stay blue, and the parts keep the theme you chose. Remembered in this browser.</span></div>
 </header>
 <main id="main">
 ${body}

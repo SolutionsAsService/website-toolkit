@@ -302,7 +302,7 @@ Formal argument:
 Alternatives rejected:
 - (a) Drop calm. Rejected: it is a mismatch for people with visual stress (Holmes).
 - (b) Rank the hues by size. Rejected: the groups are equal.
-Consequence: Two calm blocks (the media query and the switch) share one rule set. A test covers both.
+Consequence: Two calm blocks (the media query and the switch) carry the same rules, copied by hand (corrected in R3: they are not one generated set). A test covers both.
 Fence: n/a.
 Frontier effect: R3.
 Mode field: The advanced pole is that the whole kit recolours, spines included. The acceptable pole is a calm switch that keeps every control visible, measured.
@@ -339,7 +339,7 @@ Mode field: The advanced pole is that the whole kit recolours, spines included. 
 | Cairo: probe sets the attribute | ADAPT (M9): the probe clicks the header switch |
 | Krug: pressed toggles yellow on part pages; no ✓ on Calm | ADAPT (M9): pressed toggles are ink with ✓ everywhere outside the frame; Calm gets the ✓ |
 | Krug: the check box is long | ADAPT (M9): one line ("Passes every check at 375, 768, 1280 px in 4 themes") with the probes in a details element |
-| Shklovsky: Signal keeps the rainbow spines | OVERRULE (Adaptive, MAYA): Signal is the first screen for people who have not met the kit, and its seven hues are the wayfinding Holmes confirmed (R1 F2, R2 F2: letters plus hue). The ranked, estranged spines are one click away in the other three colourways. The acceptable pole holds the default; the advanced pole is a press away |
+| Shklovsky: Signal keeps the rainbow spines | OVERRULE (Adaptive, MAYA): Signal is the first screen for people who have not met the kit, and its seven hues are a second wayfinding channel beside the letters (Holmes R1 F2 / R2 F2 confirmed the letters carry it and contrast holds; the hues were not separately tested — corrected after Shklovsky R4 F1). The ranked, estranged spines are one click away in the other three colourways. The acceptable pole holds the default; the advanced pole is a press away |
 
 ## Move M9: Calm wins, everywhere; the instrument closes its gaps  (KEEP-THE-RULE)
 Depends on: M8
@@ -352,4 +352,48 @@ Alternatives rejected:
 Consequence: The header carries a fourth control. On the phone the nav wraps to two rows; the first screen still fits (probe).
 Fence: n/a.
 Frontier effect: R4.
+Mode field: n/a.
+
+---
+
+## Panel, WHOLE, round R4 (commit e3b7f66; panel/R4/*.png; evidence panel/R4/evidence.md)
+
+6 of 8 filed. Bringhurst and Eco: NOT CONVENED (permission refusal in R1, not retried).
+
+| Critic | Anchor used | Observed in the work | Verdict | Requested change |
+|---|---|---|---|---|
+| Critic: Inclusion (Holmes) | Mismatch | The switch is on every page and remembered; calm pressed states white; aria-describedby. Sighted phone users see the bare word "Calm" | PASS | Optional visible gloss |
+| Critic: Provocateur (Debord) | Society of the Spectacle | Calm wins in every colourway; the test proves it. The wording "controls stay blue" is too broad; the log names "Copy" loosely; M8's "one rule set" unamended | PASS | Reword; annotate M8 |
+| Critic: Usability (Krug) | Don't Make Me Think | ✓ means pressed everywhere; one-line check; five-second and trunk tests pass | PASS | none |
+| Critic: Provocateur (Shklovsky) | Art as Technique | The device is no longer buried: one press shows the cast object. The overrule partly holds, but "Holmes confirmed" overstates the evidence | PASS | Optional: yellow C spine in Signal |
+| Critic: Inclusion (Mace) | Principles of Universal Design | R3 F3 fixed: 36 card stops at 14.69:1 under contrast more; the header switch works by keyboard. Skip link volt in calm, minor | PASS | Optional: ink skip ring in calm |
+| Critic: Evidence (Cairo) | How Charts Lie | Reproduced 14/14. Fixes F4–F7 hold. **Calm leaves the parts-index letters coloured** (the group-keyed rule is more specific than calm); the spine probe only covers the landing; it does not assert that the click set calm; a negative offset still passes two-tone | OBJECT | Specific calm rule; probe `.gl` everywhere; assert calm; offset ≥ 0 |
+
+**Andon:** none.
+
+### Resolutions R4
+
+| Finding | Resolution |
+|---|---|
+| Cairo: parts-index letters stay coloured in calm | ADAPT (M10): `html[data-calm] .pgroup[data-group] .gl` (and the media twin) white |
+| Cairo: spine probe only on the landing | ADAPT (M10): spine, chip and letter fills checked on every site page in both calm modes |
+| Cairo: click not asserted | ADAPT (M10): the probe asserts `data-calm` after each click |
+| Cairo: negative offset passes two-tone | ADAPT (M10): outline-offset ≥ 0 required |
+| Debord: "controls stay blue" | ADAPT (M10): "blue buttons and links on inner pages stay blue" |
+| Debord: M8 "one rule set" | ADAPT (M10): M8 annotated |
+| Shklovsky: the overrule overstates Holmes | ADAPT (M10): the overrule's wording corrected (the letters carry the wayfinding; hue is a second channel, not separately tested) |
+| Shklovsky: yellow C spine in Signal | DEFERRED (optional; Open frontier) |
+| Mace: skip ring in calm | ADAPT (M10): ink in calm |
+| Holmes: visible gloss for Calm | DEFERRED (optional; Open frontier; screen readers get the description) |
+
+## Move M10: Close R4  (KEEP-THE-RULE)
+Depends on: M9
+Anchors: Rule WCAG 2.2 Contrast and Perceivability (W3C)
+Intent: The resolutions above.
+Formal argument: Each is a measured gap.
+Alternatives rejected:
+- (a) Leave the letters coloured in calm. Rejected: it breaks the promise.
+Consequence: The probe now covers every page.
+Fence: n/a.
+Frontier effect: R5 (Cairo re-judges).
 Mode field: n/a.

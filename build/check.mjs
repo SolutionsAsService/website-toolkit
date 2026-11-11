@@ -112,7 +112,7 @@ const RING = `(() => {
     const pts = [[r.left - d, r.top + r.height / 2], [r.right + d, r.top + r.height / 2], [r.left + r.width / 2, r.top - d], [r.left + r.width / 2, r.bottom + d]];
     // a two-tone ring: a box-shadow band with no offset, no blur and not inset, whose colour is 9:1 from the outline (WCAG technique C40)
     const sh = (cs.boxShadow || '').match(/(rgba?\\([^)]+\\))\\s+(-?[\\d.]+)px\\s+(-?[\\d.]+)px\\s+([\\d.]+)px\\s+([\\d.]+)px(\\s+inset)?/);
-    if (oc.a >= 1 && sh && +sh[2] === 0 && +sh[3] === 0 && +sh[4] === 0 && +sh[5] >= Math.max(1, parseFloat(cs.outlineOffset || 0)) && !sh[6]) {
+    if (oc.a >= 1 && parseFloat(cs.outlineOffset || 0) >= 0 && sh && +sh[2] === 0 && +sh[3] === 0 && +sh[4] === 0 && +sh[5] >= Math.max(1, parseFloat(cs.outlineOffset || 0)) && !sh[6]) {
       const sc = parse(sh[1]);
       if (sc && sc.a >= 1) { const [a, b] = [lum(oc), lum(sc)].sort((x, y) => y - x); if ((a + .05) / (b + .05) >= 9) return 99; }
     }
@@ -245,7 +245,8 @@ for (const w of [1280, 375]) {
   const bad = [];
   for (const mode of ['prefers-contrast', 'switch']) for (const pg of ownPages) {
     const { p, ctx } = await open(B + pg, 1280, 812, mode === 'prefers-contrast' ? { contrast: 'more' } : {});
-    if (mode === 'switch') { await p.click('.top .calm'); await p.waitForTimeout(100); }
+    if (mode === 'switch') { await p.click('.top .calm'); await p.waitForTimeout(100); if (!(await p.evaluate(() => 'calm' in document.documentElement.dataset))) bad.push(`switch ${pg}: clicking Calm did not set calm`); }
+    { const sat = await p.evaluate(() => [...document.querySelectorAll('.runner-tag, .piece-link b, .gl')].map(e => getComputedStyle(e).backgroundColor).filter(c => c !== 'rgb(255, 255, 255)').length); if (sat) bad.push(`${mode} ${pg}: ${sat} spine, chip or letter fills still coloured in calm`); }
     (await p.evaluate(pageProbes)).filter(f => f.startsWith('contrast')).forEach(f => bad.push(`${mode} ${pg}: ${f}`));
     if (pg === 'index.html') (await focusProbe(p, 60)).forEach(f => bad.push(`${mode} ${pg}: ${f}`));
     await ctx.close();
@@ -258,7 +259,7 @@ for (const w of [1280, 375]) {
     for (const k of Object.keys(themes)) {
       await p.click(`button[data-theme="${k}"]`); await p.waitForTimeout(250);
       (await p.evaluate(pageProbes)).filter(f => f.startsWith('contrast')).forEach(f => bad.push(`${mode} ${k}: ${f}`));
-      const sat = await p.evaluate(() => [...document.querySelectorAll('.runner-tag, .piece-link b')].map(e => getComputedStyle(e).backgroundColor).filter(c => c !== 'rgb(255, 255, 255)').length);
+      const sat = await p.evaluate(() => [...document.querySelectorAll('.runner-tag, .piece-link b, .gl')].map(e => getComputedStyle(e).backgroundColor).filter(c => c !== 'rgb(255, 255, 255)').length);
       if (sat) bad.push(`${mode} ${k}: ${sat} spine or chip fills still coloured in calm`);
     }
     (await focusProbe(p, 60)).forEach(f => bad.push(`${mode} cobalt-last: ${f}`));

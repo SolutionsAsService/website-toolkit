@@ -361,7 +361,8 @@ html[data-kit="mint"] { --g-a: #8ff2c9; --g-b: #bdfde2; --g-c: #e4ff3a; --g-d: #
 .assembly { border-top-color: var(--ink); }
 .seg button[aria-pressed="true"], .tbtn[aria-pressed="true"], .bare button[aria-pressed="true"], .calm[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
 .pcode.big, .code .copy { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
-.piece-link b, .runner-tag, .gl { background: #fff; }
+.piece-link b, .runner-tag, .gl, .pgroup[data-group] .gl { background: #fff; }
+.skip:focus-visible { outline-color: var(--ink); }
 }
 html[data-calm] {
   --ground: #f3f0fb; --ground-deep: #e6e1f5; --on-ground: #2b2e4a;
@@ -386,6 +387,7 @@ html[data-calm] .top nav a:focus-visible, html[data-calm] .top .brand:focus-visi
 html[data-calm] .assembly { border-top-color: var(--ink); }
 html[data-calm] .seg button[aria-pressed="true"], html[data-calm] .tbtn[aria-pressed="true"], html[data-calm] .bare button[aria-pressed="true"], html[data-calm] .calm[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
 html[data-calm] .pcode.big, html[data-calm] .code .copy { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
-html[data-calm] .piece-link b, html[data-calm] .runner-tag, html[data-calm] .gl { background: #fff; }
+html[data-calm] .piece-link b, html[data-calm] .runner-tag, html[data-calm] .gl, html[data-calm] .pgroup[data-group] .gl { background: #fff; }
+html[data-calm] .skip:focus-visible { outline-color: var(--ink); }
 
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
