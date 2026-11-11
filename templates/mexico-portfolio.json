@@ -1,0 +1,86 @@
+{
+ "id": "mexico-portfolio",
+ "title": "Portfolio",
+ "summary": "An illustrator's portfolio in Spanish: a statement, the work, a word from a client, and a way to get in touch.",
+ "lang": "es",
+ "place": "Mexico City, Mexico",
+ "parts": [
+  {
+   "id": "nav-bar",
+   "replace": {
+    "Harbor &amp; Pine": "Lucía Herrera",
+    "Home": "Inicio",
+    "Services": "Trabajo",
+    "About": "Sobre mí",
+    "Contact": "Contacto",
+    "Menu": "Menú",
+    "aria-label=\"Main\"": "aria-label=\"Principal\"",
+    "aria-label=\"Main (menu)\"": "aria-label=\"Principal (menú)\""
+   }
+  },
+  {
+   "id": "hero-statement",
+   "replace": {
+    "We build websites people <em>finish reading.</em>": "Ilustración para libros que <em>se leen en voz alta.</em>",
+    "Start a project": "Escríbeme",
+    "Two-week builds · fixed price · plain HTML you own": "Ciudad de México · libros infantiles, carteles, editorial"
+   }
+  },
+  {
+   "id": "gallery",
+   "replace": {
+    "Recent work": "Trabajo reciente",
+    "A courtyard of gravel and tall grasses": "Portada de libro con un jaguar entre hojas",
+    "Courtyard, Ridge Road · 2025": "«El jaguar que no dormía» · 2025",
+    "Lavender edging a brick path": "Cartel de un festival con papel picado",
+    "Path border · 2024": "Cartel, Festival de Coyoacán · 2024",
+    "A shaded bed of ferns under a maple": "Ilustración editorial de un mercado al amanecer",
+    "Shade garden · 2025": "Revista Domingo · 2025"
+   }
+  },
+  {
+   "id": "testimonial",
+   "replace": {
+    "The garden we were sold was the garden we got, and it is better in the third summer than the first.": "Entregó antes de la fecha y los niños reconocen a sus personajes en la calle.",
+    "Adaeze Okafor": "Rafael Ortiz",
+    "homeowner, Ridge Road": "editor, Ediciones Tecolote"
+   }
+  },
+  {
+   "id": "contact-form",
+   "replace": {
+    "Write to us": "Escríbeme",
+    "We answer within two working days.": "Respondo en dos días hábiles.",
+    "Name <small>(required)</small>": "Nombre <small>(obligatorio)</small>",
+    "Email <small>(required)</small>": "Correo <small>(obligatorio)</small>",
+    "Subject</label>": "Asunto</label>",
+    "Message <small>(required)</small>": "Mensaje <small>(obligatorio)</small>",
+    "Send message": "Enviar"
+   }
+  },
+  {
+   "id": "footer-social",
+   "replace": {
+    "Harbor &amp; Pine": "Lucía Herrera",
+    "Low-water gardens, designed, planted and looked after.": "Ilustradora en Ciudad de México.",
+    "aria-label=\"Footer\"": "aria-label=\"Pie de página\"",
+    "aria-label=\"Social\"": "aria-label=\"Redes\"",
+    ">Services<": ">Trabajo<",
+    ">About<": ">Sobre mí<",
+    ">Contact<": ">Contacto<"
+   }
+  }
+ ],
+ "ids": {
+  "nav-bar": "top",
+  "gallery": "trabajo",
+  "testimonial": "sobre-mi",
+  "contact-form": "contacto"
+ },
+ "links": {
+  "/": "#top",
+  "/services": "#trabajo",
+  "/about": "#sobre-mi",
+  "/contact": "#contacto"
+ }
+}

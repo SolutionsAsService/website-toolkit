@@ -1,0 +1,19 @@
+<!--sr:part
+{"id":"testimonial","title":"Testimonial","category":"content","summary":"One quotation, large, with the person's name and role. Use real words from a real person, with their permission.","slots":{"quote":"The quotation, without surrounding quote marks","name":"Who said it","role":"Their role or place"},"needs":["Permission to quote the person"],"a11y":["figure/blockquote/figcaption: the source is tied to the quote","Quote marks are CSS"]}
+-->
+<style>
+.sr-quote{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-quote figure{max-width:46rem;margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-quote blockquote{margin:0;font:400 clamp(1.4rem,3vw,2rem)/1.35 var(--sr-font-display,Georgia,serif)}
+.sr-quote blockquote p{margin:0}
+.sr-quote blockquote p::before{content:"\201C";color:var(--sr-accent,#5a2ee5);margin-right:.05em}
+.sr-quote blockquote p::after{content:"\201D";color:var(--sr-accent,#5a2ee5)}
+.sr-quote figcaption{margin-top:18px;color:var(--sr-muted,#4f4b6a)}
+.sr-quote figcaption b{color:var(--sr-ink,#15132b)}
+</style>
+<section class="sr-quote">
+  <figure>
+    <blockquote><p data-slot="quote">The garden we were sold was the garden we got, and it is better in the third summer than the first.</p></blockquote>
+    <figcaption><b data-slot="name">Adaeze Okafor</b>, <span data-slot="role">homeowner, Ridge Road</span></figcaption>
+  </figure>
+</section>

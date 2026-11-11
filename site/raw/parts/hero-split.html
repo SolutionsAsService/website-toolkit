@@ -1,0 +1,31 @@
+<!--sr:part
+{"id":"hero-split","title":"Split hero","category":"hero","summary":"Headline, one sentence and two actions beside an image. Stacks text-first on narrow screens.","slots":{"eyebrow":"Short label above the headline","headline":"The page's one claim, under about 60 characters","lede":"One or two sentences","primary":"Main action (text and href)","secondary":"Second action","image":"img src and a real alt text, or alt=\"\" if decorative"},"needs":["An image (any aspect ratio; it is cropped to fill)"],"a11y":["One h1 per page: change to h2 if the page already has one","Image needs alt text written for the page","Both actions are links styled as buttons, at least 44 px tall"]}
+-->
+<style>
+.sr-hero{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-hero__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:calc(var(--sr-space,16px)*2.5);align-items:center}
+.sr-hero__eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sr-muted,#4f4b6a);margin:0 0 10px}
+.sr-hero h1{font:700 clamp(2rem,5vw,3.6rem)/1.05 var(--sr-font-display,Georgia,serif);margin:0 0 16px;letter-spacing:-.01em}
+.sr-hero__lede{font-size:1.15rem;line-height:1.55;color:var(--sr-muted,#4f4b6a);margin:0 0 24px;max-width:34em}
+.sr-hero__acts{display:flex;flex-wrap:wrap;gap:12px}
+.sr-hero__acts a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--sr-radius,12px);font-weight:600;text-decoration:none;border:2px solid var(--sr-accent,#5a2ee5)}
+.sr-hero__acts a:first-child{background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff)}
+.sr-hero__acts a+a{color:var(--sr-accent,#5a2ee5)}
+.sr-hero__acts a:focus-visible{outline:3px solid var(--sr-ink,#15132b);outline-offset:3px}
+.sr-hero__img{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff);display:block}
+@media (max-width:760px){.sr-hero__in{grid-template-columns:minmax(0,1fr);padding-top:calc(var(--sr-space,16px)*2)}}
+</style>
+<section class="sr-hero">
+  <div class="sr-hero__in">
+    <div>
+      <p class="sr-hero__eyebrow" data-slot="eyebrow">Landscape studio · Est. 2014</p>
+      <h1 data-slot="headline">Gardens that look better every year</h1>
+      <p class="sr-hero__lede" data-slot="lede">We design and plant low-water gardens for homes and small businesses, then look after them through the first two seasons.</p>
+      <div class="sr-hero__acts">
+        <a href="/contact" data-slot="primary">Book a site visit</a>
+        <a href="/work" data-slot="secondary">See our work</a>
+      </div>
+    </div>
+    <img class="sr-hero__img" data-slot="image" alt="A gravel garden with lavender and grasses in evening light" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23d9e2cf'/%3E%3Cpath d='M0 230 Q100 180 200 215 T400 200 V300 H0Z' fill='%2393a97f'/%3E%3Cpath d='M0 260 Q120 225 230 250 T400 245 V300 H0Z' fill='%236f8a5c'/%3E%3Ccircle cx='310' cy='80' r='34' fill='%23f2d79b'/%3E%3C/svg%3E">
+  </div>
+</section>

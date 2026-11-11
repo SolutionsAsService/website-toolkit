@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D2 Email signup</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part D2 newsletter -->
+<style>
+.sr-news{background:var(--sr-surface,#f0ebff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-news__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 40px;align-items:end}
+.sr-news h2{font:700 1.6rem/1.2 var(--sr-font-display,Georgia,serif);margin:0 0 6px}
+.sr-news p{margin:0;color:var(--sr-muted,#4f4b6a)}
+.sr-news form{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.sr-news label{width:100%;font-weight:600}
+.sr-news input{flex:1 1 200px;font:inherit;min-height:44px;padding:0 12px;border:1.5px solid var(--sr-muted,#4f4b6a);border-radius:calc(var(--sr-radius,12px)*.6);background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b)}
+.sr-news button{font:inherit;font-weight:700;min-height:44px;padding:0 20px;border:0;border-radius:var(--sr-radius,12px);background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);cursor:pointer}
+.sr-news input:focus-visible,.sr-news button:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px}
+@media (max-width:720px){.sr-news__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="sr-news">
+  <div class="sr-news__in">
+    <div><h2>The planting letter</h2><p data-slot="pitch">Four emails a year, one per season: what to plant, what to cut back. Nothing else.</p></div>
+    <form action="https://example.com/your-signup-endpoint" method="post" data-slot="endpoint">
+      <label for="sr-nl-email">Your email</label>
+      <input id="sr-nl-email" name="email" type="email" autocomplete="email" required>
+      <button type="submit" data-slot="button">Sign up</button>
+    </form>
+  </div>
+</section>
+</body>
+</html>

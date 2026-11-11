@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here · website-toolkit</title>
+<meta name="description" content="Paste your first website part into a page, in plain words.">
+<meta property="og:title" content="Start here · website-toolkit">
+<meta property="og:description" content="Paste your first website part into a page, in plain words.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/json" href="registry.json" title="Part registry (JSON)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><use href="favicon.svg#k"/></svg><span>website-toolkit</span></a>
+  <nav aria-label="Main"><a href="index.html">Kit</a><a href="start.html" aria-current="page">Start</a><a href="parts/index.html">Parts</a><a href="sandbox.html">Sandbox</a><a href="templates/index.html">Templates</a><a href="agents.html">For agents</a></nav>
+</header>
+<main id="main">
+
+<section class="pagehead"><p class="kicker">Start here</p><h1>Your first part, step by step</h1><p class="lede">You need a web page you can edit as HTML: a file on your computer, or the HTML view of your site builder. Nothing to install.</p></section>
+<div class="prose">
+<ol class="steps-h">
+<li><h2>Pick a part</h2><p>Open <a href="parts/index.html">Parts</a> and choose one, for example the <a href="parts/contact-form.html">Contact form</a>. Each part page shows it live at phone, tablet and laptop width.</p></li>
+<li><h2>Copy it</h2><p>Press <b>Copy code</b>. You get one block: a <code>&lt;style&gt;</code> part that makes it look right, and the HTML that draws it. Keep them together.</p></li>
+<li><h2>Paste it into your page</h2><p>Paste the block inside your page's <code>&lt;body&gt;</code>, where you want the part to appear. The <code>&lt;body&gt;</code> is the part of the page people see. It already works: every colour and size has a built-in default.</p></li>
+<li><h2>Put in your own words</h2><p>Change the text and links. The places meant for you are marked <code>data-slot</code> in the code, and the part page lists what each one is for. Leave the labels and the words in <code>aria-…</code> and <code>alt</code>: they are what screen readers say.</p></li>
+<li><h2>Give it your colours (optional)</h2><p>Copy the block from <a href="raw/tokens.css">tokens.css</a> into your page's <code>&lt;head&gt;</code>, the hidden top part of the page, inside a <code>&lt;style&gt;</code>. These 15 lines are the <em>tokens</em>: one colour, size or font each. Change one and every part follows. The <a href="sandbox.html">sandbox</a> lets you try colours and copy the result.</p></li>
+</ol>
+<h2>Then</h2>
+<p>Stack several parts into a page in the <a href="sandbox.html">sandbox</a>, or start from a whole <a href="templates/index.html">template</a>: a garden studio in Fremantle, an event in Lagos, an illustrator's portfolio in Spanish, a product launch.</p>
+<p class="muted">Some parts need one more thing, said on their page under <b>Needs</b>. The forms need an address to send to (a form service or your own server); the map needs to reach openstreetmap.org.</p>
+</div>
+</main>
+<footer class="foot">
+  <p>18 parts, 4 templates, 4 themes. Plain HTML and CSS, no framework, MIT licence. <a href="agents.html">Registry for agents</a> · <a href="https://github.com/SolutionsAsService/website-toolkit">Source</a></p>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

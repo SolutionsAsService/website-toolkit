@@ -1,0 +1,36 @@
+# website-toolkit
+
+> Copy-paste website parts in plain HTML and CSS, themed by CSS custom properties. 18 parts in 7 groups, 4 templates, 4 themes. No framework, no build step, no API keys.
+
+How to use a part:
+1. Fetch https://website-toolkit.shadw.app/registry.json and choose parts by id, group and summary.
+2. Fetch each part's raw file (the "raw" path). Drop the <!--sr:part --> header; paste the <style> and markup into the page body.
+3. Put the :root block from https://website-toolkit.shadw.app/raw/tokens.css in the page head (optional; every value has a fallback). Pick a theme from /raw/themes.json to override it.
+4. Fill every element marked data-slot with real content; each part's "slots" says what goes there. Keep the labels and aria attributes.
+5. Honour "needs" (for example, a form endpoint).
+
+## Parts
+- [A1 Navigation bar](https://website-toolkit.shadw.app/raw/parts/nav-bar.html): Brand name plus links. Below 640 px the links fold into a menu that opens without JavaScript (details/summary).
+- [A2 Breadcrumb](https://website-toolkit.shadw.app/raw/parts/breadcrumb.html): Shows where a page sits in the site. The last item is the current page and is not a link.
+- [B1 Split hero](https://website-toolkit.shadw.app/raw/parts/hero-split.html): Headline, one sentence and two actions beside an image. Stacks text-first on narrow screens.
+- [B2 Statement hero](https://website-toolkit.shadw.app/raw/parts/hero-statement.html): One very large sentence and a single action, no image. For a page whose claim is the design.
+- [C1 Feature grid](https://website-toolkit.shadw.app/raw/parts/feature-grid.html): A heading and three to six short features, each a title and one or two sentences. Columns reflow from three to one.
+- [C2 Numbered steps](https://website-toolkit.shadw.app/raw/parts/steps.html): How it works in three to five numbered steps. The numbers come from an ordered list, so reordering renumbers them.
+- [C3 Stat row](https://website-toolkit.shadw.app/raw/parts/stats.html): Three or four large numbers, each with a label and its source. A number without a source line is not allowed by the check.
+- [C4 Testimonial](https://website-toolkit.shadw.app/raw/parts/testimonial.html): One quotation, large, with the person's name and role. Use real words from a real person, with their permission.
+- [C5 Pricing table](https://website-toolkit.shadw.app/raw/parts/pricing.html): Two or three plans side by side, each with a price, what it includes and one action. One plan can be marked as the usual choice.
+- [C6 Questions and answers](https://website-toolkit.shadw.app/raw/parts/faq.html): Questions that open to show their answers, with no JavaScript. Each one can be linked to by its id.
+- [C7 Image gallery](https://website-toolkit.shadw.app/raw/parts/gallery.html): A grid of images with captions. The first image can span two columns. No lightbox and no JavaScript.
+- [C8 Call-to-action band](https://website-toolkit.shadw.app/raw/parts/cta-band.html): A full-width band with one sentence and one action, to close a page.
+- [D1 Contact form](https://website-toolkit.shadw.app/raw/parts/contact-form.html): Name, email, an optional subject and a message, each with a visible label. Posts to any endpoint you set; there is no backend in this repo.
+- [D2 Email signup](https://website-toolkit.shadw.app/raw/parts/newsletter.html): One email field and a button in a band, with a line saying how often you will write.
+- [E1 Map and address](https://website-toolkit.shadw.app/raw/parts/map-embed.html): An OpenStreetMap embed (no API key) beside the address written as text, with a link to open the map. The text works even when the map does not load.
+- [F1 Or divider](https://website-toolkit.shadw.app/raw/parts/divider-or.html): A rule with a word in the middle, for separating two alternatives, such as two ways to sign in.
+- [F2 Section mark](https://website-toolkit.shadw.app/raw/parts/divider-mark.html): A short centered ornament between sections of long text: three spaced marks instead of a full rule.
+- [G1 Footer with social links](https://website-toolkit.shadw.app/raw/parts/footer-social.html): Name, a short line, page links, social links with simple drawn icons and text names, and the year. Icons are fixed at 20 px by width/height attributes, so they stay small even without the stylesheet.
+
+## Templates
+- [Service business](https://website-toolkit.shadw.app/templates/garden-studio.html): A small service business: what it does, how it works, prices, questions, contact and map. Uses the sample copy as written.
+- [Event](https://website-toolkit.shadw.app/templates/lagos-event.html): A one-day event: the statement, the programme as steps, speakers' words, where it is, and a signup.
+- [Portfolio](https://website-toolkit.shadw.app/templates/mexico-portfolio.html): An illustrator's portfolio in Spanish: a statement, the work, a word from a client, and a way to get in touch.
+- [Product launch](https://website-toolkit.shadw.app/templates/product-launch.html): One product, one page: the claim, three features, the numbers with sources, plans and a signup.

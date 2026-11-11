@@ -1,0 +1,25 @@
+<!--sr:part
+{"id":"newsletter","title":"Email signup","category":"forms","summary":"One email field and a button in a band, with a line saying how often you will write.","slots":{"endpoint":"The form action: a URL that accepts a POST of email","pitch":"What people get and how often","button":"Button text"},"needs":["A signup endpoint that accepts POST field email"],"a11y":["The field has a visible label","The promise of frequency is text the user reads before signing up"]}
+-->
+<style>
+.sr-news{background:var(--sr-surface,#f0ebff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-news__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 40px;align-items:end}
+.sr-news h2{font:700 1.6rem/1.2 var(--sr-font-display,Georgia,serif);margin:0 0 6px}
+.sr-news p{margin:0;color:var(--sr-muted,#4f4b6a)}
+.sr-news form{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.sr-news label{width:100%;font-weight:600}
+.sr-news input{flex:1 1 200px;font:inherit;min-height:44px;padding:0 12px;border:1.5px solid var(--sr-muted,#4f4b6a);border-radius:calc(var(--sr-radius,12px)*.6);background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b)}
+.sr-news button{font:inherit;font-weight:700;min-height:44px;padding:0 20px;border:0;border-radius:var(--sr-radius,12px);background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);cursor:pointer}
+.sr-news input:focus-visible,.sr-news button:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px}
+@media (max-width:720px){.sr-news__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="sr-news">
+  <div class="sr-news__in">
+    <div><h2>The planting letter</h2><p data-slot="pitch">Four emails a year, one per season: what to plant, what to cut back. Nothing else.</p></div>
+    <form action="https://example.com/your-signup-endpoint" method="post" data-slot="endpoint">
+      <label for="sr-nl-email">Your email</label>
+      <input id="sr-nl-email" name="email" type="email" autocomplete="email" required>
+      <button type="submit" data-slot="button">Sign up</button>
+    </form>
+  </div>
+</section>

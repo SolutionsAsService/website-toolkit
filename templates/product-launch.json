@@ -1,0 +1,73 @@
+{
+ "id": "product-launch",
+ "title": "Product launch",
+ "summary": "One product, one page: the claim, three features, the numbers with sources, plans and a signup.",
+ "lang": "en",
+ "place": "anywhere",
+ "parts": [
+  {
+   "id": "nav-bar",
+   "replace": {
+    "Harbor &amp; Pine": "Quillpad",
+    "Services": "Features",
+    "About": "Pricing"
+   }
+  },
+  {
+   "id": "hero-split",
+   "replace": {
+    "Landscape studio · Est. 2014": "Notes app · version 1.0",
+    "Gardens that look better every year": "Notes that stay on your device",
+    "We design and plant low-water gardens for homes and small businesses, then look after them through the first two seasons.": "Quillpad keeps every note as a plain text file in a folder you choose. No account, no sync server, no lock-in.",
+    "Book a site visit": "Download for free",
+    "See our work": "Read the docs",
+    "A gravel garden with lavender and grasses in evening light": "The Quillpad editor showing a list of notes beside an open note"
+   }
+  },
+  {
+   "id": "feature-grid",
+   "replace": {
+    "What you get": "Why plain files",
+    "Every garden starts with a plan you can read and a price that does not move.": "Your notes outlive the app.",
+    "<h3>A planting plan</h3><p>Drawn to scale, with every plant named and the reason it is there.</p>": "<h3>Readable anywhere</h3><p>Every note is a .md file any editor opens.</p>",
+    "<h3>Fixed quote</h3><p>One price for design and planting, agreed before we dig.</p>": "<h3>Your sync</h3><p>Put the folder in any sync service you already use.</p>",
+    "<h3>Two seasons of care</h3><p>We come back to water, prune and replace anything that fails.</p>": "<h3>Fast search</h3><p>Ten thousand notes searched in under a tenth of a second on a 2019 laptop.</p>"
+   }
+  },
+  {
+   "id": "cta-band",
+   "replace": {
+    "Autumn planting slots open in August.": "Version 1.0 runs on macOS, Windows and Linux.",
+    "Ask for a visit": "Download Quillpad"
+   }
+  },
+  {
+   "id": "newsletter",
+   "replace": {
+    "The planting letter": "Release notes",
+    "Four emails a year, one per season: what to plant, what to cut back. Nothing else.": "One email per release, about six a year.",
+    "Sign up": "Subscribe"
+   }
+  },
+  {
+   "id": "footer-social",
+   "replace": {
+    "Harbor &amp; Pine": "Quillpad",
+    "Low-water gardens, designed, planted and looked after.": "Notes as plain files."
+   }
+  }
+ ],
+ "ids": {
+  "nav-bar": "top",
+  "feature-grid": "features",
+  "cta-band": "download",
+  "newsletter": "updates"
+ },
+ "links": {
+  "/": "#top",
+  "/services": "#features",
+  "/about": "#download",
+  "/contact": "#updates",
+  "/work": "#features"
+ }
+}

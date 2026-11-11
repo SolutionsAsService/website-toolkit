@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G1 Footer with social links</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part G1 footer-social -->
+<style>
+.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-foot__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:24px}
+.sr-foot b{font:700 1.2rem/1.2 var(--sr-font-display,Georgia,serif);display:block;margin-bottom:6px}
+.sr-foot p{margin:0;opacity:.85;max-width:30ch}
+.sr-foot ul{list-style:none;margin:0;padding:0}
+.sr-foot a{color:inherit;display:inline-flex;align-items:center;gap:8px;min-height:32px}
+.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:2px;border-radius:3px}
+.sr-foot svg{flex:none}
+.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#fffdf8) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
+@media (max-width:640px){.sr-foot__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<footer class="sr-foot">
+  <div class="sr-foot__in">
+    <div><b data-slot="brand">Harbor &amp; Pine</b><p data-slot="line">Low-water gardens, designed, planted and looked after.</p></div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/services" data-slot="link">Services</a></li>
+      <li><a href="/about" data-slot="link">About</a></li>
+      <li><a href="/contact" data-slot="link">Contact</a></li>
+    </ul></nav>
+    <ul aria-label="Social">
+      <li><a href="https://example.com/your-x-profile" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3 L16 17 M16 3 L4 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>X</a></li>
+      <li><a href="https://example.com/your-instagram" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg>Instagram</a></li>
+      <li><a href="https://example.com/your-facebook" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11.2 17 V9.5 H13.3 M9 11.5 H13 M11.2 9.5 Q11.2 6.4 14 6.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Facebook</a></li>
+    </ul>
+    <p class="sr-foot__base" data-slot="year">© 2026 Harbor &amp; Pine</p>
+  </div>
+</footer>
+</body>
+</html>

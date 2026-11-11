@@ -1,0 +1,46 @@
+<!--sr:part
+{"id":"nav-bar","title":"Navigation bar","category":"navigation","summary":"Brand name plus links. Below 640 px the links fold into a menu that opens without JavaScript (details/summary).","slots":{"brand":"Site or business name","brand-href":"Home URL","link":"Each navigation link (text and href); add or remove li items. The links appear twice: once in the wide nav and once in the phone menu; keep both lists the same","current":"aria-current=\"page\" on the link for the current page"},"needs":[],"a11y":["Brand link has a text name","Current page marked with aria-current","Menu is a native details/summary: keyboard and screen-reader operable"]}
+-->
+<style>
+.sr-nav{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);border-bottom:1px solid var(--sr-line,#d6cdf2);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-nav__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:12px var(--sr-space,16px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sr-nav__brand{font:700 1.15rem/1 var(--sr-font-display,Georgia,serif);color:inherit;text-decoration:none;padding:6px 0}
+.sr-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 22px;flex-wrap:wrap}
+.sr-nav a{color:inherit}
+.sr-nav ul a{display:inline-block;padding:8px 2px;text-decoration:none}
+.sr-nav ul a:hover{text-decoration:underline}
+.sr-nav ul a[aria-current="page"]{box-shadow:inset 0 -3px 0 var(--sr-accent,#5a2ee5);font-weight:600}
+.sr-nav a:focus-visible,.sr-nav summary:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px;border-radius:3px}
+.sr-nav details{display:none}
+.sr-nav summary{cursor:pointer;list-style:none;padding:8px 12px;border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);font-weight:600}
+.sr-nav summary::-webkit-details-marker{display:none}
+@media (max-width:640px){
+  .sr-nav__wide{display:none}
+  .sr-nav details{display:block;position:relative}
+  .sr-nav details ul{position:absolute;right:0;top:calc(100% + 6px);flex-direction:column;gap:0;min-width:200px;background:var(--sr-paper,#fffdf8);border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);padding:6px 14px;z-index:5}
+}
+</style>
+<header class="sr-nav">
+  <div class="sr-nav__in">
+    <a class="sr-nav__brand" href="/" data-slot="brand-href"><span data-slot="brand">Harbor &amp; Pine</span></a>
+    <nav class="sr-nav__wide" aria-label="Main">
+      <ul>
+        <li><a href="/" aria-current="page" data-slot="link current">Home</a></li>
+        <li><a href="/services" data-slot="link">Services</a></li>
+        <li><a href="/about" data-slot="link">About</a></li>
+        <li><a href="/contact" data-slot="link">Contact</a></li>
+      </ul>
+    </nav>
+    <details>
+      <summary>Menu</summary>
+      <nav aria-label="Main (menu)">
+        <ul>
+          <li><a href="/" aria-current="page" data-slot="link current">Home</a></li>
+          <li><a href="/services" data-slot="link">Services</a></li>
+          <li><a href="/about" data-slot="link">About</a></li>
+          <li><a href="/contact" data-slot="link">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

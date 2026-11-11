@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>website-toolkit: a kit of website parts for people and agents</title>
+<meta name="description" content="18 copy-paste website parts in plain HTML and CSS, with a sandbox, templates and a JSON registry for agents.">
+<meta property="og:title" content="website-toolkit: a kit of website parts for people and agents">
+<meta property="og:description" content="18 copy-paste website parts in plain HTML and CSS, with a sandbox, templates and a JSON registry for agents.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/json" href="registry.json" title="Part registry (JSON)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><use href="favicon.svg#k"/></svg><span>website-toolkit</span></a>
+  <nav aria-label="Main"><a href="index.html" aria-current="page">Kit</a><a href="start.html">Start</a><a href="parts/index.html">Parts</a><a href="sandbox.html">Sandbox</a><a href="templates/index.html">Templates</a><a href="agents.html">For agents</a></nav>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="kicker">A kit of parts for websites</p>
+    <h1>18 parts. Snap off what you need.</h1>
+    <p class="lede-short">Copy-paste website parts in plain HTML and CSS.</p>
+    <p class="lede">Plain HTML and CSS you can paste into any page. Every part is numbered, themed by 15 tokens, labelled for screen readers, and checked at three widths. People browse it here; agents fetch it from <a href="registry.json">registry.json</a>.</p>
+
+  </div>
+  <div class="sprue" role="group" aria-label="All 18 parts, by group">
+    <div class="sprue-bar">
+      <div class="themes" role="group" aria-label="Theme every part"><button type="button" class="tbtn" data-theme="signal" aria-pressed="true">Signal</button><button type="button" class="tbtn" data-theme="riso" aria-pressed="false">Riso</button><button type="button" class="tbtn" data-theme="cobalt" aria-pressed="false">Cobalt</button><button type="button" class="tbtn" data-theme="mint" aria-pressed="false">Mint</button></div>
+      <div class="bare" role="group" aria-label="View every part" aria-describedby="bare-gloss"><button type="button" data-view="built" aria-pressed="true">Built</button><button type="button" data-view="bare" aria-pressed="false">Bare</button></div>
+      <p class="gloss" id="bare-gloss"><b>Bare</b>: no styles<span class="gloss-long">; every element and every slot (<code>data-slot</code>, a place you fill in) labelled</span><span class="gloss-short">, parts labelled</span>.</p>
+    </div>
+    <div class="runner" data-group="A">
+<span class="runner-tag" aria-hidden="true">A</span>
+<ul class="runner-parts" aria-label="Navigation"><li class="piece">
+<a href="parts/nav-bar.html" class="piece-link"><b>A1</b> Navigation bar</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/nav-bar.html" title="" tabindex="-1" inert data-vw="700" style="width:700px" loading="eager" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/breadcrumb.html" class="piece-link"><b>A2</b> Breadcrumb</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/breadcrumb.html" title="" tabindex="-1" inert data-vw="420" style="width:420px" loading="lazy" scrolling="no"></iframe></span></li></ul>
+</div><div class="runner" data-group="B">
+<span class="runner-tag" aria-hidden="true">B</span>
+<ul class="runner-parts" aria-label="Heroes"><li class="piece">
+<a href="parts/hero-split.html" class="piece-link"><b>B1</b> Split hero</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/hero-split.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="eager" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/hero-statement.html" class="piece-link"><b>B2</b> Statement hero</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/hero-statement.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li></ul>
+</div><div class="runner" data-group="C">
+<span class="runner-tag" aria-hidden="true">C</span>
+<ul class="runner-parts" aria-label="Content"><li class="piece">
+<a href="parts/feature-grid.html" class="piece-link"><b>C1</b> Feature grid</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/feature-grid.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="eager" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/steps.html" class="piece-link"><b>C2</b> Numbered steps</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/steps.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/stats.html" class="piece-link"><b>C3</b> Stat row</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/stats.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/testimonial.html" class="piece-link"><b>C4</b> Testimonial</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/testimonial.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/pricing.html" class="piece-link"><b>C5</b> Pricing table</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/pricing.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/faq.html" class="piece-link"><b>C6</b> Questions and answers</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/faq.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/gallery.html" class="piece-link"><b>C7</b> Image gallery</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/gallery.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/cta-band.html" class="piece-link"><b>C8</b> Call-to-action band</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/cta-band.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li></ul>
+</div><div class="runner" data-group="D">
+<span class="runner-tag" aria-hidden="true">D</span>
+<ul class="runner-parts" aria-label="Forms"><li class="piece">
+<a href="parts/contact-form.html" class="piece-link"><b>D1</b> Contact form</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/contact-form.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="eager" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/newsletter.html" class="piece-link"><b>D2</b> Email signup</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/newsletter.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="lazy" scrolling="no"></iframe></span></li></ul>
+</div><div class="runner" data-group="E">
+<span class="runner-tag" aria-hidden="true">E</span>
+<ul class="runner-parts" aria-label="Places"><li class="piece">
+<a href="parts/map-embed.html" class="piece-link"><b>E1</b> Map and address</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/map-embed.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="eager" scrolling="no"></iframe></span></li></ul>
+</div><div class="runner" data-group="F">
+<span class="runner-tag" aria-hidden="true">F</span>
+<ul class="runner-parts" aria-label="Dividers"><li class="piece">
+<a href="parts/divider-or.html" class="piece-link"><b>F1</b> Or divider</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/divider-or.html" title="" tabindex="-1" inert data-vw="360" style="width:360px" loading="eager" scrolling="no"></iframe></span></li><li class="piece piece--more">
+<a href="parts/divider-mark.html" class="piece-link"><b>F2</b> Section mark</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/divider-mark.html" title="" tabindex="-1" inert data-vw="360" style="width:360px" loading="lazy" scrolling="no"></iframe></span></li></ul>
+</div><div class="runner" data-group="G">
+<span class="runner-tag" aria-hidden="true">G</span>
+<ul class="runner-parts" aria-label="Footers"><li class="piece">
+<a href="parts/footer-social.html" class="piece-link"><b>G1</b> Footer with social links</a>
+<span class="piece-win" aria-hidden="true"><iframe src="preview/footer-social.html" title="" tabindex="-1" inert data-vw="1200" style="width:1200px" loading="eager" scrolling="no"></iframe></span></li></ul>
+</div>
+    <a class="sprue-more" href="parts/index.html">All 18 parts →</a>
+  </div>
+  <ol class="assembly" aria-label="Where to go">
+      <li><a href="start.html"><b>Start here</b> <span>paste your first part, step by step</span></a></li>
+      <li><a href="parts/index.html"><b>Pick a part</b> <span>all 18, with live previews</span></a></li>
+      <li><a href="sandbox.html"><b>Assemble a page</b> <span>in the sandbox and copy it</span></a></li>
+      <li><a href="templates/index.html"><b>Copy a template</b> <span>4 whole pages</span></a></li>
+      <li><a href="agents.html"><b>Fetch as an agent</b> <span>registry.json and llms.txt</span></a></li>
+    </ol>
+</section>
+<section class="why">
+  <div><h2>Paste it and it works</h2><p>No framework, no build, no account. Each part carries its own scoped styles, and every colour and size has a fallback, so a part works on its own and takes on your theme when <a href="raw/tokens.css">tokens.css</a> is present.</p></div>
+  <div><h2>See it bare</h2><p>X-ray strips a part's styles and labels every element and every <code>data-slot</code>, the places you or an agent fill in. The sandbox shows the exact document you copy: what you see is what you paste.</p></div>
+  <div><h2>Checked, with the results published</h2><p>Each part is rendered alone at 375, 768, 1280 px in every theme and checked for overflow, labels, target size, focus and contrast. 18 of 18 pass; each part page says what was checked.</p></div>
+</section>
+</main>
+<footer class="foot">
+  <p>18 parts, 4 templates, 4 themes. Plain HTML and CSS, no framework, MIT licence. <a href="agents.html">Registry for agents</a> · <a href="https://github.com/SolutionsAsService/website-toolkit">Source</a></p>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

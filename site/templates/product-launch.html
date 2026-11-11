@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product launch</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part A1 nav-bar -->
+<style>
+.sr-nav{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);border-bottom:1px solid var(--sr-line,#d6cdf2);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-nav__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:12px var(--sr-space,16px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sr-nav__brand{font:700 1.15rem/1 var(--sr-font-display,Georgia,serif);color:inherit;text-decoration:none;padding:6px 0}
+.sr-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 22px;flex-wrap:wrap}
+.sr-nav a{color:inherit}
+.sr-nav ul a{display:inline-block;padding:8px 2px;text-decoration:none}
+.sr-nav ul a:hover{text-decoration:underline}
+.sr-nav ul a[aria-current="page"]{box-shadow:inset 0 -3px 0 var(--sr-accent,#5a2ee5);font-weight:600}
+.sr-nav a:focus-visible,.sr-nav summary:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px;border-radius:3px}
+.sr-nav details{display:none}
+.sr-nav summary{cursor:pointer;list-style:none;padding:8px 12px;border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);font-weight:600}
+.sr-nav summary::-webkit-details-marker{display:none}
+@media (max-width:640px){
+  .sr-nav__wide{display:none}
+  .sr-nav details{display:block;position:relative}
+  .sr-nav details ul{position:absolute;right:0;top:calc(100% + 6px);flex-direction:column;gap:0;min-width:200px;background:var(--sr-paper,#fffdf8);border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);padding:6px 14px;z-index:5}
+}
+</style>
+<header id="top" class="sr-nav">
+  <div class="sr-nav__in">
+    <a class="sr-nav__brand" href="#top" data-slot="brand-href"><span data-slot="brand">Quillpad</span></a>
+    <nav class="sr-nav__wide" aria-label="Main">
+      <ul>
+        <li><a href="#top" aria-current="page" data-slot="link current">Home</a></li>
+        <li><a href="#features" data-slot="link">Features</a></li>
+        <li><a href="#download" data-slot="link">Pricing</a></li>
+        <li><a href="#updates" data-slot="link">Contact</a></li>
+      </ul>
+    </nav>
+    <details>
+      <summary>Menu</summary>
+      <nav aria-label="Main (menu)">
+        <ul>
+          <li><a href="#top" aria-current="page" data-slot="link current">Home</a></li>
+          <li><a href="#features" data-slot="link">Features</a></li>
+          <li><a href="#download" data-slot="link">Pricing</a></li>
+          <li><a href="#updates" data-slot="link">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+<!-- part B1 hero-split -->
+<style>
+.sr-hero{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-hero__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:calc(var(--sr-space,16px)*2.5);align-items:center}
+.sr-hero__eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sr-muted,#4f4b6a);margin:0 0 10px}
+.sr-hero h1{font:700 clamp(2rem,5vw,3.6rem)/1.05 var(--sr-font-display,Georgia,serif);margin:0 0 16px;letter-spacing:-.01em}
+.sr-hero__lede{font-size:1.15rem;line-height:1.55;color:var(--sr-muted,#4f4b6a);margin:0 0 24px;max-width:34em}
+.sr-hero__acts{display:flex;flex-wrap:wrap;gap:12px}
+.sr-hero__acts a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--sr-radius,12px);font-weight:600;text-decoration:none;border:2px solid var(--sr-accent,#5a2ee5)}
+.sr-hero__acts a:first-child{background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff)}
+.sr-hero__acts a+a{color:var(--sr-accent,#5a2ee5)}
+.sr-hero__acts a:focus-visible{outline:3px solid var(--sr-ink,#15132b);outline-offset:3px}
+.sr-hero__img{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff);display:block}
+@media (max-width:760px){.sr-hero__in{grid-template-columns:minmax(0,1fr);padding-top:calc(var(--sr-space,16px)*2)}}
+</style>
+<section class="sr-hero">
+  <div class="sr-hero__in">
+    <div>
+      <p class="sr-hero__eyebrow" data-slot="eyebrow">Notes app · version 1.0</p>
+      <h1 data-slot="headline">Notes that stay on your device</h1>
+      <p class="sr-hero__lede" data-slot="lede">Quillpad keeps every note as a plain text file in a folder you choose. No account, no sync server, no lock-in.</p>
+      <div class="sr-hero__acts">
+        <a href="#updates" data-slot="primary">Download for free</a>
+        <a href="#features" data-slot="secondary">Read the docs</a>
+      </div>
+    </div>
+    <img class="sr-hero__img" data-slot="image" alt="The Quillpad editor showing a list of notes beside an open note" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23d9e2cf'/%3E%3Cpath d='M0 230 Q100 180 200 215 T400 200 V300 H0Z' fill='%2393a97f'/%3E%3Cpath d='M0 260 Q120 225 230 250 T400 245 V300 H0Z' fill='%236f8a5c'/%3E%3Ccircle cx='310' cy='80' r='34' fill='%23f2d79b'/%3E%3C/svg%3E">
+  </div>
+</section>
+<!-- part C1 feature-grid -->
+<style>
+.sr-feat{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-feat__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-feat h2{font:700 clamp(1.6rem,3vw,2.3rem)/1.15 var(--sr-font-display,Georgia,serif);margin:0 0 8px}
+.sr-feat__intro{color:var(--sr-muted,#4f4b6a);margin:0 0 28px;max-width:var(--sr-measure,65ch)}
+.sr-feat ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px}
+.sr-feat li{border-top:3px solid var(--sr-accent,#5a2ee5);padding-top:14px}
+.sr-feat h3{font-size:1.1rem;margin:0 0 6px}
+.sr-feat p{margin:0;color:var(--sr-muted,#4f4b6a)}
+</style>
+<section id="features" class="sr-feat">
+  <div class="sr-feat__in">
+    <h2 data-slot="heading">Why plain files</h2>
+    <p class="sr-feat__intro" data-slot="intro">Your notes outlive the app.</p>
+    <ul>
+      <li data-slot="feature"><h3>Readable anywhere</h3><p>Every note is a .md file any editor opens.</p></li>
+      <li data-slot="feature"><h3>Your sync</h3><p>Put the folder in any sync service you already use.</p></li>
+      <li data-slot="feature"><h3>Fast search</h3><p>Ten thousand notes searched in under a tenth of a second on a 2019 laptop.</p></li>
+    </ul>
+  </div>
+</section>
+<!-- part C8 cta-band -->
+<style>
+.sr-cta{background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-cta__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px);display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between}
+.sr-cta p{margin:0;font:700 clamp(1.3rem,3vw,2rem)/1.2 var(--sr-font-display,Georgia,serif);max-width:28em}
+.sr-cta a{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:var(--sr-radius,12px);background:var(--sr-accent-ink,#fff);color:var(--sr-accent,#5a2ee5);font-weight:700;text-decoration:none}
+.sr-cta a:focus-visible{outline:3px solid var(--sr-accent-ink,#fff);outline-offset:3px}
+</style>
+<section id="download" class="sr-cta">
+  <div class="sr-cta__in">
+    <p data-slot="line">Version 1.0 runs on macOS, Windows and Linux.</p>
+    <a href="#updates" data-slot="action">Download Quillpad</a>
+  </div>
+</section>
+<!-- part D2 newsletter -->
+<style>
+.sr-news{background:var(--sr-surface,#f0ebff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-news__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 40px;align-items:end}
+.sr-news h2{font:700 1.6rem/1.2 var(--sr-font-display,Georgia,serif);margin:0 0 6px}
+.sr-news p{margin:0;color:var(--sr-muted,#4f4b6a)}
+.sr-news form{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.sr-news label{width:100%;font-weight:600}
+.sr-news input{flex:1 1 200px;font:inherit;min-height:44px;padding:0 12px;border:1.5px solid var(--sr-muted,#4f4b6a);border-radius:calc(var(--sr-radius,12px)*.6);background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b)}
+.sr-news button{font:inherit;font-weight:700;min-height:44px;padding:0 20px;border:0;border-radius:var(--sr-radius,12px);background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);cursor:pointer}
+.sr-news input:focus-visible,.sr-news button:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px}
+@media (max-width:720px){.sr-news__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section id="updates" class="sr-news">
+  <div class="sr-news__in">
+    <div><h2>Release notes</h2><p data-slot="pitch">One email per release, about six a year.</p></div>
+    <form action="https://example.com/your-signup-endpoint" method="post" data-slot="endpoint">
+      <label for="sr-nl-email">Your email</label>
+      <input id="sr-nl-email" name="email" type="email" autocomplete="email" required>
+      <button type="submit" data-slot="button">Subscribe</button>
+    </form>
+  </div>
+</section>
+<!-- part G1 footer-social -->
+<style>
+.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-foot__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:24px}
+.sr-foot b{font:700 1.2rem/1.2 var(--sr-font-display,Georgia,serif);display:block;margin-bottom:6px}
+.sr-foot p{margin:0;opacity:.85;max-width:30ch}
+.sr-foot ul{list-style:none;margin:0;padding:0}
+.sr-foot a{color:inherit;display:inline-flex;align-items:center;gap:8px;min-height:32px}
+.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:2px;border-radius:3px}
+.sr-foot svg{flex:none}
+.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#fffdf8) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
+@media (max-width:640px){.sr-foot__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<footer class="sr-foot">
+  <div class="sr-foot__in">
+    <div><b data-slot="brand">Quillpad</b><p data-slot="line">Notes as plain files.</p></div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="#features" data-slot="link">Services</a></li>
+      <li><a href="#download" data-slot="link">About</a></li>
+      <li><a href="#updates" data-slot="link">Contact</a></li>
+    </ul></nav>
+    <ul aria-label="Social">
+      <li><a href="https://example.com/your-x-profile" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3 L16 17 M16 3 L4 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>X</a></li>
+      <li><a href="https://example.com/your-instagram" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg>Instagram</a></li>
+      <li><a href="https://example.com/your-facebook" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11.2 17 V9.5 H13.3 M9 11.5 H13 M11.2 9.5 Q11.2 6.4 14 6.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Facebook</a></li>
+    </ul>
+    <p class="sr-foot__base" data-slot="year">© 2026 Quillpad</p>
+  </div>
+</footer>
+</body>
+</html>

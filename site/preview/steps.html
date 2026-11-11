@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C2 Numbered steps</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part C2 steps -->
+<style>
+.sr-steps{background:var(--sr-surface,#f0ebff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-steps__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-steps h2{font:700 clamp(1.6rem,3vw,2.3rem)/1.15 var(--sr-font-display,Georgia,serif);margin:0 0 24px}
+.sr-steps ol{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px}
+.sr-steps li{counter-increment:s}
+.sr-steps li::before{content:counter(s,decimal-leading-zero);display:block;font:700 2.4rem/1 var(--sr-font-display,Georgia,serif);color:var(--sr-accent,#5a2ee5);margin-bottom:8px}
+.sr-steps h3{font-size:1.1rem;margin:0 0 4px}
+.sr-steps p{margin:0;color:var(--sr-muted,#4f4b6a)}
+</style>
+<section class="sr-steps">
+  <div class="sr-steps__in">
+    <h2 data-slot="heading">How it works</h2>
+    <ol>
+      <li data-slot="step"><h3>Visit</h3><p>We walk the site with you and measure the light, soil and slope.</p></li>
+      <li data-slot="step"><h3>Plan</h3><p>Within a week you get a drawn plan and a fixed price.</p></li>
+      <li data-slot="step"><h3>Plant</h3><p>Most gardens are planted in two to four days.</p></li>
+      <li data-slot="step"><h3>Care</h3><p>Monthly visits for two seasons, included.</p></li>
+    </ol>
+  </div>
+</section>
+</body>
+</html>

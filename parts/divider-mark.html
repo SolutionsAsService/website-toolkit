@@ -1,0 +1,8 @@
+<!--sr:part
+{"id":"divider-mark","title":"Section mark","category":"dividers","summary":"A short centered ornament between sections of long text: three spaced marks instead of a full rule.","slots":{},"needs":[],"a11y":["An hr, so it is a real thematic break; the marks are CSS"]}
+-->
+<style>
+.sr-mark{border:0;margin:40px auto;text-align:center;height:1.5em;overflow:visible}
+.sr-mark::before{content:"\2022\2003\2022\2003\2022";color:var(--sr-accent,#5a2ee5);font-size:1rem;letter-spacing:.1em}
+</style>
+<hr class="sr-mark">

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F1 Or divider</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part F1 divider-or -->
+<style>
+.sr-or{display:flex;align-items:center;gap:14px;max-width:28rem;margin:24px auto;padding:0 var(--sr-space,16px);font-family:var(--sr-font-body,system-ui,sans-serif);color:var(--sr-muted,#4f4b6a)}
+.sr-or::before,.sr-or::after{content:"";flex:1;border-top:1px solid var(--sr-line,#d6cdf2)}
+.sr-or span{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+</style>
+<div class="sr-or" role="separator" aria-label="or"><span aria-hidden="true" data-slot="word">or</span></div>
+</body>
+</html>

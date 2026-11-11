@@ -1,0 +1,24 @@
+<!--sr:part
+{"id":"feature-grid","title":"Feature grid","category":"content","summary":"A heading and three to six short features, each a title and one or two sentences. Columns reflow from three to one.","slots":{"heading":"Section heading","intro":"One sentence under the heading","feature":"Each li: a short title (h3) and a sentence"},"needs":[],"a11y":["Features are a real list","Heading levels: h2 then h3; adjust to fit the page"]}
+-->
+<style>
+.sr-feat{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-feat__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-feat h2{font:700 clamp(1.6rem,3vw,2.3rem)/1.15 var(--sr-font-display,Georgia,serif);margin:0 0 8px}
+.sr-feat__intro{color:var(--sr-muted,#4f4b6a);margin:0 0 28px;max-width:var(--sr-measure,65ch)}
+.sr-feat ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px}
+.sr-feat li{border-top:3px solid var(--sr-accent,#5a2ee5);padding-top:14px}
+.sr-feat h3{font-size:1.1rem;margin:0 0 6px}
+.sr-feat p{margin:0;color:var(--sr-muted,#4f4b6a)}
+</style>
+<section class="sr-feat">
+  <div class="sr-feat__in">
+    <h2 data-slot="heading">What you get</h2>
+    <p class="sr-feat__intro" data-slot="intro">Every garden starts with a plan you can read and a price that does not move.</p>
+    <ul>
+      <li data-slot="feature"><h3>A planting plan</h3><p>Drawn to scale, with every plant named and the reason it is there.</p></li>
+      <li data-slot="feature"><h3>Fixed quote</h3><p>One price for design and planting, agreed before we dig.</p></li>
+      <li data-slot="feature"><h3>Two seasons of care</h3><p>We come back to water, prune and replace anything that fails.</p></li>
+    </ul>
+  </div>
+</section>

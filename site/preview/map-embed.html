@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E1 Map and address</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part E1 map-embed -->
+<style>
+.sr-map{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-map__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px;align-items:start}
+.sr-map iframe{display:block;width:100%;aspect-ratio:16/10;border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff)}
+.sr-map h2{font:700 1.5rem/1.2 var(--sr-font-display,Georgia,serif);margin:0 0 10px}
+.sr-map address{font-style:normal;margin:0 0 14px}
+.sr-map a{color:var(--sr-accent,#5a2ee5);display:inline-block;padding:6px 0}
+.sr-map a:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px}
+@media (max-width:720px){.sr-map__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="sr-map">
+  <div class="sr-map__in">
+    <iframe title="Map: Harbor &amp; Pine studio, Fremantle" loading="lazy" tabindex="-1" data-slot="bbox marker" src="https://www.openstreetmap.org/export/embed.html?bbox=115.7385%2C-32.0600%2C115.7565%2C-32.0490&amp;layer=mapnik&amp;marker=-32.0545%2C115.7475"></iframe>
+    <div>
+      <h2>Find us</h2>
+      <address data-slot="address">Harbor &amp; Pine<br>14 Market Street<br>Fremantle WA 6160<br>Australia</address>
+      <p style="margin:0 0 8px">Mon–Fri, 8:00–16:00</p>
+      <a href="https://www.openstreetmap.org/?mlat=-32.0545&amp;mlon=115.7475#map=17/-32.0545/115.7475" data-slot="map-link">Open in OpenStreetMap</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

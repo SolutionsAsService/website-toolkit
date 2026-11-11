@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For agents · website-toolkit</title>
+<meta name="description" content="How an AI agent fetches and composes parts: the registry, the raw files, slots and tokens.">
+<meta property="og:title" content="For agents · website-toolkit">
+<meta property="og:description" content="How an AI agent fetches and composes parts: the registry, the raw files, slots and tokens.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/json" href="registry.json" title="Part registry (JSON)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><use href="favicon.svg#k"/></svg><span>website-toolkit</span></a>
+  <nav aria-label="Main"><a href="index.html">Kit</a><a href="start.html">Start</a><a href="parts/index.html">Parts</a><a href="sandbox.html">Sandbox</a><a href="templates/index.html">Templates</a><a href="agents.html" aria-current="page">For agents</a></nav>
+</header>
+<main id="main">
+
+<section class="pagehead"><h1>For agents</h1><p class="lede">Everything on this site is also a file an agent can fetch. One JSON registry lists every part with its slots, needs, access notes, hash and check result.</p></section>
+<div class="prose">
+<h2>Endpoints</h2>
+<table class="data"><tbody>
+<tr><th scope="row"><a href="registry.json"><code>/registry.json</code></a></th><td>Every part and template: id, code, summary, slots, needs, a11y, raw path, sha256, check result.</td></tr>
+<tr><th scope="row"><a href="llms.txt"><code>/llms.txt</code></a></th><td>The same in short Markdown, with the steps below.</td></tr>
+<tr><th scope="row"><a href="raw/tokens.css"><code>/raw/tokens.css</code></a></th><td>The token block. Optional: every part has fallbacks.</td></tr>
+<tr><th scope="row"><a href="raw/themes.json"><code>/raw/themes.json</code></a></th><td>4 token presets.</td></tr>
+<tr><th scope="row"><code>/raw/parts/&lt;id&gt;.html</code></th><td>A part: JSON header, scoped style, markup.</td></tr>
+<tr><th scope="row"><code>/preview/&lt;id&gt;.html</code></th><td>The part alone as a full page: what the check renders.</td></tr>
+</tbody></table>
+<h2>Compose a page</h2>
+<ol>
+<li>Read <code>registry.json</code>; pick parts by <code>group</code> and <code>summary</code>.</li>
+<li>For each, fetch <code>raw</code>, verify <code>sha256</code>, and drop the <code>&lt;!--sr:part … --&gt;</code> header.</li>
+<li>Put the tokens' <code>:root</code> block in the head. To theme, override its variables from <code>themes.json</code>.</li>
+<li>Fill each <code>data-slot</code> element with the user's content. The part's <code>slots</code> object says what each one is.</li>
+<li>Keep labels, <code>aria-*</code> and <code>alt</code>. If you change a heading level, keep the page's order (one <code>h1</code>).</li>
+<li>Meet the part's <code>needs</code>, for example a form endpoint.</li>
+</ol>
+<h2>Example</h2>
+<pre class="code"><code>curl -s https://website-toolkit.shadw.app/registry.json | jq -r '.parts[] | select(.group=="Forms") | .raw'
+curl -s https://website-toolkit.shadw.app/raw/parts/contact-form.html</code></pre>
+<h2>What the check means</h2>
+<p>The check last ran on 2026-11-11. It rendered each part alone at 375, 768, 1280 px in the 4 themes and probed: no sideways scroll; every form field has a label; every stat has a source line; no target smaller than 24 px with another target within 24 px (links inside running text exempt); after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against the surface behind it; text contrast of 4.5:1, or 3:1 for large text, against the nearest opaque background. 18 of 18 parts passed. A part's <code>check.pass</code> in the registry is that result. It is not a guarantee about your page once you change the part.</p>
+</div>
+</main>
+<footer class="foot">
+  <p>18 parts, 4 templates, 4 themes. Plain HTML and CSS, no framework, MIT licence. <a href="agents.html">Registry for agents</a> · <a href="https://github.com/SolutionsAsService/website-toolkit">Source</a></p>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

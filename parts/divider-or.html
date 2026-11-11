@@ -1,0 +1,9 @@
+<!--sr:part
+{"id":"divider-or","title":"Or divider","category":"dividers","summary":"A rule with a word in the middle, for separating two alternatives, such as two ways to sign in.","slots":{"word":"The word, usually 'or'"},"needs":[],"a11y":["role=separator with aria-label, so the word is announced once as a separator","Capitals are letterspaced 0.08em"]}
+-->
+<style>
+.sr-or{display:flex;align-items:center;gap:14px;max-width:28rem;margin:24px auto;padding:0 var(--sr-space,16px);font-family:var(--sr-font-body,system-ui,sans-serif);color:var(--sr-muted,#4f4b6a)}
+.sr-or::before,.sr-or::after{content:"";flex:1;border-top:1px solid var(--sr-line,#d6cdf2)}
+.sr-or span{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+</style>
+<div class="sr-or" role="separator" aria-label="or"><span aria-hidden="true" data-slot="word">or</span></div>

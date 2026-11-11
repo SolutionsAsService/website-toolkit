@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part A1 nav-bar -->
+<style>
+.sr-nav{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);border-bottom:1px solid var(--sr-line,#d6cdf2);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-nav__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:12px var(--sr-space,16px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sr-nav__brand{font:700 1.15rem/1 var(--sr-font-display,Georgia,serif);color:inherit;text-decoration:none;padding:6px 0}
+.sr-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 22px;flex-wrap:wrap}
+.sr-nav a{color:inherit}
+.sr-nav ul a{display:inline-block;padding:8px 2px;text-decoration:none}
+.sr-nav ul a:hover{text-decoration:underline}
+.sr-nav ul a[aria-current="page"]{box-shadow:inset 0 -3px 0 var(--sr-accent,#5a2ee5);font-weight:600}
+.sr-nav a:focus-visible,.sr-nav summary:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px;border-radius:3px}
+.sr-nav details{display:none}
+.sr-nav summary{cursor:pointer;list-style:none;padding:8px 12px;border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);font-weight:600}
+.sr-nav summary::-webkit-details-marker{display:none}
+@media (max-width:640px){
+  .sr-nav__wide{display:none}
+  .sr-nav details{display:block;position:relative}
+  .sr-nav details ul{position:absolute;right:0;top:calc(100% + 6px);flex-direction:column;gap:0;min-width:200px;background:var(--sr-paper,#fffdf8);border:1px solid var(--sr-line,#d6cdf2);border-radius:var(--sr-radius,12px);padding:6px 14px;z-index:5}
+}
+</style>
+<header id="top" class="sr-nav">
+  <div class="sr-nav__in">
+    <a class="sr-nav__brand" href="#top" data-slot="brand-href"><span data-slot="brand">Lucía Herrera</span></a>
+    <nav class="sr-nav__wide" aria-label="Principal">
+      <ul>
+        <li><a href="#top" aria-current="page" data-slot="link current">Inicio</a></li>
+        <li><a href="#trabajo" data-slot="link">Trabajo</a></li>
+        <li><a href="#sobre-mi" data-slot="link">Sobre mí</a></li>
+        <li><a href="#contacto" data-slot="link">Contacto</a></li>
+      </ul>
+    </nav>
+    <details>
+      <summary>Menú</summary>
+      <nav aria-label="Principal (menú)">
+        <ul>
+          <li><a href="#top" aria-current="page" data-slot="link current">Inicio</a></li>
+          <li><a href="#trabajo" data-slot="link">Trabajo</a></li>
+          <li><a href="#sobre-mi" data-slot="link">Sobre mí</a></li>
+          <li><a href="#contacto" data-slot="link">Contacto</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+<!-- part B2 hero-statement -->
+<style>
+.sr-state{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-state__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*4) var(--sr-space,16px)}
+.sr-state h1{font:400 clamp(2.2rem,7vw,5.6rem)/1.02 var(--sr-font-display,Georgia,serif);margin:0 0 28px;letter-spacing:-.02em;max-width:14em}
+.sr-state h1 em{font-style:italic;color:var(--sr-accent-ink,#fff);background:var(--sr-accent,#5a2ee5);padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sr-state__row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center}
+.sr-state a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--sr-radius,12px);background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-weight:700;text-decoration:none}
+.sr-state a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:3px}
+.sr-state p{margin:0;opacity:.85}
+</style>
+<section class="sr-state">
+  <div class="sr-state__in">
+    <h1 data-slot="statement">Ilustración para libros que <em>se leen en voz alta.</em></h1>
+    <div class="sr-state__row">
+      <a href="#contacto" data-slot="action">Escríbeme</a>
+      <p data-slot="note">Ciudad de México · libros infantiles, carteles, editorial</p>
+    </div>
+  </div>
+</section>
+<!-- part C7 gallery -->
+<style>
+.sr-gal{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-gal__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:14px}
+.sr-gal figure{margin:0}
+.sr-gal figure:first-child{grid-column:span 2}
+.sr-gal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff)}
+.sr-gal figcaption{font-size:.9rem;color:var(--sr-muted,#4f4b6a);margin-top:6px}
+@media (max-width:520px){.sr-gal figure:first-child{grid-column:auto}}
+</style>
+<section id="trabajo" class="sr-gal" aria-label="Trabajo reciente">
+  <div class="sr-gal__in">
+    <figure data-slot="item"><img alt="Portada de libro con un jaguar entre hojas" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23cfd9c4'/%3E%3Cpath d='M0 22 Q20 14 40 20 V30 H0Z' fill='%23889e74'/%3E%3C/svg%3E"><figcaption>«El jaguar que no dormía» · 2025</figcaption></figure>
+    <figure data-slot="item"><img loading="lazy" alt="Cartel de un festival con papel picado" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23e3dcef'/%3E%3Cpath d='M0 24 Q20 18 40 23 V30 H0Z' fill='%23a08cc0'/%3E%3C/svg%3E"><figcaption>Cartel, Festival de Coyoacán · 2024</figcaption></figure>
+    <figure data-slot="item"><img loading="lazy" alt="Ilustración editorial de un mercado al amanecer" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23c9d6c9'/%3E%3Cpath d='M0 20 Q20 26 40 18 V30 H0Z' fill='%235f7c62'/%3E%3C/svg%3E"><figcaption>Revista Domingo · 2025</figcaption></figure>
+  </div>
+</section>
+<!-- part C4 testimonial -->
+<style>
+.sr-quote{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-quote figure{max-width:46rem;margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-quote blockquote{margin:0;font:400 clamp(1.4rem,3vw,2rem)/1.35 var(--sr-font-display,Georgia,serif)}
+.sr-quote blockquote p{margin:0}
+.sr-quote blockquote p::before{content:"\201C";color:var(--sr-accent,#5a2ee5);margin-right:.05em}
+.sr-quote blockquote p::after{content:"\201D";color:var(--sr-accent,#5a2ee5)}
+.sr-quote figcaption{margin-top:18px;color:var(--sr-muted,#4f4b6a)}
+.sr-quote figcaption b{color:var(--sr-ink,#15132b)}
+</style>
+<section id="sobre-mi" class="sr-quote">
+  <figure>
+    <blockquote><p data-slot="quote">Entregó antes de la fecha y los niños reconocen a sus personajes en la calle.</p></blockquote>
+    <figcaption><b data-slot="name">Rafael Ortiz</b>, <span data-slot="role">editor, Ediciones Tecolote</span></figcaption>
+  </figure>
+</section>
+<!-- part D1 contact-form -->
+<style>
+.sr-form{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-form__in{max-width:40rem;margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-form h2{font:700 clamp(1.6rem,3vw,2.3rem)/1.15 var(--sr-font-display,Georgia,serif);margin:0 0 6px}
+.sr-form__intro{color:var(--sr-muted,#4f4b6a);margin:0 0 22px}
+.sr-form form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sr-form__f{display:flex;flex-direction:column;gap:6px}
+.sr-form__f--wide{grid-column:1/-1}
+.sr-form label{font-weight:600}
+.sr-form label small{font-weight:400;color:var(--sr-muted,#4f4b6a)}
+.sr-form input,.sr-form textarea{font:inherit;color:inherit;background:var(--sr-paper,#fffdf8);border:1.5px solid var(--sr-muted,#4f4b6a);border-radius:calc(var(--sr-radius,12px)*.6);padding:10px 12px;min-height:44px}
+.sr-form textarea{min-height:140px;resize:vertical}
+.sr-form input:focus-visible,.sr-form textarea:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:1px}
+.sr-form button{grid-column:1/-1;justify-self:start;font:inherit;font-weight:700;min-height:44px;padding:0 24px;border:0;border-radius:var(--sr-radius,12px);background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);cursor:pointer}
+.sr-form button:focus-visible{outline:3px solid var(--sr-ink,#15132b);outline-offset:3px}
+@media (max-width:560px){.sr-form form{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section id="contacto" class="sr-form">
+  <div class="sr-form__in">
+    <h2>Escríbeme</h2>
+    <p class="sr-form__intro" data-slot="intro">Respondo en dos días hábiles.</p>
+    <form action="https://example.com/your-form-endpoint" method="post" data-slot="endpoint">
+      <div class="sr-form__f"><label for="sr-cf-name">Nombre <small>(obligatorio)</small></label><input id="sr-cf-name" name="name" autocomplete="name" required></div>
+      <div class="sr-form__f"><label for="sr-cf-email">Correo <small>(obligatorio)</small></label><input id="sr-cf-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="sr-form__f sr-form__f--wide"><label for="sr-cf-subject">Asunto</label><input id="sr-cf-subject" name="subject"></div>
+      <div class="sr-form__f sr-form__f--wide"><label for="sr-cf-msg">Mensaje <small>(obligatorio)</small></label><textarea id="sr-cf-msg" name="message" required></textarea></div>
+      <button type="submit" data-slot="button">Enviar</button>
+    </form>
+  </div>
+</section>
+<!-- part G1 footer-social -->
+<style>
+.sr-foot{background:var(--sr-ink,#15132b);color:var(--sr-paper,#fffdf8);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-foot__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:24px}
+.sr-foot b{font:700 1.2rem/1.2 var(--sr-font-display,Georgia,serif);display:block;margin-bottom:6px}
+.sr-foot p{margin:0;opacity:.85;max-width:30ch}
+.sr-foot ul{list-style:none;margin:0;padding:0}
+.sr-foot a{color:inherit;display:inline-flex;align-items:center;gap:8px;min-height:32px}
+.sr-foot a:focus-visible{outline:3px solid var(--sr-paper,#fffdf8);outline-offset:2px;border-radius:3px}
+.sr-foot svg{flex:none}
+.sr-foot__base{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--sr-paper,#fffdf8) 25%,transparent);padding-top:14px;font-size:.88rem;opacity:.8}
+@media (max-width:640px){.sr-foot__in{grid-template-columns:minmax(0,1fr)}}
+</style>
+<footer class="sr-foot">
+  <div class="sr-foot__in">
+    <div><b data-slot="brand">Lucía Herrera</b><p data-slot="line">Ilustradora en Ciudad de México.</p></div>
+    <nav aria-label="Pie de página"><ul>
+      <li><a href="#trabajo" data-slot="link">Trabajo</a></li>
+      <li><a href="#sobre-mi" data-slot="link">Sobre mí</a></li>
+      <li><a href="#contacto" data-slot="link">Contacto</a></li>
+    </ul></nav>
+    <ul aria-label="Redes">
+      <li><a href="https://example.com/your-x-profile" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3 L16 17 M16 3 L4 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>X</a></li>
+      <li><a href="https://example.com/your-instagram" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg>Instagram</a></li>
+      <li><a href="https://example.com/your-facebook" data-slot="social"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11.2 17 V9.5 H13.3 M9 11.5 H13 M11.2 9.5 Q11.2 6.4 14 6.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Facebook</a></li>
+    </ul>
+    <p class="sr-foot__base" data-slot="year">© 2026 Lucía Herrera</p>
+  </div>
+</footer>
+</body>
+</html>

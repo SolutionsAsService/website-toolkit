@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C7 Image gallery</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part C7 gallery -->
+<style>
+.sr-gal{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-gal__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:14px}
+.sr-gal figure{margin:0}
+.sr-gal figure:first-child{grid-column:span 2}
+.sr-gal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff)}
+.sr-gal figcaption{font-size:.9rem;color:var(--sr-muted,#4f4b6a);margin-top:6px}
+@media (max-width:520px){.sr-gal figure:first-child{grid-column:auto}}
+</style>
+<section class="sr-gal" aria-label="Recent work">
+  <div class="sr-gal__in">
+    <figure data-slot="item"><img alt="A courtyard of gravel and tall grasses" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23cfd9c4'/%3E%3Cpath d='M0 22 Q20 14 40 20 V30 H0Z' fill='%23889e74'/%3E%3C/svg%3E"><figcaption>Courtyard, Ridge Road · 2025</figcaption></figure>
+    <figure data-slot="item"><img loading="lazy" alt="Lavender edging a brick path" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23e3dcef'/%3E%3Cpath d='M0 24 Q20 18 40 23 V30 H0Z' fill='%23a08cc0'/%3E%3C/svg%3E"><figcaption>Path border · 2024</figcaption></figure>
+    <figure data-slot="item"><img loading="lazy" alt="A shaded bed of ferns under a maple" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23c9d6c9'/%3E%3Cpath d='M0 20 Q20 26 40 18 V30 H0Z' fill='%235f7c62'/%3E%3C/svg%3E"><figcaption>Shade garden · 2025</figcaption></figure>
+  </div>
+</section>
+</body>
+</html>

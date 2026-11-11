@@ -1,0 +1,33 @@
+<!--sr:part
+{"id":"contact-form","title":"Contact form","category":"forms","summary":"Name, email, an optional subject and a message, each with a visible label. Posts to any endpoint you set; there is no backend in this repo.","slots":{"endpoint":"The form action: a URL that accepts a POST of name, email, subject and message (your own server or any form service)","intro":"One sentence above the fields","button":"Button text"},"needs":["A form endpoint that accepts POST fields name, email, subject, message"],"a11y":["Every field has a visible label tied by for/id","Required fields say so in text, not only with an asterisk","autocomplete set on name and email","Fields are at least 44 px tall"]}
+-->
+<style>
+.sr-form{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-form__in{max-width:40rem;margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px)}
+.sr-form h2{font:700 clamp(1.6rem,3vw,2.3rem)/1.15 var(--sr-font-display,Georgia,serif);margin:0 0 6px}
+.sr-form__intro{color:var(--sr-muted,#4f4b6a);margin:0 0 22px}
+.sr-form form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sr-form__f{display:flex;flex-direction:column;gap:6px}
+.sr-form__f--wide{grid-column:1/-1}
+.sr-form label{font-weight:600}
+.sr-form label small{font-weight:400;color:var(--sr-muted,#4f4b6a)}
+.sr-form input,.sr-form textarea{font:inherit;color:inherit;background:var(--sr-paper,#fffdf8);border:1.5px solid var(--sr-muted,#4f4b6a);border-radius:calc(var(--sr-radius,12px)*.6);padding:10px 12px;min-height:44px}
+.sr-form textarea{min-height:140px;resize:vertical}
+.sr-form input:focus-visible,.sr-form textarea:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:1px}
+.sr-form button{grid-column:1/-1;justify-self:start;font:inherit;font-weight:700;min-height:44px;padding:0 24px;border:0;border-radius:var(--sr-radius,12px);background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);cursor:pointer}
+.sr-form button:focus-visible{outline:3px solid var(--sr-ink,#15132b);outline-offset:3px}
+@media (max-width:560px){.sr-form form{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="sr-form">
+  <div class="sr-form__in">
+    <h2>Write to us</h2>
+    <p class="sr-form__intro" data-slot="intro">We answer within two working days.</p>
+    <form action="https://example.com/your-form-endpoint" method="post" data-slot="endpoint">
+      <div class="sr-form__f"><label for="sr-cf-name">Name <small>(required)</small></label><input id="sr-cf-name" name="name" autocomplete="name" required></div>
+      <div class="sr-form__f"><label for="sr-cf-email">Email <small>(required)</small></label><input id="sr-cf-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="sr-form__f sr-form__f--wide"><label for="sr-cf-subject">Subject</label><input id="sr-cf-subject" name="subject"></div>
+      <div class="sr-form__f sr-form__f--wide"><label for="sr-cf-msg">Message <small>(required)</small></label><textarea id="sr-cf-msg" name="message" required></textarea></div>
+      <button type="submit" data-slot="button">Send message</button>
+    </form>
+  </div>
+</section>

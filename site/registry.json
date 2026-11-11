@@ -1,0 +1,603 @@
+{
+  "name": "website-toolkit",
+  "description": "Copy-paste website parts in plain HTML and CSS, themed by CSS custom properties.",
+  "homepage": "https://website-toolkit.shadw.app",
+  "source": "https://github.com/SolutionsAsService/website-toolkit",
+  "licence": "MIT",
+  "format": {
+    "part": "An HTML file: a <!--sr:part {json} --> header, then one <style> block scoped to .sr-<name>, then the markup. Elements to fill carry data-slot=\"<name>\".",
+    "tokens": "/raw/tokens.css",
+    "themes": "/raw/themes.json"
+  },
+  "checks": {
+    "ran": "2026-11-11T16:43:07.512Z",
+    "widths": [
+      375,
+      768,
+      1280
+    ],
+    "themes": [
+      "signal",
+      "riso",
+      "cobalt",
+      "mint"
+    ],
+    "probes": [
+      "no sideways scroll",
+      "every form field has a label",
+      "every stat has a source line",
+      "no target smaller than 24 px with another target within 24 px (links inside running text exempt)",
+      "after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against the surface behind it",
+      "text contrast of 4.5:1, or 3:1 for large text, against the nearest opaque background"
+    ]
+  },
+  "parts": [
+    {
+      "id": "nav-bar",
+      "no": 1,
+      "code": "A1",
+      "title": "Navigation bar",
+      "group": "Navigation",
+      "summary": "Brand name plus links. Below 640 px the links fold into a menu that opens without JavaScript (details/summary).",
+      "slots": {
+        "brand": "Site or business name",
+        "brand-href": "Home URL",
+        "link": "Each navigation link (text and href); add or remove li items. The links appear twice: once in the wide nav and once in the phone menu; keep both lists the same",
+        "current": "aria-current=\"page\" on the link for the current page"
+      },
+      "needs": [],
+      "a11y": [
+        "Brand link has a text name",
+        "Current page marked with aria-current",
+        "Menu is a native details/summary: keyboard and screen-reader operable"
+      ],
+      "raw": "/raw/parts/nav-bar.html",
+      "preview": "/preview/nav-bar.html",
+      "page": "/parts/nav-bar.html",
+      "bytes": 3174,
+      "sha256": "e51bffeea0986a4508a681e3e620df7ec1b35ca29c1c6ea2d48e44c21eccdc7e",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "breadcrumb",
+      "no": 2,
+      "code": "A2",
+      "title": "Breadcrumb",
+      "group": "Navigation",
+      "summary": "Shows where a page sits in the site. The last item is the current page and is not a link.",
+      "slots": {
+        "crumb": "Each ancestor page (text and href)",
+        "current": "The current page title"
+      },
+      "needs": [],
+      "a11y": [
+        "nav with aria-label=\"Breadcrumb\"",
+        "Current item has aria-current=\"page\"",
+        "Separators are CSS, not read aloud"
+      ],
+      "raw": "/raw/parts/breadcrumb.html",
+      "preview": "/preview/breadcrumb.html",
+      "page": "/parts/breadcrumb.html",
+      "bytes": 1316,
+      "sha256": "ae760b062ac821441cacfbc11fc9e8039fd9b86f5f0ef89814cd2f9fdeef6ed8",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "hero-split",
+      "no": 3,
+      "code": "B1",
+      "title": "Split hero",
+      "group": "Heroes",
+      "summary": "Headline, one sentence and two actions beside an image. Stacks text-first on narrow screens.",
+      "slots": {
+        "eyebrow": "Short label above the headline",
+        "headline": "The page's one claim, under about 60 characters",
+        "lede": "One or two sentences",
+        "primary": "Main action (text and href)",
+        "secondary": "Second action",
+        "image": "img src and a real alt text, or alt=\"\" if decorative"
+      },
+      "needs": [
+        "An image (any aspect ratio; it is cropped to fill)"
+      ],
+      "a11y": [
+        "One h1 per page: change to h2 if the page already has one",
+        "Image needs alt text written for the page",
+        "Both actions are links styled as buttons, at least 44 px tall"
+      ],
+      "raw": "/raw/parts/hero-split.html",
+      "preview": "/preview/hero-split.html",
+      "page": "/parts/hero-split.html",
+      "bytes": 3295,
+      "sha256": "f712bac6fb8fd4b70a9700fe6d66279377821664fb702e2e5b1a42ea409abb85",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "hero-statement",
+      "no": 4,
+      "code": "B2",
+      "title": "Statement hero",
+      "group": "Heroes",
+      "summary": "One very large sentence and a single action, no image. For a page whose claim is the design.",
+      "slots": {
+        "statement": "One sentence; the key words can be wrapped in <em>",
+        "action": "One link (text and href)",
+        "note": "Small supporting line"
+      },
+      "needs": [],
+      "a11y": [
+        "One h1 per page",
+        "The focus ring is drawn in the paper colour, because the band is ink",
+        "The large type scales with the viewport but never below 2.2rem"
+      ],
+      "raw": "/raw/parts/hero-statement.html",
+      "preview": "/preview/hero-statement.html",
+      "page": "/parts/hero-statement.html",
+      "bytes": 1859,
+      "sha256": "fc4290f029e65064e65cc9cab076b0590fd8229fd9a70a1534e829d047fa13ba",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "feature-grid",
+      "no": 5,
+      "code": "C1",
+      "title": "Feature grid",
+      "group": "Content",
+      "summary": "A heading and three to six short features, each a title and one or two sentences. Columns reflow from three to one.",
+      "slots": {
+        "heading": "Section heading",
+        "intro": "One sentence under the heading",
+        "feature": "Each li: a short title (h3) and a sentence"
+      },
+      "needs": [],
+      "a11y": [
+        "Features are a real list",
+        "Heading levels: h2 then h3; adjust to fit the page"
+      ],
+      "raw": "/raw/parts/feature-grid.html",
+      "preview": "/preview/feature-grid.html",
+      "page": "/parts/feature-grid.html",
+      "bytes": 1900,
+      "sha256": "313ca2ae130514651814272e2811ac431f557176e21ccdf1ec598f80a03a36ab",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "steps",
+      "no": 6,
+      "code": "C2",
+      "title": "Numbered steps",
+      "group": "Content",
+      "summary": "How it works in three to five numbered steps. The numbers come from an ordered list, so reordering renumbers them.",
+      "slots": {
+        "heading": "Section heading",
+        "step": "Each li: a short title and a sentence"
+      },
+      "needs": [],
+      "a11y": [
+        "Uses ol, so the order is announced",
+        "Numbers are CSS counters, decorative to sight only"
+      ],
+      "raw": "/raw/parts/steps.html",
+      "preview": "/preview/steps.html",
+      "page": "/parts/steps.html",
+      "bytes": 1828,
+      "sha256": "15a0c8d4185da04238304251814b307ab0dfde0d6f671aee87415136fb0cdf53",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "stats",
+      "no": 7,
+      "code": "C3",
+      "title": "Stat row",
+      "group": "Content",
+      "summary": "Three or four large numbers, each with a label and its source. A number without a source line is not allowed by the check.",
+      "slots": {
+        "stat": "Each div: the number (dd), what it counts (dt) and where it comes from (small)"
+      },
+      "needs": [
+        "A source for every number"
+      ],
+      "a11y": [
+        "A description list, so each number is read with its label",
+        "Numbers use tabular figures"
+      ],
+      "raw": "/raw/parts/stats.html",
+      "preview": "/preview/stats.html",
+      "page": "/parts/stats.html",
+      "bytes": 1618,
+      "sha256": "496209564af001b6eee5da693cbcf87710e94e719a29f4ad3aab626d9b464a41",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "testimonial",
+      "no": 8,
+      "code": "C4",
+      "title": "Testimonial",
+      "group": "Content",
+      "summary": "One quotation, large, with the person's name and role. Use real words from a real person, with their permission.",
+      "slots": {
+        "quote": "The quotation, without surrounding quote marks",
+        "name": "Who said it",
+        "role": "Their role or place"
+      },
+      "needs": [
+        "Permission to quote the person"
+      ],
+      "a11y": [
+        "figure/blockquote/figcaption: the source is tied to the quote",
+        "Quote marks are CSS"
+      ],
+      "raw": "/raw/parts/testimonial.html",
+      "preview": "/preview/testimonial.html",
+      "page": "/parts/testimonial.html",
+      "bytes": 1479,
+      "sha256": "655507f6993b30cf01b39252cffd4df3d9553a9452ec5a998a8b929b080c11c6",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "pricing",
+      "no": 9,
+      "code": "C5",
+      "title": "Pricing table",
+      "group": "Content",
+      "summary": "Two or three plans side by side, each with a price, what it includes and one action. One plan can be marked as the usual choice.",
+      "slots": {
+        "plan": "Each article: name, price, period, the list of what is included, and an action link",
+        "featured": "Add class sr-price__plan--main and the 'Most chosen' label to one plan"
+      },
+      "needs": [],
+      "a11y": [
+        "Each plan is an article with its own heading",
+        "The featured label is text, not colour alone",
+        "Prices include the currency and period in text"
+      ],
+      "raw": "/raw/parts/pricing.html",
+      "preview": "/preview/pricing.html",
+      "page": "/parts/pricing.html",
+      "bytes": 3432,
+      "sha256": "c001d4e37fd043664240c26bae8a2b000255e2ebd0ee0764bc6f7dcb7979262f",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "faq",
+      "no": 10,
+      "code": "C6",
+      "title": "Questions and answers",
+      "group": "Content",
+      "summary": "Questions that open to show their answers, with no JavaScript. Each one can be linked to by its id.",
+      "slots": {
+        "heading": "Section heading",
+        "qa": "Each details: the question in summary, the answer in p"
+      },
+      "needs": [],
+      "a11y": [
+        "Native details/summary: operable by keyboard and announced as expandable",
+        "The open/closed marker is drawn with CSS and also changes shape, not only colour"
+      ],
+      "raw": "/raw/parts/faq.html",
+      "preview": "/preview/faq.html",
+      "page": "/parts/faq.html",
+      "bytes": 2254,
+      "sha256": "d18da738cb66527f985bbe6b58802b07d1d7256df9db8d504a8b4127e484b6d4",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "gallery",
+      "no": 11,
+      "code": "C7",
+      "title": "Image gallery",
+      "group": "Content",
+      "summary": "A grid of images with captions. The first image can span two columns. No lightbox and no JavaScript.",
+      "slots": {
+        "item": "Each figure: an img with real alt text and a short figcaption"
+      },
+      "needs": [
+        "Images; the sample ones are inline SVG placeholders"
+      ],
+      "a11y": [
+        "Every image has alt text; captions add what alt does not",
+        "Images are lazy-loaded except the first"
+      ],
+      "raw": "/raw/parts/gallery.html",
+      "preview": "/preview/gallery.html",
+      "page": "/parts/gallery.html",
+      "bytes": 2317,
+      "sha256": "aada91e639c7e9790eff217a21cca316dc8678739aa665884c987436c088589d",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "cta-band",
+      "no": 12,
+      "code": "C8",
+      "title": "Call-to-action band",
+      "group": "Content",
+      "summary": "A full-width band with one sentence and one action, to close a page.",
+      "slots": {
+        "line": "One sentence",
+        "action": "One link (text and href)"
+      },
+      "needs": [],
+      "a11y": [
+        "Text on the accent colour uses the accent-ink token, checked at 4.5:1 for the bundled themes"
+      ],
+      "raw": "/raw/parts/cta-band.html",
+      "preview": "/preview/cta-band.html",
+      "page": "/parts/cta-band.html",
+      "bytes": 1323,
+      "sha256": "c81b01aa6a425269b21b8267b18d00d90d9443cdfb409b64638e7c66268a7035",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "contact-form",
+      "no": 13,
+      "code": "D1",
+      "title": "Contact form",
+      "group": "Forms",
+      "summary": "Name, email, an optional subject and a message, each with a visible label. Posts to any endpoint you set; there is no backend in this repo.",
+      "slots": {
+        "endpoint": "The form action: a URL that accepts a POST of name, email, subject and message (your own server or any form service)",
+        "intro": "One sentence above the fields",
+        "button": "Button text"
+      },
+      "needs": [
+        "A form endpoint that accepts POST fields name, email, subject, message"
+      ],
+      "a11y": [
+        "Every field has a visible label tied by for/id",
+        "Required fields say so in text, not only with an asterisk",
+        "autocomplete set on name and email",
+        "Fields are at least 44 px tall"
+      ],
+      "raw": "/raw/parts/contact-form.html",
+      "preview": "/preview/contact-form.html",
+      "page": "/parts/contact-form.html",
+      "bytes": 3250,
+      "sha256": "701eba2fbd86b1d98146ffa57135890029308314f2b6ed91442178daf20f0a0d",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "newsletter",
+      "no": 14,
+      "code": "D2",
+      "title": "Email signup",
+      "group": "Forms",
+      "summary": "One email field and a button in a band, with a line saying how often you will write.",
+      "slots": {
+        "endpoint": "The form action: a URL that accepts a POST of email",
+        "pitch": "What people get and how often",
+        "button": "Button text"
+      },
+      "needs": [
+        "A signup endpoint that accepts POST field email"
+      ],
+      "a11y": [
+        "The field has a visible label",
+        "The promise of frequency is text the user reads before signing up"
+      ],
+      "raw": "/raw/parts/newsletter.html",
+      "preview": "/preview/newsletter.html",
+      "page": "/parts/newsletter.html",
+      "bytes": 2249,
+      "sha256": "8ad9ff19ac0ce1b5a3001b3c5b6eca5433ae3e3b17c69b94a0f7e6af506d5f26",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "map-embed",
+      "no": 15,
+      "code": "E1",
+      "title": "Map and address",
+      "group": "Places",
+      "summary": "An OpenStreetMap embed (no API key) beside the address written as text, with a link to open the map. The text works even when the map does not load.",
+      "slots": {
+        "bbox": "In the iframe src: the box around your place as west,south,east,north longitudes and latitudes",
+        "marker": "In the iframe src: marker=lat,lon",
+        "address": "The address as text",
+        "map-link": "A link to the same place on openstreetmap.org"
+      },
+      "needs": [
+        "Network access to openstreetmap.org for the map tiles; the address text works without it"
+      ],
+      "a11y": [
+        "The iframe has a title and is out of the tab order (a focused frame cannot show a focus ring); the visible Open in OpenStreetMap link is its keyboard equivalent and does more than the embed",
+        "The address is real text in an address element, so it can be read, copied and used without the map"
+      ],
+      "raw": "/raw/parts/map-embed.html",
+      "preview": "/preview/map-embed.html",
+      "page": "/parts/map-embed.html",
+      "bytes": 2543,
+      "sha256": "cff0dcf945e9159fddf1cd6fdb222a2c37dfb0e3bffd7531ee4e6cfbadc32bdc",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "divider-or",
+      "no": 16,
+      "code": "F1",
+      "title": "Or divider",
+      "group": "Dividers",
+      "summary": "A rule with a word in the middle, for separating two alternatives, such as two ways to sign in.",
+      "slots": {
+        "word": "The word, usually 'or'"
+      },
+      "needs": [],
+      "a11y": [
+        "role=separator with aria-label, so the word is announced once as a separator",
+        "Capitals are letterspaced 0.08em"
+      ],
+      "raw": "/raw/parts/divider-or.html",
+      "preview": "/preview/divider-or.html",
+      "page": "/parts/divider-or.html",
+      "bytes": 869,
+      "sha256": "5a98283c37e1d8800727f30fcd38de2540ed54994162f01288d28137576c2ccd",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "divider-mark",
+      "no": 17,
+      "code": "F2",
+      "title": "Section mark",
+      "group": "Dividers",
+      "summary": "A short centered ornament between sections of long text: three spaced marks instead of a full rule.",
+      "slots": {},
+      "needs": [],
+      "a11y": [
+        "An hr, so it is a real thematic break; the marks are CSS"
+      ],
+      "raw": "/raw/parts/divider-mark.html",
+      "preview": "/preview/divider-mark.html",
+      "page": "/parts/divider-mark.html",
+      "bytes": 527,
+      "sha256": "b7e44315d79d20fcbdd3e44d9f0de0886e0772cb3bcea1438a0364adb4301d5f",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "footer-social",
+      "no": 18,
+      "code": "G1",
+      "title": "Footer with social links",
+      "group": "Footers",
+      "summary": "Name, a short line, page links, social links with simple drawn icons and text names, and the year. Icons are fixed at 20 px by width/height attributes, so they stay small even without the stylesheet.",
+      "slots": {
+        "brand": "Site or business name",
+        "line": "One sentence about the site",
+        "link": "Each page link",
+        "social": "Each social link: href to your profile and the network's name in text",
+        "year": "Copyright year and owner"
+      },
+      "needs": [],
+      "a11y": [
+        "Social links have visible text names; icons are aria-hidden",
+        "Icons are generic drawn marks, not official brand logos; swap in official assets if your brand rules require them"
+      ],
+      "raw": "/raw/parts/footer-social.html",
+      "preview": "/preview/footer-social.html",
+      "page": "/parts/footer-social.html",
+      "bytes": 3374,
+      "sha256": "312f71faac64591411625ca0b60fe14ac7248967820c76cdf569a4c77d5bb826",
+      "check": {
+        "pass": true,
+        "failures": []
+      }
+    }
+  ],
+  "templates": [
+    {
+      "id": "garden-studio",
+      "title": "Service business",
+      "summary": "A small service business: what it does, how it works, prices, questions, contact and map. Uses the sample copy as written.",
+      "lang": "en",
+      "page": "/templates/garden-studio.html",
+      "parts": [
+        "nav-bar",
+        "hero-split",
+        "feature-grid",
+        "steps",
+        "stats",
+        "testimonial",
+        "pricing",
+        "faq",
+        "cta-band",
+        "contact-form",
+        "map-embed",
+        "footer-social"
+      ]
+    },
+    {
+      "id": "lagos-event",
+      "title": "Event",
+      "summary": "A one-day event: the statement, the programme as steps, speakers' words, where it is, and a signup.",
+      "lang": "en",
+      "page": "/templates/lagos-event.html",
+      "parts": [
+        "nav-bar",
+        "hero-statement",
+        "steps",
+        "testimonial",
+        "divider-mark",
+        "map-embed",
+        "newsletter",
+        "footer-social"
+      ]
+    },
+    {
+      "id": "mexico-portfolio",
+      "title": "Portfolio",
+      "summary": "An illustrator's portfolio in Spanish: a statement, the work, a word from a client, and a way to get in touch.",
+      "lang": "es",
+      "page": "/templates/mexico-portfolio.html",
+      "parts": [
+        "nav-bar",
+        "hero-statement",
+        "gallery",
+        "testimonial",
+        "contact-form",
+        "footer-social"
+      ]
+    },
+    {
+      "id": "product-launch",
+      "title": "Product launch",
+      "summary": "One product, one page: the claim, three features, the numbers with sources, plans and a signup.",
+      "lang": "en",
+      "page": "/templates/product-launch.html",
+      "parts": [
+        "nav-bar",
+        "hero-split",
+        "feature-grid",
+        "cta-band",
+        "newsletter",
+        "footer-social"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B1 Split hero</title>
+<style>
+/* sr:tokens */
+/* website-toolkit tokens. Every part reads only these variables, so swapping this block re-themes every part.
+   Copy this file (or the :root block) into any page that uses a part. Default theme: Signal. */
+:root {
+  --sr-ink: #15132b;          /* body text */
+  --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
+  --sr-paper: #fffdf8;        /* page background */
+  --sr-surface: #f0ebff;      /* cards, panels */
+  --sr-line: #d6cdf2;         /* hairlines, borders */
+  --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
+  --sr-accent-ink: #ffffff;   /* text on the accent */
+  --sr-radius: 12px;
+  --sr-space: 16px;           /* base spacing unit */
+  --sr-max: 1120px;           /* content width */
+  --sr-measure: 65ch;         /* longest comfortable line of running text */
+  --sr-leading: 1.55;         /* body line-height */
+  --sr-font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sr-font-display: Georgia, "Times New Roman", serif;
+  --sr-font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+/* /sr:tokens */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+<!-- part B1 hero-split -->
+<style>
+.sr-hero{background:var(--sr-paper,#fffdf8);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-hero__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:calc(var(--sr-space,16px)*2.5);align-items:center}
+.sr-hero__eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sr-muted,#4f4b6a);margin:0 0 10px}
+.sr-hero h1{font:700 clamp(2rem,5vw,3.6rem)/1.05 var(--sr-font-display,Georgia,serif);margin:0 0 16px;letter-spacing:-.01em}
+.sr-hero__lede{font-size:1.15rem;line-height:1.55;color:var(--sr-muted,#4f4b6a);margin:0 0 24px;max-width:34em}
+.sr-hero__acts{display:flex;flex-wrap:wrap;gap:12px}
+.sr-hero__acts a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--sr-radius,12px);font-weight:600;text-decoration:none;border:2px solid var(--sr-accent,#5a2ee5)}
+.sr-hero__acts a:first-child{background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff)}
+.sr-hero__acts a+a{color:var(--sr-accent,#5a2ee5)}
+.sr-hero__acts a:focus-visible{outline:3px solid var(--sr-ink,#15132b);outline-offset:3px}
+.sr-hero__img{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--sr-radius,12px);background:var(--sr-surface,#f0ebff);display:block}
+@media (max-width:760px){.sr-hero__in{grid-template-columns:minmax(0,1fr);padding-top:calc(var(--sr-space,16px)*2)}}
+</style>
+<section class="sr-hero">
+  <div class="sr-hero__in">
+    <div>
+      <p class="sr-hero__eyebrow" data-slot="eyebrow">Landscape studio · Est. 2014</p>
+      <h1 data-slot="headline">Gardens that look better every year</h1>
+      <p class="sr-hero__lede" data-slot="lede">We design and plant low-water gardens for homes and small businesses, then look after them through the first two seasons.</p>
+      <div class="sr-hero__acts">
+        <a href="/contact" data-slot="primary">Book a site visit</a>
+        <a href="/work" data-slot="secondary">See our work</a>
+      </div>
+    </div>
+    <img class="sr-hero__img" data-slot="image" alt="A gravel garden with lavender and grasses in evening light" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23d9e2cf'/%3E%3Cpath d='M0 230 Q100 180 200 215 T400 200 V300 H0Z' fill='%2393a97f'/%3E%3Cpath d='M0 260 Q120 225 230 250 T400 245 V300 H0Z' fill='%236f8a5c'/%3E%3Ccircle cx='310' cy='80' r='34' fill='%23f2d79b'/%3E%3C/svg%3E">
+  </div>
+</section>
+</body>
+</html>

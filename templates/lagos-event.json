@@ -1,0 +1,84 @@
+{
+ "id": "lagos-event",
+ "title": "Event",
+ "summary": "A one-day event: the statement, the programme as steps, speakers' words, where it is, and a signup.",
+ "lang": "en",
+ "place": "Lagos, Nigeria",
+ "parts": [
+  {
+   "id": "nav-bar",
+   "replace": {
+    "Harbor &amp; Pine": "Build Lagos",
+    "Services": "Programme",
+    "About": "Voices"
+   }
+  },
+  {
+   "id": "hero-statement",
+   "replace": {
+    "We build websites people <em>finish reading.</em>": "One day for people who <em>ship software in Lagos.</em>",
+    "Start a project": "Get a free ticket",
+    "Two-week builds · fixed price · plain HTML you own": "Saturday 6 June 2026 · Yaba · 400 seats"
+   }
+  },
+  {
+   "id": "steps",
+   "replace": {
+    "How it works": "The day",
+    "<h3>Visit</h3><p>We walk the site with you and measure the light, soil and slope.</p>": "<h3>09:00 Doors</h3><p>Breakfast, badges and the hiring wall.</p>",
+    "<h3>Plan</h3><p>Within a week you get a drawn plan and a fixed price.</p>": "<h3>10:00 Talks</h3><p>Six talks of 20 minutes on payments, maps and offline-first apps.</p>",
+    "<h3>Plant</h3><p>Most gardens are planted in two to four days.</p>": "<h3>14:00 Workshops</h3><p>Three rooms, hands-on, laptops required.</p>",
+    "<h3>Care</h3><p>Monthly visits for two seasons, included.</p>": "<h3>18:00 Demos</h3><p>Ten teams, three minutes each, one jury.</p>"
+   }
+  },
+  {
+   "id": "testimonial",
+   "replace": {
+    "The garden we were sold was the garden we got, and it is better in the third summer than the first.": "I hired two engineers from the demo hour last year. Both are still with us.",
+    "Adaeze Okafor": "Tunde Bakare",
+    "homeowner, Ridge Road": "CTO, a Lagos logistics startup"
+   }
+  },
+  {
+   "id": "divider-mark"
+  },
+  {
+   "id": "map-embed",
+   "replace": {
+    "Map: Harbor &amp; Pine studio, Fremantle": "Map: Build Lagos venue, Yaba",
+    "bbox=115.7385%2C-32.0600%2C115.7565%2C-32.0490&amp;layer=mapnik&amp;marker=-32.0545%2C115.7475": "bbox=3.3700%2C6.5030%2C3.3880%2C6.5150&amp;layer=mapnik&amp;marker=6.5090%2C3.3790",
+    "Harbor &amp; Pine<br>14 Market Street<br>Fremantle WA 6160<br>Australia": "Build Lagos<br>Herbert Macaulay Way<br>Yaba, Lagos<br>Nigeria",
+    "Mon–Fri, 8:00–16:00": "Saturday 6 June, 09:00–20:00",
+    "?mlat=-32.0545&amp;mlon=115.7475#map=17/-32.0545/115.7475": "?mlat=6.5090&amp;mlon=3.3790#map=17/6.5090/3.3790"
+   }
+  },
+  {
+   "id": "newsletter",
+   "replace": {
+    "The planting letter": "Ticket alerts",
+    "Four emails a year, one per season: what to plant, what to cut back. Nothing else.": "One email when tickets open, one the week before. Nothing else.",
+    "Sign up": "Tell me"
+   }
+  },
+  {
+   "id": "footer-social",
+   "replace": {
+    "Harbor &amp; Pine": "Build Lagos",
+    "Low-water gardens, designed, planted and looked after.": "A yearly day of talks and workshops for Lagos developers."
+   }
+  }
+ ],
+ "ids": {
+  "nav-bar": "top",
+  "steps": "programme",
+  "testimonial": "voices",
+  "map-embed": "venue",
+  "newsletter": "tickets"
+ },
+ "links": {
+  "/": "#top",
+  "/services": "#programme",
+  "/about": "#voices",
+  "/contact": "#tickets"
+ }
+}

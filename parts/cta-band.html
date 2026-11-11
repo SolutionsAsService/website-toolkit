@@ -1,0 +1,16 @@
+<!--sr:part
+{"id":"cta-band","title":"Call-to-action band","category":"content","summary":"A full-width band with one sentence and one action, to close a page.","slots":{"line":"One sentence","action":"One link (text and href)"},"needs":[],"a11y":["Text on the accent colour uses the accent-ink token, checked at 4.5:1 for the bundled themes"]}
+-->
+<style>
+.sr-cta{background:var(--sr-accent,#5a2ee5);color:var(--sr-accent-ink,#fff);font-family:var(--sr-font-body,system-ui,sans-serif)}
+.sr-cta__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*2.5) var(--sr-space,16px);display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between}
+.sr-cta p{margin:0;font:700 clamp(1.3rem,3vw,2rem)/1.2 var(--sr-font-display,Georgia,serif);max-width:28em}
+.sr-cta a{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:var(--sr-radius,12px);background:var(--sr-accent-ink,#fff);color:var(--sr-accent,#5a2ee5);font-weight:700;text-decoration:none}
+.sr-cta a:focus-visible{outline:3px solid var(--sr-accent-ink,#fff);outline-offset:3px}
+</style>
+<section class="sr-cta">
+  <div class="sr-cta__in">
+    <p data-slot="line">Autumn planting slots open in August.</p>
+    <a href="/contact" data-slot="action">Ask for a visit</a>
+  </div>
+</section>
