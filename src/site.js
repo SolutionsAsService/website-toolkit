@@ -1,6 +1,20 @@
 // website-toolkit runtime: scale miniatures, theme the sprue, and drive part-page previews (width, theme, X-ray, copy).
 (() => {
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  // Calm view: remembered per browser; the page renders fine without storage
+  let calm = false;
+  try { calm = localStorage.getItem('wt-calm') === '1'; } catch (e) { calm = false; }
+  if (calm) document.documentElement.dataset.calm = '';
+  const calmBtn = document.querySelector('.calm');
+  if (calmBtn) {
+    calmBtn.setAttribute('aria-pressed', String(calm));
+    calmBtn.addEventListener('click', () => {
+      calm = !calm;
+      calmBtn.setAttribute('aria-pressed', String(calm));
+      if (calm) document.documentElement.dataset.calm = ''; else delete document.documentElement.dataset.calm;
+      try { localStorage.setItem('wt-calm', calm ? '1' : '0'); } catch (e) { /* no storage: this page only */ }
+    });
+  }
   const dataEl = document.getElementById('sr-data');
   const DATA = dataEl ? JSON.parse(dataEl.textContent) : null;
 
@@ -19,7 +33,7 @@
 ${tokens}
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#ebe3ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>

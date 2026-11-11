@@ -10,6 +10,7 @@
   --volt: #e4ff3a;       /* acid yellow: the frame, runners, pressed controls, focus on dark, the first door; ink on it is 16.7:1 */
   --on-ground: #dfe2ff;  /* secondary text on ultramarine, 6.7:1 */
   --g-a: #ff6a52; --g-b: #ff86dc; --g-c: #3fe0a6; --g-d: #67cdff; --g-e: #ffad47; --g-f: #c2b0ff; --g-g: #ffffff;
+  --brand: #2330d6;     /* buttons, kickers, chips, numerals: stays ultramarine even in calm mode */
   --sprue: var(--volt);
   --sprue-deep: #b9d300;
   --focus: #0d0f2b;
@@ -230,15 +231,15 @@ table.data { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 .top { background: var(--ground); color: #fff; border-bottom: 0; }
 .top nav a[aria-current="page"] { box-shadow: inset 0 -4px 0 var(--volt); }
 .top :focus-visible { outline-color: var(--volt); }
-.kicker { color: var(--ground); }
+.kicker { color: var(--brand); }
 .foot { background: var(--ink); color: #c9cbe8; border-top: 0; }
 .foot a { color: var(--volt); }
-.btn { background: var(--ground); color: #fff; border-color: var(--ground); }
+.btn { background: var(--brand); color: #fff; border-color: var(--brand); }
 .btn.ghost { background: var(--paper); color: var(--ink); border-color: var(--ink); }
 .seg button[aria-pressed="true"], .tbtn[aria-pressed="true"] { background: var(--volt); color: var(--ink); }
-.pcode { background: var(--ground); color: #fff; }
-.pcode.big { background: var(--volt); color: var(--ink); box-shadow: 3px 3px 0 var(--ground); }
-.pcards a:hover, .tcard:hover { box-shadow: 5px 5px 0 var(--ground); }
+.pcode { background: var(--brand); color: #fff; }
+.pcode.big { background: var(--volt); color: var(--ink); box-shadow: 3px 3px 0 var(--brand); }
+.pcards a:hover, .tcard:hover { box-shadow: 5px 5px 0 var(--brand); }
 .code pre, pre.code, #sb-code { background: #12154a; color: #eceeff; }
 .code .copy { background: var(--volt); border-color: var(--volt); color: var(--ink); }
 .chk.ok { border-color: #0f8a5f; } .chk.bad { border-color: #c4271c; }
@@ -253,7 +254,7 @@ table.data { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 .assembly li { border-bottom-color: rgba(255,255,255,.28); }
 .assembly a::before { background: var(--volt); color: var(--ink); }
 .assembly a span { color: var(--on-ground); }
-.why { border-top-color: var(--ground); }
+.why { border-top-color: var(--brand); }
 
 /* the frame */
 .sprue { background: var(--ground-deep); border-color: var(--volt); box-shadow: inset 0 0 0 2px var(--sprue-deep), 0 10px 0 -2px var(--ink); }
@@ -262,7 +263,8 @@ table.data { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 .sprue-bar .gloss code { color: var(--volt); }
 .themes::before, .bare::before { color: var(--volt); }
 .sprue .tbtn, .bare button { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
-.sprue .tbtn[aria-pressed="true"], .bare button[aria-pressed="true"] { background: var(--volt); color: var(--ink); border-color: var(--volt); }
+.sprue .tbtn[aria-pressed="true"], .bare button[aria-pressed="true"] { background: #fff; color: var(--ink); border-color: #fff; }
+.sprue .tbtn[aria-pressed="true"]::before, .bare button[aria-pressed="true"]::before { content: "\2713\00a0"; }
 .runner::before, .piece::before { background: var(--volt); }
 .runner-tag { color: var(--ink); }
 .runner[data-group="A"] { --g: var(--g-a); } .runner[data-group="B"] { --g: var(--g-b); } .runner[data-group="C"] { --g: var(--g-c); }
@@ -287,9 +289,9 @@ table.data { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 .pgroup[data-group="D"] .gl { background: var(--g-d); } .pgroup[data-group="E"] .gl { background: var(--g-e); } .pgroup[data-group="F"] .gl { background: var(--g-f); } .pgroup[data-group="G"] .gl { background: var(--g-g); }
 /* focus on dark surfaces is acid yellow (Cairo F4/F5, Mace F1, F5) */
 .foot :focus-visible, .code .copy:focus-visible, .skip:focus-visible { outline-color: var(--volt); }
-.code pre:focus-visible, #sb-code:focus-visible { outline-color: var(--ground); }
+.code pre:focus-visible, #sb-code:focus-visible { outline-color: var(--brand); }
 /* step numerals in the ground colour (Krug F4: #b9d300 was 1.57:1) */
-.steps-h li::marker { color: var(--ground); }
+.steps-h li::marker { color: var(--brand); }
 /* the first door is the one filled door (Krug F2/F3) */
 .hero .assembly li:first-child a { background: var(--volt); color: var(--ink); border-radius: 8px; padding-left: 10px; padding-right: 10px; margin: 6px 0; }
 .hero .assembly li:first-child a span { color: var(--ink); }
@@ -306,16 +308,64 @@ html[data-kit="cobalt"] { --ground: #101a5c; --ground-deep: #0a1140; --on-ground
 html[data-kit="mint"] { --ground: #006b48; --ground-deep: #00452f; --on-ground: #dcfff1; }
 .hero, .top, .sprue { transition: background-color .25s, box-shadow .25s; }
 @media (prefers-reduced-motion: reduce) { .hero, .top, .sprue { transition: none; } }
-/* a calmer ground for people who ask their system for more contrast or less colour (Holmes F3) */
+/* Calm: a pale ground, ink type and no saturated fills. Applied by the system's prefers-contrast: more, or by the
+   Calm switch on the landing (remembered per browser). Buttons, chips and numerals keep --brand. */
 @media (prefers-contrast: more) {
-  :root, html[data-kit] { --ground: #f7f5ff; --ground-deep: #ebe6ff; --on-ground: #2b2e4a; }
-  .hero, .top { color: var(--ink); }
-  .hero a, .top a, .hero .kicker, .themes::before, .bare::before, .sprue-bar .gloss b { color: var(--ink); }
-  .sprue .tbtn, .bare button { color: var(--ink); border-color: var(--ink); }
+  :root, html[data-kit] {
+  --ground: #f3f0fb; --ground-deep: #e6e1f5; --on-ground: #2b2e4a;
+  --g-a: #f3f0fb; --g-b: #f3f0fb; --g-c: #f3f0fb; --g-d: #f3f0fb; --g-e: #f3f0fb; --g-f: #f3f0fb; --g-g: #f3f0fb;
+  }
+.hero, .top { color: var(--ink); }
+.hero a, .top a, .hero .kicker, .themes::before, .bare::before, .sprue-bar .gloss b, .sprue-bar .gloss code, .assembly a span { color: var(--ink); }
+.hero .lede, .hero .lede-short, .sprue-bar .gloss { color: #2b2e4a; }
+.sprue .tbtn, .bare button, .sprue-bar .calm { color: var(--ink); border-color: var(--ink); background: #fff; }
+[aria-pressed="true"] { border-color: var(--ink) !important; box-shadow: inset 0 0 0 2px var(--ink); }
+.top nav a[aria-current="page"] { box-shadow: inset 0 -4px 0 var(--ink); }
+.hero .assembly li:first-child a { background: #fff; box-shadow: inset 0 0 0 2px var(--ink); }
+.hero .assembly li:first-child a span { color: var(--ink); }
+.assembly a::before, .hero .assembly li:first-child a::before { background: var(--ink); color: #fff; }
+.sprue-more { color: var(--ink) !important; border-color: var(--ink); }
+.top :focus-visible, .hero :focus-visible, .hero .piece:focus-within { outline-color: var(--ink); box-shadow: 0 0 0 2px #fff; }
+.brand svg { box-shadow: inset 0 0 0 1px var(--ink); }
+.foot a { color: #fff; }
+.sprue { border-color: var(--ink); box-shadow: none; }
+.runner::before, .piece::before { background: var(--ink); }
+.hero .assembly li:first-child a:focus-visible { outline-color: var(--ink); }
+.top nav a:focus-visible, .top .brand:focus-visible { outline-color: var(--ink); }
+.assembly { border-top-color: var(--ink); }
 }
+html[data-calm] {
+  --ground: #f3f0fb; --ground-deep: #e6e1f5; --on-ground: #2b2e4a;
+  --g-a: #f3f0fb; --g-b: #f3f0fb; --g-c: #f3f0fb; --g-d: #f3f0fb; --g-e: #f3f0fb; --g-f: #f3f0fb; --g-g: #f3f0fb;
+}
+html[data-calm] .hero, html[data-calm] .top { color: var(--ink); }
+html[data-calm] .hero a, html[data-calm] .top a, html[data-calm] .hero .kicker, html[data-calm] .themes::before, html[data-calm] .bare::before, html[data-calm] .sprue-bar .gloss b, html[data-calm] .sprue-bar .gloss code, html[data-calm] .assembly a span { color: var(--ink); }
+html[data-calm] .hero .lede, html[data-calm] .hero .lede-short, html[data-calm] .sprue-bar .gloss { color: #2b2e4a; }
+html[data-calm] .sprue .tbtn, html[data-calm] .bare button, html[data-calm] .sprue-bar .calm { color: var(--ink); border-color: var(--ink); background: #fff; }
+html[data-calm] [aria-pressed="true"] { border-color: var(--ink) !important; box-shadow: inset 0 0 0 2px var(--ink); }
+html[data-calm] .top nav a[aria-current="page"] { box-shadow: inset 0 -4px 0 var(--ink); }
+html[data-calm] .hero .assembly li:first-child a { background: #fff; box-shadow: inset 0 0 0 2px var(--ink); }
+html[data-calm] .hero .assembly li:first-child a span { color: var(--ink); }
+html[data-calm] .assembly a::before, html[data-calm] .hero .assembly li:first-child a::before { background: var(--ink); color: #fff; }
+html[data-calm] .sprue-more { color: var(--ink) !important; border-color: var(--ink); }
+html[data-calm] .top :focus-visible, html[data-calm] .hero :focus-visible, html[data-calm] .hero .piece:focus-within { outline-color: var(--ink); box-shadow: 0 0 0 2px #fff; }
+html[data-calm] .brand svg { box-shadow: inset 0 0 0 1px var(--ink); }
+html[data-calm] .foot a { color: #fff; }
+html[data-calm] .sprue { border-color: var(--ink); box-shadow: none; }
+html[data-calm] .runner::before, html[data-calm] .piece::before { background: var(--ink); }
+html[data-calm] .top nav a:focus-visible, html[data-calm] .top .brand:focus-visible { outline-color: var(--ink); }
+html[data-calm] .assembly { border-top-color: var(--ink); }
+html[data-calm] .hero .assembly li:first-child a:focus-visible { outline-color: var(--ink); }
 /* two-tone focus on the coloured surfaces: an ink band inside a yellow ring stays visible next to yellow, blue or ink */
 .top :focus-visible, .hero :focus-visible, .foot :focus-visible, .skip:focus-visible, .code .copy:focus-visible { outline: 3px solid var(--volt); outline-offset: 2px; box-shadow: 0 0 0 2px var(--ink); }
 .hero .piece:focus-within { outline: 3px solid var(--volt); outline-offset: 2px; box-shadow: 0 0 0 2px var(--ink); }
-.hero .assembly li:first-child a:focus-visible { outline-color: #fff; }
 /* everywhere else: an ink ring with a white band inside it, so it reads next to blue chips as well as on paper */
 :focus-visible { box-shadow: 0 0 0 2px #fff; }
+
+/* spines per colourway: Signal keeps the seven-hue kit; the others rank one bright group against tints of their ground */
+html[data-kit="riso"] { --g-a: #ff9fcb; --g-b: #ffe066; --g-c: #ffc2dd; --g-d: #ffe9a6; --g-e: #ff7fb5; --g-f: #ffd1e6; --g-g: #ffffff; }
+html[data-kit="cobalt"] { --g-a: #aebdff; --g-b: #c9d3ff; --g-c: #e4ff3a; --g-d: #93a6ff; --g-e: #bac7ff; --g-f: #dde4ff; --g-g: #ffffff; }
+html[data-kit="mint"] { --g-a: #8ff2c9; --g-b: #bdfde2; --g-c: #e4ff3a; --g-d: #6fe2b4; --g-e: #a9f6d4; --g-f: #d8fff0; --g-g: #ffffff; }
+.calm { font: 600 14px/1 var(--body); color: #fff; background: transparent; border: 2px dashed rgba(255,255,255,.7); border-radius: 6px; padding: 8px 12px; min-height: 36px; cursor: pointer; align-self: end; }
+.calm[aria-pressed="true"] { border-style: solid; }
+@media (max-width: 640px) { .calm { padding: 6px 9px; min-height: 32px; font-size: 13px; } }

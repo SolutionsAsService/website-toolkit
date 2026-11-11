@@ -3,9 +3,9 @@
 :root {
   --sr-ink: #15132b;          /* body text */
   --sr-muted: #4f4b6a;        /* secondary text, >= 4.5:1 on paper and surface */
-  --sr-paper: #f4f0ff;        /* page background: lilac, not cream */
-  --sr-surface: #e4daff;      /* cards, panels */
-  --sr-line: #c9bcf0;         /* hairlines, borders */
+  --sr-paper: #ebe3ff;        /* page background: lilac */
+  --sr-surface: #dacbff;      /* cards, panels */
+  --sr-line: #bfaef0;         /* hairlines, borders */
   --sr-accent: #5a2ee5;       /* links, primary buttons, focus */
   --sr-accent-ink: #ffffff;   /* text on the accent */
   --sr-radius: 12px;

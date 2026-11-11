@@ -1,5 +1,5 @@
 {
-  "ran": "2026-11-11T16:53:57.071Z",
+  "ran": "2026-11-11T17:06:54.156Z",
   "widths": [
     375,
     768,
@@ -15,8 +15,9 @@
     "no sideways scroll",
     "every form field has a label",
     "every stat has a source line",
+    "list markers at text contrast",
     "no target smaller than 24 px with another target within 24 px (links inside running text exempt)",
-    "after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against what lies just outside each of its sides, or a two-tone ring whose tones differ by 3:1",
+    "after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against what lies just outside each of its sides, or a two-tone ring (an unshifted, unblurred band) whose tones differ by 9:1",
     "text contrast of 4.5:1, or 3:1 for large text, against the nearest opaque background"
   ],
   "parts": {
@@ -105,7 +106,10 @@
         "statSource": true,
         "focusNone": true,
         "focusRing": true,
-        "marker": true
+        "marker": true,
+        "dropShadowNotTwoTone": true,
+        "lowRatioTones": true,
+        "focusableIframe": true
       }
     },
     {
@@ -132,6 +136,11 @@
       "probe": "site pages: no sideways scroll, no script error, text and list-marker contrast at 375px",
       "pass": true,
       "detail": "25 pages"
+    },
+    {
+      "probe": "calm view (prefers-contrast: more, and the Calm switch): text, marker and landing focus contrast hold on every site page",
+      "pass": true,
+      "detail": "25 pages x 2 modes"
     },
     {
       "probe": "first screen at 1280x800: sprue, theme and view switches, and the five doors complete above the fold; every group shown",

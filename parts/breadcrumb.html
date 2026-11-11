@@ -2,9 +2,9 @@
 {"id":"breadcrumb","title":"Breadcrumb","category":"navigation","summary":"Shows where a page sits in the site. The last item is the current page and is not a link.","slots":{"crumb":"Each ancestor page (text and href)","current":"The current page title"},"needs":[],"a11y":["nav with aria-label=\"Breadcrumb\"","Current item has aria-current=\"page\"","Separators are CSS, not read aloud"]}
 -->
 <style>
-.sr-crumb{font-family:var(--sr-font-body,system-ui,sans-serif);color:var(--sr-muted,#4f4b6a);background:var(--sr-paper,#f4f0ff)}
+.sr-crumb{font-family:var(--sr-font-body,system-ui,sans-serif);color:var(--sr-muted,#4f4b6a);background:var(--sr-paper,#ebe3ff)}
 .sr-crumb ol{list-style:none;margin:0 auto;max-width:var(--sr-max,1120px);padding:12px var(--sr-space,16px);display:flex;flex-wrap:wrap;gap:4px}
-.sr-crumb li+li::before{content:"/";margin:0 8px 0 4px;color:var(--sr-line,#c9bcf0)}
+.sr-crumb li+li::before{content:"/";margin:0 8px 0 4px;color:var(--sr-line,#bfaef0)}
 .sr-crumb a{color:var(--sr-ink,#15132b);display:inline-block;padding:4px 0}
 .sr-crumb a:focus-visible{outline:3px solid var(--sr-accent,#5a2ee5);outline-offset:2px;border-radius:3px}
 .sr-crumb [aria-current]{color:var(--sr-ink,#15132b);font-weight:600;padding:4px 0}

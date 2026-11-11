@@ -2,9 +2,9 @@
 {"id":"map-embed","title":"Map and address","category":"places","summary":"An OpenStreetMap embed (no API key) beside the address written as text, with a link to open the map. The text works even when the map does not load.","slots":{"bbox":"In the iframe src: the box around your place as west,south,east,north longitudes and latitudes","marker":"In the iframe src: marker=lat,lon","address":"The address as text","map-link":"A link to the same place on openstreetmap.org"},"needs":["Network access to openstreetmap.org for the map tiles; the address text works without it"],"a11y":["The iframe has a title and is out of the tab order (a focused frame cannot show a focus ring); the visible Open in OpenStreetMap link is its keyboard equivalent and does more than the embed","The address is real text in an address element, so it can be read, copied and used without the map"]}
 -->
 <style>
-.sr-map{background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+.sr-map{background:var(--sr-paper,#ebe3ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 .sr-map__in{max-width:var(--sr-max,1120px);margin:0 auto;padding:calc(var(--sr-space,16px)*3) var(--sr-space,16px);display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px;align-items:start}
-.sr-map iframe{display:block;width:100%;aspect-ratio:16/10;border:1px solid var(--sr-line,#c9bcf0);border-radius:var(--sr-radius,12px);background:var(--sr-surface,#e4daff)}
+.sr-map iframe{display:block;width:100%;aspect-ratio:16/10;border:1px solid var(--sr-line,#bfaef0);border-radius:var(--sr-radius,12px);background:var(--sr-surface,#dacbff)}
 .sr-map h2{font:700 1.5rem/1.2 var(--sr-font-display,Georgia,serif);margin:0 0 10px}
 .sr-map address{font-style:normal;margin:0 0 14px}
 .sr-map a{color:var(--sr-accent,#5a2ee5);display:inline-block;padding:6px 0}

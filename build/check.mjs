@@ -31,7 +31,7 @@ const B = `http://127.0.0.1:${server.address().port}/`;
 const { themes, parts, templates } = loadAll();
 const WIDTHS = [375, 768, 1280];
 const THEMES = Object.keys(themes);
-const PROBES = ['no sideways scroll', 'every form field has a label', 'every stat has a source line', 'no target smaller than 24 px with another target within 24 px (links inside running text exempt)', 'after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against what lies just outside each of its sides, or a two-tone ring whose tones differ by 3:1', 'text contrast of 4.5:1, or 3:1 for large text, against the nearest opaque background'];
+const PROBES = ['no sideways scroll', 'every form field has a label', 'every stat has a source line', 'list markers at text contrast', 'no target smaller than 24 px with another target within 24 px (links inside running text exempt)', 'after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against what lies just outside each of its sides, or a two-tone ring (an unshifted, unblurred band) whose tones differ by 9:1', 'text contrast of 4.5:1, or 3:1 for large text, against the nearest opaque background'];
 const results = [];
 const rec = (probe, pass, detail) => { results.push({ probe, pass, detail }); console.log(`${pass ? 'PASS' : 'FAIL'}  ${probe}  ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`); };
 
@@ -93,7 +93,9 @@ function pageProbes() {
     const bg = bgOf(li); const fg = mix(mc, bg);
     const [L1, L2] = [lum(fg), lum(bg)].sort((x, y) => y - x);
     const r = (L1 + .05) / (L2 + .05);
-    if (r < 3) out.push(`contrast ${r.toFixed(2)} < 3 (list marker) "${li.textContent.trim().slice(0, 20)}"`);
+    const lf = parseFloat(getComputedStyle(li, '::marker').fontSize), lb = +getComputedStyle(li, '::marker').fontWeight >= 700;
+    const ln = lf >= 24 || (lb && lf >= 18.66) ? 3 : 4.5;
+    if (r < ln) out.push(`contrast ${r.toFixed(2)} < ${ln} (list marker) "${li.textContent.trim().slice(0, 20)}"`);
   }
   return out;
 }
@@ -109,37 +111,41 @@ const RING = `(() => {
     const r = e.getBoundingClientRect(), d = parseFloat(cs.outlineOffset || 0) + parseFloat(cs.outlineWidth || 0) + 2;
     const pts = [[r.left - d, r.top + r.height / 2], [r.right + d, r.top + r.height / 2], [r.left + r.width / 2, r.top - d], [r.left + r.width / 2, r.bottom + d]];
     // a two-tone ring (outline plus a box-shadow band of a colour 3:1 away from it) is visible on any background
-    const sc = parse((cs.boxShadow || '').match(/rgba?\\([^)]+\\)/)?.[0] || '');
-    if (sc && sc.a >= 1) { const [a, b] = [lum(oc), lum(sc)].sort((x, y) => y - x); if ((a + .05) / (b + .05) >= 3) return 99; }
+    // a two-tone ring: a box-shadow band with no offset, no blur and not inset, whose colour is 9:1 from the outline (WCAG technique C40)
+    const sh = (cs.boxShadow || '').match(/(rgba?\\([^)]+\\))\\s+(-?[\\d.]+)px\\s+(-?[\\d.]+)px\\s+([\\d.]+)px\\s+([\\d.]+)px(\\s+inset)?/);
+    if (sh && +sh[2] === 0 && +sh[3] === 0 && +sh[4] === 0 && +sh[5] >= 1 && !sh[6]) {
+      const sc = parse(sh[1]);
+      if (sc && sc.a >= 1) { const [a, b] = [lum(oc), lum(sc)].sort((x, y) => y - x); if ((a + .05) / (b + .05) >= 9) return 99; }
+    }
     let worst = Infinity;
     for (const [x, y] of pts) {
       if (x < 0 || y < 0 || x > innerWidth || y > innerHeight) continue; // off-screen: nothing painted there
-      const under = (document.elementsFromPoint(x, y) || []).find(u => u !== e && !e.contains(u) && !u.contains(e)) || e.parentElement || e;
+      const under = (document.elementsFromPoint(x, y) || []).find(u => u !== e && !e.contains(u)) || e.parentElement || e; // ancestors count: they are what lies behind
       const bg = bgOf(under); const [a, b] = [lum(mix(oc, bg)), lum(bg)].sort((x, y) => y - x);
       worst = Math.min(worst, (a + .05) / (b + .05));
     }
-    return worst;
+    return worst === Infinity ? 0 : worst; // no side could be sampled: fail rather than pass
   };
 })()`;
 async function focusProbe(p, cap = 30) {
   const out = [];
-  const n = await p.evaluate(() => document.querySelectorAll('a[href], button, input, textarea, select, summary').length);
+  const n = await p.evaluate(() => document.querySelectorAll('a[href], button, input, textarea, select, summary, iframe').length);
   await p.evaluate(RING);
   await p.evaluate(() => { document.activeElement && document.activeElement.blur(); window.scrollTo(0, 0); });
   for (let i = 0; i < Math.min(n, cap); i++) {
     await p.keyboard.press('Tab');
     const r = await p.evaluate(() => {
       const e = document.activeElement; if (!e || e === document.body) return null;
-      // Chromium draws no ring on a focused iframe and neither :focus nor :focus-within matches (measured), so a part
-      // must keep iframes out of the tab order; one that does not is reported here as having no visible focus.
+      // Chromium draws no ring on a focused iframe (measured). Part preview frames are skipped below because their contents
+      // are probed as parts; any other focusable iframe is reported as having no visible focus.
       // the ring may be drawn by a close ancestor through :focus-within (a tile whose link is stretched over it)
       let ringEl = e;
       for (let up = e, i = 0; up && i < 3; up = up.parentElement, i++) if (getComputedStyle(up).outlineStyle !== 'none' && up.matches(':focus-within')) { ringEl = up; break; }
       const cs = getComputedStyle(ringEl);
-      return { tag: e.tagName.toLowerCase(), text: (e.textContent || e.name || '').trim().slice(0, 16), style: cs.outlineStyle, width: parseFloat(cs.outlineWidth), fv: e.matches(':focus-visible'), ring: window.__ring(ringEl) };
+      return { preview: e.matches('iframe[data-preview], .piece-win iframe, .twin iframe'), tag: e.tagName.toLowerCase(), text: (e.textContent || e.name || '').trim().slice(0, 16), style: cs.outlineStyle, width: parseFloat(cs.outlineWidth), fv: e.matches(':focus-visible'), ring: window.__ring(ringEl) };
     });
     if (!r) break;
-    if (r.tag === 'iframe') continue; // focus has moved into a preview frame; its contents are probed as parts
+    if (r.tag === 'iframe' && r.preview) continue; // focus has moved into a part preview frame; its contents are probed as parts
     if (!r.fv || r.style === 'none' || r.width < 2) out.push(`no visible focus on ${r.tag} "${r.text}" (${r.style} ${r.width}px)`);
     else if (r.ring < 3) out.push(`focus ring ${r.ring.toFixed(2)}:1 < 3 on ${r.tag} "${r.text}"`);
   }
@@ -165,9 +171,10 @@ const applyTheme = (p, t) => p.evaluate(th => { for (const [k, v] of Object.entr
   const focus = await focusProbe(p);
   const kinds = ['overflow', 'unlabelled', 'small target', 'contrast', 'stat without'].map(k => fails.some(f => f.startsWith(k)));
   const markerBranch = fails.some(f => f.includes('(list marker)'));
+  const dropFails = focus.some(f => f.includes('"Drop"')), tonesFail = focus.some(f => f.includes('"Tones"')), iframeFails = focus.some(f => f.includes('on iframe'));
   const ringBranch = focus.some(f => f.startsWith('focus ring')), noneBranch = focus.some(f => f.startsWith('no visible focus'));
-  const ok = kinds.every(Boolean) && ringBranch && noneBranch && markerBranch;
-  rec('instrument: the failing fixture fails every probe', ok, { overflow: kinds[0], label: kinds[1], target: kinds[2], contrast: kinds[3], statSource: kinds[4], focusNone: noneBranch, focusRing: ringBranch, marker: markerBranch });
+  const ok = kinds.every(Boolean) && ringBranch && noneBranch && markerBranch && dropFails && tonesFail && iframeFails;
+  rec('instrument: the failing fixture fails every probe', ok, { overflow: kinds[0], label: kinds[1], target: kinds[2], contrast: kinds[3], statSource: kinds[4], focusNone: noneBranch, focusRing: ringBranch, marker: markerBranch, dropShadowNotTwoTone: dropFails, lowRatioTones: tonesFail, focusableIframe: iframeFails });
   await ctx.close();
   if (!ok) { console.log('A probe passed its failing fixture; aborting.'); process.exit(2); }
 }
@@ -235,6 +242,17 @@ for (const w of [1280, 375]) {
   }
   rec(`site pages: no sideways scroll, no script error, text and list-marker contrast${w === 1280 ? ', focus ring 3:1 on every focusable element' : ''} at ${w}px`, bad.length === 0, bad.length ? bad : `${ownPages.length} pages`);
 }
+{
+  const bad = [];
+  for (const mode of ['prefers-contrast', 'switch']) for (const pg of ownPages) {
+    const { p, ctx } = await open(B + pg, 1280, 812, mode === 'prefers-contrast' ? { contrast: 'more' } : {});
+    if (mode === 'switch') { await p.evaluate(() => { document.documentElement.dataset.calm = ''; }); }
+    (await p.evaluate(pageProbes)).filter(f => f.startsWith('contrast')).forEach(f => bad.push(`${mode} ${pg}: ${f}`));
+    if (pg === 'index.html') (await focusProbe(p, 60)).forEach(f => bad.push(`${mode} ${pg}: ${f}`));
+    await ctx.close();
+  }
+  rec('calm view (prefers-contrast: more, and the Calm switch): text, marker and landing focus contrast hold on every site page', bad.length === 0, bad.length ? bad.slice(0, 8) : `${ownPages.length} pages x 2 modes`);
+}
 for (const [w, h] of [[1280, 800], [375, 812]]) {
   const { p, ctx } = await open(B + 'index.html', w, h);
   await p.waitForTimeout(400);
@@ -284,7 +302,7 @@ for (const [w, h] of [[1280, 800], [375, 812]]) {
   await p.uncheck('.sb-main [data-xray]');
   await p.click('[data-preset="riso"]');
   await p.waitForTimeout(200);
-  const c = await p.evaluate(() => ({ same: document.querySelector('[data-preview]').srcdoc === document.querySelector('#sb-code').value, riso: document.querySelector('#sb-code').value.includes('--sr-paper: #fff6d6;') }));
+  const c = await p.evaluate(() => ({ same: document.querySelector('[data-preview]').srcdoc === document.querySelector('#sb-code').value, riso: document.querySelector('#sb-code').value.includes('--sr-paper: #ffd6e8;') }));
   rec('sandbox: preview equals the copied page; X-ray changes the preview only; tokens rewrite the page', a.same && a.n === 8 && b.previewChanged && !b.codeHasXray && c.same && c.riso, { a, b, c });
   await ctx.close();
 }

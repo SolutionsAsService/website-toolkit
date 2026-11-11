@@ -107,6 +107,7 @@ function checkLine(p) {
     <div class="sprue-bar">
       <div class="themes" role="group" aria-label="Theme every part">${themeBtns}</div>
       <div class="bare" role="group" aria-label="View every part" aria-describedby="bare-gloss"><button type="button" data-view="built" aria-pressed="true">Built</button><button type="button" data-view="bare" aria-pressed="false">Bare</button></div>
+      <button type="button" class="calm" aria-pressed="false" title="A pale ground with ink type and no saturated colour, on every page">Calm</button>
       <p class="gloss" id="bare-gloss"><b>Bare</b>: no styles<span class="gloss-long">; every element and every slot (<code>data-slot</code>, a place you fill in) labelled</span><span class="gloss-short">, parts labelled</span>.</p>
     </div>
     ${runners}

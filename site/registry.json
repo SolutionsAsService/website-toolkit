@@ -10,7 +10,7 @@
     "themes": "/raw/themes.json"
   },
   "checks": {
-    "ran": "2026-11-11T16:53:57.071Z",
+    "ran": "2026-11-11T17:06:54.156Z",
     "widths": [
       375,
       768,
@@ -26,8 +26,9 @@
       "no sideways scroll",
       "every form field has a label",
       "every stat has a source line",
+      "list markers at text contrast",
       "no target smaller than 24 px with another target within 24 px (links inside running text exempt)",
-      "after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against what lies just outside each of its sides, or a two-tone ring whose tones differ by 3:1",
+      "after a real Tab press, every focused element shows an outline of 2 px or more at 3:1 contrast against what lies just outside each of its sides, or a two-tone ring (an unshifted, unblurred band) whose tones differ by 9:1",
       "text contrast of 4.5:1, or 3:1 for large text, against the nearest opaque background"
     ]
   },
@@ -55,7 +56,7 @@
       "preview": "/preview/nav-bar.html",
       "page": "/parts/nav-bar.html",
       "bytes": 3174,
-      "sha256": "ac1455c7e39fcff29aae9b1611a4a0ddeb3c50cbfbf5c6139db2ed245e2bafeb",
+      "sha256": "090814716a9a9ace9e7652443fc913e4303cc385f7a2eaddf72ee181c46b84b9",
       "check": {
         "pass": true,
         "failures": []
@@ -82,7 +83,7 @@
       "preview": "/preview/breadcrumb.html",
       "page": "/parts/breadcrumb.html",
       "bytes": 1316,
-      "sha256": "87e4c8d11f5744333214dd20fe6cc23a7a1a48369a4439cd75ca2937dfa9defd",
+      "sha256": "6f4159287d0a7e4878eb7d3c59b4bbc937d6eb9fab7a551098fc57b8e837270b",
       "check": {
         "pass": true,
         "failures": []
@@ -115,7 +116,7 @@
       "preview": "/preview/hero-split.html",
       "page": "/parts/hero-split.html",
       "bytes": 3295,
-      "sha256": "e32dcc1350a70df5949e81d933336e9e4d575174202fbcb21f32eea7f5141e5b",
+      "sha256": "8cbb4f3f614699affa2f686e24173b5ee6442c5350508f80bb2461596b79bb57",
       "check": {
         "pass": true,
         "failures": []
@@ -143,7 +144,7 @@
       "preview": "/preview/hero-statement.html",
       "page": "/parts/hero-statement.html",
       "bytes": 1859,
-      "sha256": "79726beccddb4d6890b5af680a96cfd2b2dd07a8214c8846af15e79a8db43e82",
+      "sha256": "ca95ae15298359d451a08c2bde04252676988cfe582c4444740adba6264e8189",
       "check": {
         "pass": true,
         "failures": []
@@ -170,7 +171,7 @@
       "preview": "/preview/feature-grid.html",
       "page": "/parts/feature-grid.html",
       "bytes": 1900,
-      "sha256": "44852bb37e5c522e35912e4ce91e94c51648132fb8391ae4eaff8599ae7eaecc",
+      "sha256": "3ec18f43824ebb366ffb55aef0ac42a7814e52b36519355fb827b4488e12e246",
       "check": {
         "pass": true,
         "failures": []
@@ -196,7 +197,7 @@
       "preview": "/preview/steps.html",
       "page": "/parts/steps.html",
       "bytes": 1828,
-      "sha256": "d7e33f94c750c22eef9085942adcc2810bcd22db3a4ed3ac532c44927fec3b90",
+      "sha256": "a831f125344ff2bf7954e6cb7fbff3dba2db3c5c24673cb3d4d83ff18847a8bb",
       "check": {
         "pass": true,
         "failures": []
@@ -223,7 +224,7 @@
       "preview": "/preview/stats.html",
       "page": "/parts/stats.html",
       "bytes": 1618,
-      "sha256": "1fb110169869f31798af6e4b8ecdb595645360b70ede91ef421a66e335fda803",
+      "sha256": "33b1caf5ae4043b4c3407eb5e8c37313072c2ea333295644a4a57d0563824de7",
       "check": {
         "pass": true,
         "failures": []
@@ -252,7 +253,7 @@
       "preview": "/preview/testimonial.html",
       "page": "/parts/testimonial.html",
       "bytes": 1479,
-      "sha256": "1e68bf9b9dc328ff13b198dea70eab9f18041cb8c4801cb49da9aeac6527872d",
+      "sha256": "84eeccc340d3c7a5144d756147919134d5d6560cbedc6d5d7a2512ebc4d0a9de",
       "check": {
         "pass": true,
         "failures": []
@@ -279,7 +280,7 @@
       "preview": "/preview/pricing.html",
       "page": "/parts/pricing.html",
       "bytes": 3432,
-      "sha256": "2a6488a9e8de3d4b7914c091578a0bf2714dedad9f581f6b0e93c34956763b5f",
+      "sha256": "a3332fbc75e7f87c4d17db8503b26923d7dbd6b0479bbe0be87c289f9190165d",
       "check": {
         "pass": true,
         "failures": []
@@ -305,7 +306,7 @@
       "preview": "/preview/faq.html",
       "page": "/parts/faq.html",
       "bytes": 2254,
-      "sha256": "c8a38ecaca490ad631283b3e583844ee2c98601e03caa3885f38877b9d24949b",
+      "sha256": "8bccce6b8121a6b947a61049d9f866020b20dde7eb2f684edcaeb5393dd191c8",
       "check": {
         "pass": true,
         "failures": []
@@ -332,7 +333,7 @@
       "preview": "/preview/gallery.html",
       "page": "/parts/gallery.html",
       "bytes": 2317,
-      "sha256": "6ba46ae209a7e216ce01d43b1afa80a8fdc0c339391568b8cd917705a8b6a06e",
+      "sha256": "5f654f01070c31e6e5369f757c32946bb0f0af9c449349153f110669c3f6608a",
       "check": {
         "pass": true,
         "failures": []
@@ -388,7 +389,7 @@
       "preview": "/preview/contact-form.html",
       "page": "/parts/contact-form.html",
       "bytes": 3250,
-      "sha256": "c0dbbbe3bd54446013d6e458474d082bc0c45651a56ab2c8302fbb078c9b7206",
+      "sha256": "ee8ba28753f7e180bb3adef43a32e7cc13284f70f5a3ef447438b7b4901b185d",
       "check": {
         "pass": true,
         "failures": []
@@ -417,7 +418,7 @@
       "preview": "/preview/newsletter.html",
       "page": "/parts/newsletter.html",
       "bytes": 2249,
-      "sha256": "e701a7814ad1340e510770bfc9f1520ac269df2f170582ff09857b10debed8e0",
+      "sha256": "d1193f30441d9d25a150be5f9823bde22e9ebc829756d746e67e5a7b1e396934",
       "check": {
         "pass": true,
         "failures": []
@@ -447,7 +448,7 @@
       "preview": "/preview/map-embed.html",
       "page": "/parts/map-embed.html",
       "bytes": 2543,
-      "sha256": "d09d41ac6a87a46bbeda293c27f21506e327da87b8e395ced39da49a31d022d3",
+      "sha256": "5ef046bd355da3e35cb6239aee73ffc3ddab14c3e1c270aa386811aa7b1e8d4f",
       "check": {
         "pass": true,
         "failures": []
@@ -472,7 +473,7 @@
       "preview": "/preview/divider-or.html",
       "page": "/parts/divider-or.html",
       "bytes": 869,
-      "sha256": "c9ec6466fc868c6bb65fc85b8f7771866b3b33d4640de0395c0a62239c62049c",
+      "sha256": "f0f06e097b3fa54fb46104935ba1b27bc506531787bf220beef51c39fd4144e1",
       "check": {
         "pass": true,
         "failures": []
@@ -523,7 +524,7 @@
       "preview": "/preview/footer-social.html",
       "page": "/parts/footer-social.html",
       "bytes": 3374,
-      "sha256": "629e92e33779dd43ed6dfe58ba3c559354cf74dd670a0a236dd3bc6621072fa8",
+      "sha256": "83f4d14b88f780c7cd4b1bc56135ab4833df07925e43810c572c12aa50d881b4",
       "check": {
         "pass": true,
         "failures": []

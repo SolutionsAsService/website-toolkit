@@ -257,3 +257,52 @@ Consequence: Each colourway needs its own on-ground text colour, probed (13/13).
 Fence: Equal hues exist for wayfinding. They stay, but yellow is withdrawn from them.
 Frontier effect: R2.
 Mode field: The advanced pole is that the kit changes colour as a whole. The acceptable pole is that every colourway passes the contrast probe, and a calm view exists.
+
+---
+
+## Panel, WHOLE, round R2 (commit 3db7305; panel/R2/*.png; evidence panel/R2/evidence.md)
+
+6 of 8 seats filed. Bringhurst and Eco were again NOT CONVENED (launch refused by the permission check in R1; not retried).
+
+| Critic | Anchor used | Observed in the work | Verdict | Requested change |
+|---|---|---|---|---|
+| Critic: Usability (Krug) | Don't Make Me Think | "Start here" now leads; "All 18 parts" demoted; numerals fixed. Filled yellow still also means a pressed toggle | PASS | Pressed toggles not yellow |
+| Critic: Provocateur (Debord) | Society of the Spectacle | R1 fixes hold. The two-tone wording is looser than the code; markers missing from PROBES; a duplicated rule; a ring with no sample passes | PASS | Tighten; list markers; dedupe; fail on no sample |
+| Critic: Provocateur (Shklovsky) | Art as Technique | The theme recolours the whole object. The spines are constant across colourways; Signal and Riso parts still read as paper | OBJECT | Spines follow the colourway; non-paper grounds |
+| Critic: Inclusion (Holmes) | Mismatch | Group colours fixed. **The calm mode turns `--ground` into paper: buttons, kickers and numerals vanish on inner pages**; calm is only an OS setting | OBJECT | A token that never goes pale; an in-page Calm switch; probe calm |
+| Critic: Inclusion (Mace) | Principles of Universal Design | Footer, Copy and frame rings pass all sides in every colourway; forced colours pressed state fixed. In calm: the gloss code and pressed buttons drop to 1.08:1; calm never probed | OBJECT | Ink in calm; probe with contrast 'more' |
+| Critic: Evidence (Cairo) | How Charts Lie | Comments now true. **The two-tone rule passes drop shadows and 3:1 tones** (C40 asks 9:1); no fixture for the exemptions; the iframe skip contradicts its comment; ancestors excluded behind the ring; markers held to 3:1 | OBJECT (the instrument) | Strict two-tone; fixtures; fix the comment; fail on no sample; 4.5 for small markers |
+
+**Andon:** none.
+
+### Resolutions R2
+
+| Finding | Resolution |
+|---|---|
+| Holmes + Mace: calm mode hides controls; never probed | ADAPT (M8): `--brand` (ultramarine) for buttons, kickers, chips and numerals never turns pale; calm restyles only the landing's large surfaces to ink on pale; a probe runs every site page under `prefers-contrast: more` and under the Calm switch |
+| Holmes: calm only from the OS | ADAPT (M8): a Calm button on the frame bar, remembered per browser (localStorage, guarded), applied on every page |
+| Krug: yellow means "pressed" too | ADAPT (M8): pressed toggles are white with a ✓; filled yellow is the first door only |
+| Shklovsky: constant spines | ADAPT (M8, BREAK): each colourway has its own spine set (Riso pinks and yellows; Cobalt blue tints with one yellow group; Mint greens with one yellow group); Signal keeps the seven-hue kit |
+| Shklovsky: Signal and Riso read as paper | ADAPT (M8): Signal paper #ebe3ff and surface #dacbff; Riso paper #ffd6e8 (pink) and accent darkened to #ad004a, so links hold 4.5:1 (measured: the first try, #d6005f, failed at 3.98) |
+| Cairo + Debord: two-tone too generous | ADAPT (M8): a band counts only with zero offset, zero blur, not inset, spread ≥ 1 px, and 9:1 from the outline (C40); fixtures for a drop shadow and for 3.35:1 tones fail |
+| Cairo: the iframe skip contradicts its comment | ADAPT (M8): only part-preview frames are skipped; any other focusable iframe fails (fixture); comment corrected; iframes counted in the Tab budget (the fixture first passed because the budget missed them) |
+| Cairo + Debord: ring with no sampled side passes | ADAPT (M8): it fails |
+| Cairo: ancestors excluded behind the ring | ADAPT (M8): ancestors count as what lies behind |
+| Cairo: markers at 3:1 | ADAPT (M8): 4.5:1 unless large |
+| Debord: PROBES lacks markers; duplicated rule | ADAPT (M8): PROBES lists markers; duplicate removed |
+
+## Move M8: Calm that works, spines that follow, a strict instrument  (BREAK for the spines; the rest KEEP-THE-RULE)
+Depends on: M6, M7
+Anchors: Stance Chromophobia (David Batchelor) | Counterpoint Interaction of Color (Josef Albers) | Rule WCAG 2.2 Contrast and Perceivability (W3C)
+Intent: The resolutions above.
+Formal argument:
+- Albers: the spines are judged against each colourway's ground, so they change with it.
+- Batchelor's courage is kept: calm is an opt-in, not the default.
+- WCAG C40 sets the two-tone rule.
+Alternatives rejected:
+- (a) Drop calm. Rejected: it is a mismatch for people with visual stress (Holmes).
+- (b) Rank the hues by size. Rejected: the groups are equal.
+Consequence: Two calm blocks (the media query and the switch) share one rule set. A test covers both.
+Fence: n/a.
+Frontier effect: R3.
+Mode field: The advanced pole is that the whole kit recolours, spines included. The acceptable pole is a calm switch that keeps every control visible, measured.

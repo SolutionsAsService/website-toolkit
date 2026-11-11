@@ -86,7 +86,7 @@ export function documentFor({ title, lang = 'en', tokens, bodies }) {
 ${tokens}
 /* /sr:tokens */
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--sr-paper,#f4f0ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
+body{margin:0;background:var(--sr-paper,#ebe3ff);color:var(--sr-ink,#15132b);font-family:var(--sr-font-body,system-ui,sans-serif);line-height:var(--sr-leading,1.55)}
 img{max-width:100%}
 </style>
 </head>
